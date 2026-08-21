@@ -486,7 +486,7 @@
             text-align: center;
         }
 
-        /* CTA BANNER NEAR FOOTER (UNTOUCHED) */
+        /* CTA BANNER NEAR FOOTER */
         .cta-banner {
             background-color: var(--dark);
             color: var(--light);
@@ -527,7 +527,7 @@
             justify-content: center;
         }
 
-        /* NEW SOCIAL MEDIA SECTION (AUTO & 1-POST SCROLL) */
+        /* SOCIAL MEDIA SECTION */
         .social-media-section {
             background-color: var(--social-bg);
             padding: 25px 0;
@@ -638,7 +638,6 @@
             color: #E1306C;
         }
 
-        /* Nav Arrows for Social Section */
         .social-nav-btn {
             position: absolute;
             top: 50%;
@@ -850,35 +849,6 @@
             color: var(--primary);
             font-size: 16px;
         }
-
-        .incharge-card {
-            background: #FFF;
-            border: 1px solid #EEE;
-            border-radius: 6px;
-            overflow: hidden;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .incharge-card img {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-        }
-
-        .incharge-info { padding: 8px; }
-        .incharge-info h4 { font-size: 12px; }
-
-        .incharge-info p {
-            font-size: 10px;
-            color: var(--primary);
-            font-weight: bold;
-            background: var(--dark);
-            display: inline-block;
-            padding: 2px 6px;
-            border-radius: 2px;
-            margin-top: 2px;
-        }
     </style>
 </head>
 <body>
@@ -997,7 +967,7 @@
             </div>
         </section>
 
-        <!-- CTA BANNER NEAR FOOTER (UNTOUCHED) -->
+        <!-- CTA BANNER NEAR FOOTER -->
         <div class="cta-banner">
             <div class="cta-icon"><i class="fas fa-users"></i></div>
             <h3>BE A PART OF THE <span>CHANGE</span></h3>
@@ -1008,7 +978,7 @@
             </div>
         </div>
 
-        <!-- NEW SOCIAL MEDIA SECTION -->
+        <!-- SOCIAL MEDIA SECTION -->
         <div class="social-media-section">
             <div class="social-header">
                 <div class="social-header-line"></div>
@@ -1020,7 +990,6 @@
                 <button class="social-nav-btn prev" id="social-prev"><i class="fas fa-chevron-left"></i></button>
                 
                 <div class="social-slider" id="social-slider">
-                    <!-- Dynamic Posts Appear Here -->
                     <a href="https://www.instagram.com/reel/DcIGDragVn0/?igsi=MWdoZTkwbnVqc3YzMA==" target="_blank" class="social-card">
                         <div class="social-card-img-wrap">
                             <img src="Screenshot_2026-08-21-20-43-28-32_1c337646f29875672b5a61192b9010f9.jpg" alt="Post" class="social-card-img">
@@ -1088,7 +1057,8 @@
             
             <div class="footer-title">Quick Links</div>
             <ul class="footer-links">
-                <li><a href="#" class="nav-to-about">> About Us</a></li>
+                <!-- Direct redirect link for About Us -->
+                <li><a href="about.html">> About Us</a></li>
                 <li><a href="#" class="nav-to-contact">> Contact Us</a></li>
                 <li><a href="#" class="open-join-modal">> Join TNSF</a></li>
             </ul>
@@ -1111,62 +1081,6 @@
             </div>
         </footer>
     </div>
-
-    <!-- ABOUT US PAGE -->
-    <div id="about-page" class="page-view">
-        <header>
-            <div class="brand">
-                <img src="https://picsum.photos/id/1062/100/100" alt="TNSF Logo" class="logo-img">
-                <div class="brand-text">
-                    <h1>TNSF KADAPA PARLIAMENT</h1>
-                    <p>About Us</p>
-                </div>
-            </div>
-            <button class="menu-btn open-menu-btn"><i class="fas fa-bars"></i></button>
-        </header>
-
-        <div class="page-header">
-            <h2>ABOUT TNSF KADAPA PARLIAMENT</h2>
-        </div>
-
-        <section class="welcome">
-            <h3>TNSF <span>KADAPA PARLIAMENT</span></h3>
-            <p style="margin-top:10px; font-size:12px; line-height:1.5;">Telugu Nadu Students Federation (TNSF) is dedicated to empowering student communities across Proddatur. Our organization strives to ensure quality education, fair student rights, and strong youth leadership development.</p>
-        </section>
-
-        <section>
-            <h3 class="section-title">PARLIAMENT WIDE<span>LIDERSHIP</span></h3>
-            
-            <div class="incharge-card">
-                <img src="https://picsum.photos/id/1012/300/150" alt="President">
-                <div class="incharge-info">
-                    <h4>Town President</h4>
-                    <p>TNSF Proddatur</p>
-                </div>
-            </div>
-
-            <div class="incharge-card">
-                <img src="https://picsum.photos/id/1027/300/150" alt="Incharge">
-                <div class="incharge-info">
-                    <h4>College Level Incharges</h4>
-                    <p>Proddatur Constituency</p>
-                </div>
-            </div>
-
-            <div class="incharge-card">
-                <img src="https://picsum.photos/id/1005/300/150" alt="Youth Wing">
-                <div class="incharge-info">
-                    <h4>Youth Wing Committee</h4>
-                    <p>District Representatives</p>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 15px;">
-                <button class="btn btn-dark nav-to-home"><i class="fas fa-arrow-left"></i> Back to Home</button>
-            </div>
-        </section>
-    </div>
-
     <!-- CONTACT US PAGE -->
     <div id="contact-page" class="page-view">
         <header>
@@ -1226,11 +1140,12 @@
         <button class="close-btn" id="close-menu"><i class="fas fa-times"></i></button>
         <div class="sidebar-brand">
             <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
-            <h2>TNSF PRODDATUR</h2>
+            <h2>TNSF KADAPA PARLIAMENT</h2>
             <p>The Voice of Students</p>
         </div>
         <ul class="nav-links">
-            <li><a href="#" class="nav-to-about"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <!-- Direct redirect link for About Us -->
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
             <li><a href="#" class="nav-to-contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
             <li><a href="#" class="btn-sidebar-join open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</a></li>
         </ul>
@@ -1301,7 +1216,6 @@
         const contactPageForm = document.getElementById('contact-page-form');
 
         const homePage = document.getElementById('home-page');
-        const aboutPage = document.getElementById('about-page');
         const contactPage = document.getElementById('contact-page');
 
         // Sidebar Navigation
@@ -1319,7 +1233,6 @@
         closeMenuBtn.addEventListener('click', closeSidebar);
         sidebarOverlay.addEventListener('click', closeSidebar);
         allOpenMenuBtns.forEach(btn => btn.addEventListener('click', openSidebar));
-
         // Join Modal
         joinBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -1336,14 +1249,12 @@
         // View Routing
         function showPage(page) {
             homePage.classList.remove('active');
-            aboutPage.classList.remove('active');
             contactPage.classList.remove('active');
             page.classList.add('active');
             closeSidebar();
             window.scrollTo(0, 0);
         }
 
-        document.querySelectorAll('.nav-to-about').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(aboutPage); }));
         document.querySelectorAll('.nav-to-contact').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(contactPage); }));
         document.querySelectorAll('.nav-to-home').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(homePage); }));
 
@@ -1372,11 +1283,11 @@
             slides[currentSlide].classList.add('active');
         }, 3000);
 
-        // SOCIAL MEDIA AUTOMATIC 1-BY-1 SCROLLING
+        // SOCIAL MEDIA SCROLLING
         const socialSlider = document.getElementById('social-slider');
         const socialPrevBtn = document.getElementById('social-prev');
         const socialNextBtn = document.getElementById('social-next');
-        const stepWidth = 157; // 145px card width + 12px gap
+        const stepWidth = 157;
 
         function scrollSocialNext() {
             if (socialSlider.scrollLeft + socialSlider.clientWidth >= socialSlider.scrollWidth - 10) {
@@ -1397,37 +1308,12 @@
         socialNextBtn.addEventListener('click', scrollSocialNext);
         socialPrevBtn.addEventListener('click', scrollSocialPrev);
 
-        // Auto Advance Social Posts One-By-One
         let socialAutoScroll = setInterval(scrollSocialNext, 3500);
 
         socialSlider.addEventListener('mouseenter', () => clearInterval(socialAutoScroll));
         socialSlider.addEventListener('mouseleave', () => {
             socialAutoScroll = setInterval(scrollSocialNext, 3500);
         });
-
-        // ADMIN DESK HELPER FUNCTION
-        // Call this function when adding new posts from an Admin Desk dashboard!
-        function addSocialMediaPost(imageUrl, postLink, platform = 'Instagram', isVideo = false) {
-            const newCard = document.createElement('a');
-            newCard.href = postLink;
-            newCard.target = "_blank";
-            newCard.className = "social-card";
-
-            let iconClass = 'fab fa-instagram';
-            if (platform.toLowerCase() === 'facebook') iconClass = 'fab fa-facebook-f';
-            if (platform.toLowerCase() === 'youtube') iconClass = 'fab fa-youtube';
-
-            newCard.innerHTML = `
-                <div class="social-card-img-wrap">
-                    <img src="${imageUrl}" alt="Post Image" class="social-card-img">
-                    ${isVideo ? '<div class="social-play-icon"><i class="fas fa-play"></i></div>' : ''}
-                </div>
-                <div class="social-card-footer">
-                    <i class="${iconClass}"></i> ${platform}
-                </div>
-            `;
-            socialSlider.appendChild(newCard);
-        }
     </script>
 </body>
 </html>
