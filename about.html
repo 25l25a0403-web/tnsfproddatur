@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - TNSF Kadapa Parliament</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #F3C31A;
+      --primary-light: #FFF9E6;
+      --text-dark: #1A1A1A;
+      --text-muted: #666666;
+      --card-bg: #FFFFFF;
+      --bg-gradient: linear-gradient(135deg, #FFFDEB 0%, #FFFFFF 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 40px;
+    }
+
+    /* Left Section */
+    .section-title {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .main-heading {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .accent-bar {
+      width: 40px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 35px;
+    }
+
+    .sub-heading {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* Cards */
+    .leader-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .leader-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 12px 20px 12px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .leader-card:hover, .leader-card.active {
+      border-color: var(--primary);
+      box-shadow: 0 6px 18px rgba(243, 195, 26, 0.2);
+    }
+
+    .card-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .avatar-wrapper {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      background: radial-gradient(circle, #F3C31A 0%, #D4A300 100%);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-text h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .card-text p {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .arrow-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 14px;
+    }
+
+    /* Right Section (Details View) */
+    .details-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary);
+      color: #000;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .profile-header {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-img-container {
+      width: 180px;
+      height: 180px;
+      border-radius: 16px;
+      background: radial-gradient(circle, #F3C31A 0%, #D4A300 100%);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .profile-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-title h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .profile-title .role {
+      color: var(--primary);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .fb { background-color: #3b5998; }
+    .tw { background-color: #1da1f2; }
+    .ig { background-color: #e1306c; }
+    .wa { background-color: #25d366; }
+
+    .overview-heading {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .overview-bio {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    /* Table Details */
+    .info-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 40px 140px 1fr;
+      align-items: center;
+      padding: 12px 0;
+      border-top: 1px solid #F0F0F0;
+      font-size: 14px;
+    }
+
+    .info-icon {
+      width: 28px;
+      height: 28px;
+      background-color: var(--primary-light);
+      color: #B88600;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .info-label {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .info-value {
+      color: var(--text-muted);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .main-heading {
+        font-size: 30px;
+      }
+      .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .profile-img-container {
+        width: 100%;
+        height: 240px;
+      }
+      .info-row {
+        grid-template-columns: 36px 110px 1fr;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Left Column: Context & Leader Select -->
+    <div class="left-content">
+      <div class="section-title">ABOUT US</div>
+      <h1 class="main-heading">Building a Stronger<br>Tomorrow Together</h1>
+      <div class="accent-bar"></div>
+      
+      <p class="description">
+        TNSF Kadapa Parliament is committed to the upliftment of students and the empowerment of youth. We work towards creating opportunities, raising voices, and building a progressive society through unity, leadership, and selfless service.
+      </p>
+
+      <h2 class="sub-heading">Our Leadership</h2>
+      <div class="accent-bar"></div>
+
+      <div class="leader-list">
+        <!-- Varun Tej -->
+        <div class="leader-card active" onclick="showOverview(0)">
+          <div class="card-info">
+            <div class="avatar-wrapper">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300" alt="Varun Tej">
+            </div>
+            <div class="card-text">
+              <h3>Varun Tej</h3>
+              <p>Parliament President</p>
+            </div>
+          </div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+
+        <!-- Mahesh Reddy -->
+        <div class="leader-card" onclick="showOverview(1)">
+          <div class="card-info">
+            <div class="avatar-wrapper">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300" alt="Mahesh Reddy">
+            </div>
+            <div class="card-text">
+              <h3>Mahesh Reddy</h3>
+              <p>General Secretary</p>
+            </div>
+          </div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+
+        <!-- Karthik Yadav -->
+        <div class="leader-card" onclick="showOverview(2)">
+          <div class="card-info">
+            <div class="avatar-wrapper">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=300" alt="Karthik Yadav">
+            </div>
+            <div class="card-text">
+              <h3>Karthik Yadav</h3>
+              <p>Treasurer</p>
+            </div>
+          </div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Dynamic Overview Section -->
+    <div class="right-content">
+      <div class="details-card">
+        <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+
+        <div class="profile-header">
+          <div class="profile-img-container">
+            <img id="detail-img" src="" alt="Profile Image">
+          </div>
+          <div class="profile-title">
+            <h2 id="detail-name"></h2>
+            <div id="detail-role" class="role"></div>
+            <div class="social-links">
+              <a href="#" class="social-btn fb"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-btn tw"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="social-btn ig"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-btn wa"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="overview-section">
+          <h3 class="overview-heading">Overview</h3>
+          <p id="detail-bio" class="overview-bio"></p>
+
+          <div class="info-list">
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-regular fa-calendar"></i></div>
+              <div class="info-label">Date of Birth</div>
+              <div id="detail-dob" class="info-value"></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-label">Hometown</div>
+              <div id="detail-hometown" class="info-value"></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <div class="info-label">Education</div>
+              <div id="detail-education" class="info-value"></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-award"></i></div>
+              <div class="info-label">Experience</div>
+              <div id="detail-experience" class="info-value"></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-quote-left"></i></div>
+              <div class="info-label">Vision</div>
+              <div id="detail-vision" class="info-value"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const leaders = [
+      {
+        name: "Varun Tej",
+        role: "Parliament President",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
+        bio: "Varun Tej has been a guiding force behind TNSF Kadapa Parliament. With a vision for student empowerment and social change, he leads with integrity, dedication, and a commitment to building a better future for all.",
+        dob: "15 August 1990",
+        hometown: "Kadapa, Andhra Pradesh",
+        education: "MBA, Sri Venkateswara University",
+        experience: "10+ Years in Youth & Social Services",
+        vision: "To empower every student, strengthen youth leadership, and create a positive impact on society."
+      },
+      {
+        name: "Mahesh Reddy",
+        role: "General Secretary",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300",
+        bio: "Mahesh Reddy manages daily organizational strategies and student campaigns. He is dedicated to structuring impactful activities across educational institutions in Kadapa.",
+        dob: "10 May 1992",
+        hometown: "Proddatur, Andhra Pradesh",
+        education: "B.Tech in Computer Science",
+        experience: "7+ Years in Organizational Leadership",
+        vision: "To organize and unitize student movements effectively across all districts."
+      },
+      {
+        name: "Karthik Yadav",
+        role: "Treasurer",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=300",
+        bio: "Karthik Yadav drives financial strategy and transparent allocation of organizational resources to maximize impact for welfare programs.",
+        dob: "22 November 1994",
+        hometown: "Rajampet, Andhra Pradesh",
+        education: "M.Com in Finance",
+        experience: "5+ Years in Finance & Social Campaigns",
+        vision: "To maintain financial transparency and ensure maximum aid reach for needy students."
+      }
+    ];
+
+    function showOverview(index) {
+      const data = leaders[index];
+      
+      // Update DOM
+      document.getElementById('detail-name').innerText = data.name;
+      document.getElementById('detail-role').innerText = data.role;
+      document.getElementById('detail-img').src = data.image;
+      document.getElementById('detail-bio').innerText = data.bio;
+      document.getElementById('detail-dob').innerText = data.dob;
+      document.getElementById('detail-hometown').innerText = data.hometown;
+      document.getElementById('detail-education').innerText = data.education;
+      document.getElementById('detail-experience').innerText = data.experience;
+      document.getElementById('detail-vision').innerText = data.vision;
+
+      // Update Active Card Styling
+      const cards = document.querySelectorAll('.leader-card');
+      cards.forEach((card, idx) => {
+        if(idx === index) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+    }
+
+    // Initialize with first leader on load
+    showOverview(0);
+  </script>
+</body>
+</html>
+                                              
