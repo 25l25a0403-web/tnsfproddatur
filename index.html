@@ -14,6 +14,7 @@
             --text-dark: #1A1A1A;
             --text-muted: #444444;
             --red-brand: #8B0000;
+            --social-bg: #FFFDF0;
         }
 
         * {
@@ -351,7 +352,6 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            /* Gradient Mask to smoothly blend image bottom/left into background */
             -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
                                 linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
             mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
@@ -366,7 +366,7 @@
             object-fit: cover;
             object-position: top center;
             filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.2));
-            mix-blend-mode: multiply; /* Suitable Overlay Blend */
+            mix-blend-mode: multiply;
         }
 
         /* SECTIONS */
@@ -386,7 +386,7 @@
             color: #FFF;
         }
 
-        /* INCREASED CARD SIZES (WHY JOIN TNSF) */
+        /* WHY JOIN TNSF */
         .why-join { background-color: #FAFAFA; }
 
         .grid-2x2 {
@@ -399,8 +399,8 @@
             background: var(--light);
             border: 1px solid #E2E2E2;
             border-radius: 10px;
-            padding: 20px 14px; /* Increased padding */
-            min-height: 160px;   /* Increased height */
+            padding: 20px 14px;
+            min-height: 160px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.04);
             display: flex;
@@ -410,7 +410,7 @@
         }
 
         .card-icon {
-            width: 46px; /* Increased icon box */
+            width: 46px;
             height: 46px;
             background: var(--primary);
             border-radius: 50%;
@@ -435,7 +435,7 @@
             line-height: 1.4;
         }
 
-        /* CONTINUOUS AUTO-SCROLLING ACTIVITIES CARDS */
+        /* ACTIVITIES SECTION */
         .scroll-container {
             width: 100%;
             overflow: hidden;
@@ -450,9 +450,7 @@
             animation: scrollLeft 18s linear infinite;
         }
 
-        .scroll-track:hover {
-            animation-play-state: paused; /* Pause on touch/hover */
-        }
+        .scroll-track:hover { animation-play-state: paused; }
 
         @keyframes scrollLeft {
             0% { transform: translateX(0); }
@@ -460,7 +458,7 @@
         }
 
         .activity-card {
-            width: 220px; /* Increased activity card size */
+            width: 220px;
             height: 150px;
             border-radius: 8px;
             overflow: hidden;
@@ -488,7 +486,7 @@
             text-align: center;
         }
 
-        /* CTA BANNER */
+        /* CTA BANNER NEAR FOOTER (UNTOUCHED) */
         .cta-banner {
             background-color: var(--dark);
             color: var(--light);
@@ -528,6 +526,140 @@
             gap: 10px;
             justify-content: center;
         }
+
+        /* NEW SOCIAL MEDIA SECTION (AUTO & 1-POST SCROLL) */
+        .social-media-section {
+            background-color: var(--social-bg);
+            padding: 25px 0;
+            position: relative;
+            border-radius: 16px;
+            margin: 15px 12px;
+        }
+
+        .social-header {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-header-line {
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .social-header h3 {
+            font-size: 16px;
+            font-weight: 900;
+            color: #000;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .social-slider-wrapper {
+            position: relative;
+            padding: 0 35px;
+        }
+
+        .social-slider {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 5px 0;
+        }
+
+        .social-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .social-card {
+            flex: 0 0 145px;
+            scroll-snap-align: center;
+            background: #FFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .social-card-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 200px;
+        }
+
+        .social-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 10px;
+        }
+
+        .social-card-footer {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #333;
+            background: #FFF;
+        }
+
+        .social-card-footer i {
+            font-size: 14px;
+            color: #E1306C;
+        }
+
+        /* Nav Arrows for Social Section */
+        .social-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: #FFF;
+            border: 1px solid #EAEAEA;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            color: #333;
+            font-size: 12px;
+        }
+
+        .social-nav-btn.prev { left: 8px; }
+        .social-nav-btn.next { right: 8px; }
 
         /* FOOTER */
         footer {
@@ -635,7 +767,6 @@
             justify-content: center;
             padding: 16px;
         }
-
         .modal.active { display: flex; }
 
         .modal-content {
@@ -682,7 +813,6 @@
             resize: vertical;
         }
 
-        /* SUCCESS POPUP */
         .popup-box {
             background: var(--light);
             padding: 25px 20px;
@@ -709,7 +839,6 @@
             margin-bottom: 15px;
         }
 
-        /* PAGE SPECIFICS */
         .page-header {
             background: var(--dark);
             color: var(--light);
@@ -759,7 +888,6 @@
         <!-- HEADER -->
         <header>
             <div class="brand">
-                <!-- LOGO LINK -->
                 <img src="https://picsum.photos/id/1062/100/100" alt="TNSF Logo" class="logo-img">
                 <div class="brand-text">
                     <h1>TNSF PRODDATUR</h1>
@@ -772,7 +900,6 @@
         <!-- HERO SLIDER SECTION -->
         <div class="hero">
             <div class="slider-container">
-                <!-- HERO IMAGE LINKS -->
                 <div class="slide active" style="background-image: url('https://picsum.photos/id/1059/600/300');"></div>
                 <div class="slide" style="background-image: url('https://picsum.photos/id/1018/600/300');"></div>
                 <div class="slide" style="background-image: url('https://picsum.photos/id/1015/600/300');"></div>
@@ -782,8 +909,6 @@
                 <p>Unite | Learn | Lead | Succeed</p>
             </div>
         </div>
-
-        <!-- REMOVED BUTTONS BETWEEN HEADER/HERO AND WELCOME SECTION -->
 
         <!-- WELCOME BANNER SECTION -->
         <section style="padding: 12px;">
@@ -806,14 +931,13 @@
                     </div>
                 </div>
 
-                <!-- LEADER/PERSON IMAGE WITH SUITABLE BLEND OVERLAY -->
                 <div class="welcome-person-container">
                     <img id="person-image" class="welcome-person-img" src="https://picsum.photos/id/1005/400/600" alt="TNSF Leader Image">
                 </div>
             </div>
         </section>
 
-        <!-- WHY JOIN TNSF (INCREASED CARD SIZES) -->
+        <!-- WHY JOIN TNSF -->
         <section class="why-join">
             <h3 class="section-title">WHY JOIN <span>TNSF?</span></h3>
             <div class="grid-2x2">
@@ -840,12 +964,11 @@
             </div>
         </section>
 
-        <!-- OUR ACTIVITIES (CONTINUOUS AUTO-SCROLLING LEFT TO RIGHT) -->
+        <!-- OUR ACTIVITIES -->
         <section class="activities">
             <h3 class="section-title">OUR <span>ACTIVITIES</span></h3>
             <div class="scroll-container">
                 <div class="scroll-track">
-                    <!-- Original Set -->
                     <div class="activity-card">
                         <img src="https://picsum.photos/id/1020/300/200" alt="Activity 1">
                         <div class="activity-card-title">Student Rallies</div>
@@ -862,8 +985,6 @@
                         <img src="https://picsum.photos/id/1040/300/200" alt="Activity 4">
                         <div class="activity-card-title">Youth Leadership</div>
                     </div>
-
-                    <!-- Duplicated Set for Infinite Seamless Loop -->
                     <div class="activity-card">
                         <img src="https://picsum.photos/id/1020/300/200" alt="Activity 1">
                         <div class="activity-card-title">Student Rallies</div>
@@ -871,20 +992,12 @@
                     <div class="activity-card">
                         <img src="https://picsum.photos/id/1024/300/200" alt="Activity 2">
                         <div class="activity-card-title">Campus Awareness</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="https://picsum.photos/id/1025/300/200" alt="Activity 3">
-                        <div class="activity-card-title">Blood Donation Camps</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="https://picsum.photos/id/1040/300/200" alt="Activity 4">
-                        <div class="activity-card-title">Youth Leadership</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA BANNER -->
+        <!-- CTA BANNER NEAR FOOTER (UNTOUCHED) -->
         <div class="cta-banner">
             <div class="cta-icon"><i class="fas fa-users"></i></div>
             <h3>BE A PART OF THE <span>CHANGE</span></h3>
@@ -892,6 +1005,73 @@
             <div class="btn-container">
                 <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
                 <button class="btn btn-dark nav-to-contact"><i class="fas fa-phone"></i> CONTACT US</button>
+            </div>
+        </div>
+
+        <!-- NEW SOCIAL MEDIA SECTION -->
+        <div class="social-media-section">
+            <div class="social-header">
+                <div class="social-header-line"></div>
+                <h3>SOCIAL MEDIA</h3>
+                <div class="social-header-line"></div>
+            </div>
+
+            <div class="social-slider-wrapper">
+                <button class="social-nav-btn prev" id="social-prev"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="social-slider" id="social-slider">
+                    <!-- Dynamic Posts Appear Here -->
+                    <a href="https://instagram.com" target="_blank" class="social-card">
+                        <div class="social-card-img-wrap">
+                            <img src="https://picsum.photos/id/1001/300/400" alt="Post" class="social-card-img">
+                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="social-card-footer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" class="social-card">
+                        <div class="social-card-img-wrap">
+                            <img src="https://picsum.photos/id/1011/300/400" alt="Post" class="social-card-img">
+                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="social-card-footer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" class="social-card">
+                        <div class="social-card-img-wrap">
+                            <img src="https://picsum.photos/id/1027/300/400" alt="Post" class="social-card-img">
+                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="social-card-footer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" class="social-card">
+                        <div class="social-card-img-wrap">
+                            <img src="https://picsum.photos/id/1060/300/400" alt="Post" class="social-card-img">
+                        </div>
+                        <div class="social-card-footer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" class="social-card">
+                        <div class="social-card-img-wrap">
+                            <img src="https://picsum.photos/id/1025/300/400" alt="Post" class="social-card-img">
+                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="social-card-footer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </div>
+                    </a>
+                </div>
+
+                <button class="social-nav-btn next" id="social-next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
 
@@ -1120,12 +1300,11 @@
         const joinForm = document.getElementById('join-tnsf-form');
         const contactPageForm = document.getElementById('contact-page-form');
 
-        // Views
         const homePage = document.getElementById('home-page');
         const aboutPage = document.getElementById('about-page');
         const contactPage = document.getElementById('contact-page');
 
-        // Sidebar Navigation Controls
+        // Sidebar Navigation
         function openSidebar() {
             sidebar.classList.add('active');
             sidebarOverlay.classList.add('active');
@@ -1141,7 +1320,7 @@
         sidebarOverlay.addEventListener('click', closeSidebar);
         allOpenMenuBtns.forEach(btn => btn.addEventListener('click', openSidebar));
 
-        // Join Modal Open/Close
+        // Join Modal
         joinBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -1154,39 +1333,21 @@
             joinModal.classList.remove('active');
         });
 
-        // View Router Switching
+        // View Routing
         function showPage(page) {
             homePage.classList.remove('active');
             aboutPage.classList.remove('active');
             contactPage.classList.remove('active');
-            
             page.classList.add('active');
             closeSidebar();
             window.scrollTo(0, 0);
         }
 
-        document.querySelectorAll('.nav-to-about').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                showPage(aboutPage);
-            });
-        });
+        document.querySelectorAll('.nav-to-about').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(aboutPage); }));
+        document.querySelectorAll('.nav-to-contact').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(contactPage); }));
+        document.querySelectorAll('.nav-to-home').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(homePage); }));
 
-        document.querySelectorAll('.nav-to-contact').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                showPage(contactPage);
-            });
-        });
-
-        document.querySelectorAll('.nav-to-home').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                showPage(homePage);
-            });
-        });
-
-        // Form Submissions & Success Popups
+        // Form Submissions
         joinForm.addEventListener('submit', (e) => {
             e.preventDefault();
             joinModal.classList.remove('active');
@@ -1200,21 +1361,73 @@
             successModal.classList.add('active');
         });
 
-        closeSuccessBtn.addEventListener('click', () => {
-            successModal.classList.remove('active');
-        });
+        closeSuccessBtn.addEventListener('click', () => successModal.classList.remove('active'));
 
-        // Hero Slider Auto-Switch
+        // Hero Auto Slider
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
-
-        function nextSlide() {
+        setInterval(() => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
+        }, 3000);
+
+        // SOCIAL MEDIA AUTOMATIC 1-BY-1 SCROLLING
+        const socialSlider = document.getElementById('social-slider');
+        const socialPrevBtn = document.getElementById('social-prev');
+        const socialNextBtn = document.getElementById('social-next');
+        const stepWidth = 157; // 145px card width + 12px gap
+
+        function scrollSocialNext() {
+            if (socialSlider.scrollLeft + socialSlider.clientWidth >= socialSlider.scrollWidth - 10) {
+                socialSlider.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                socialSlider.scrollBy({ left: stepWidth, behavior: 'smooth' });
+            }
         }
 
-        setInterval(nextSlide, 3000);
+        function scrollSocialPrev() {
+            if (socialSlider.scrollLeft <= 0) {
+                socialSlider.scrollTo({ left: socialSlider.scrollWidth, behavior: 'smooth' });
+            } else {
+                socialSlider.scrollBy({ left: -stepWidth, behavior: 'smooth' });
+            }
+        }
+
+        socialNextBtn.addEventListener('click', scrollSocialNext);
+        socialPrevBtn.addEventListener('click', scrollSocialPrev);
+
+        // Auto Advance Social Posts One-By-One
+        let socialAutoScroll = setInterval(scrollSocialNext, 3500);
+
+        socialSlider.addEventListener('mouseenter', () => clearInterval(socialAutoScroll));
+        socialSlider.addEventListener('mouseleave', () => {
+            socialAutoScroll = setInterval(scrollSocialNext, 3500);
+        });
+
+        // ADMIN DESK HELPER FUNCTION
+        // Call this function when adding new posts from an Admin Desk dashboard!
+        function addSocialMediaPost(imageUrl, postLink, platform = 'Instagram', isVideo = false) {
+            const newCard = document.createElement('a');
+            newCard.href = postLink;
+            newCard.target = "_blank";
+            newCard.className = "social-card";
+
+            let iconClass = 'fab fa-instagram';
+            if (platform.toLowerCase() === 'facebook') iconClass = 'fab fa-facebook-f';
+            if (platform.toLowerCase() === 'youtube') iconClass = 'fab fa-youtube';
+
+            newCard.innerHTML = `
+                <div class="social-card-img-wrap">
+                    <img src="${imageUrl}" alt="Post Image" class="social-card-img">
+                    ${isVideo ? '<div class="social-play-icon"><i class="fas fa-play"></i></div>' : ''}
+                </div>
+                <div class="social-card-footer">
+                    <i class="${iconClass}"></i> ${platform}
+                </div>
+            `;
+            socialSlider.appendChild(newCard);
+        }
     </script>
 </body>
 </html>
