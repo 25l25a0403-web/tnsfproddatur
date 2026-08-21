@@ -55,19 +55,12 @@
             gap: 10px;
         }
 
-        .logo-circle {
+        .logo-img {
             width: 38px;
             height: 38px;
-            background-color: var(--primary);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--dark);
-            font-size: 11px;
-            text-align: center;
-            line-height: 1;
+            object-fit: cover;
+            border: 2px solid var(--primary);
         }
 
         .brand-text h1 {
@@ -116,13 +109,8 @@
             flex-direction: column;
         }
 
-        .sidebar.active {
-            right: 0;
-        }
-
-        .sidebar-overlay.active {
-            display: block;
-        }
+        .sidebar.active { right: 0; }
+        .sidebar-overlay.active { display: block; }
 
         .close-btn {
             align-self: flex-end;
@@ -139,10 +127,10 @@
             margin-bottom: 30px;
         }
 
-        .sidebar-brand .logo-circle {
+        .sidebar-brand .logo-img {
             margin: 0 auto 8px auto;
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
         }
 
         .sidebar-brand h2 {
@@ -182,15 +170,61 @@
             margin-top: 10px;
         }
 
-        /* BUTTONS */
-        .btn-container {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin: 15px 0;
+        /* HERO SLIDER */
+        .hero {
             position: relative;
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: center;
         }
 
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active { opacity: 0.5; }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            z-index: 2;
+        }
+
+        .hero-content h2 {
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .hero-content h2 span { color: var(--primary); }
+
+        .hero-content p {
+            font-size: 10px;
+            margin-top: 6px;
+            letter-spacing: 1px;
+            color: #DDD;
+        }
+
+        /* BUTTON STYLES */
         .btn {
             padding: 12px 20px;
             border-radius: 8px;
@@ -221,123 +255,7 @@
             color: var(--dark);
         }
 
-        /* CONTACT DROPDOWN (HERO) */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 15%;
-            background-color: var(--light);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border-radius: 4px;
-            overflow: hidden;
-            z-index: 50;
-            width: 140px;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-        }
-
-        .dropdown-menu a {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-size: 12px;
-            border-bottom: 1px solid #EEE;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: var(--gray-bg);
-        }
-
-        /* HERO SLIDER */
-        .hero {
-            position: relative;
-            background-color: var(--dark);
-            color: var(--light);
-            text-align: center;
-        }
-
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .slide.active {
-            opacity: 0.4;
-        }
-
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            z-index: 2;
-        }
-
-        .hero-content h2 {
-            font-size: 20px;
-            font-weight: 900;
-            line-height: 1.2;
-            text-transform: uppercase;
-        }
-
-        .hero-content h2 span {
-            color: var(--primary);
-        }
-
-        .hero-content p {
-            font-size: 10px;
-            margin-top: 6px;
-            letter-spacing: 1px;
-            color: #DDD;
-        }
-
-        .hero-actions {
-            background-color: var(--light);
-            padding: 10px 0;
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 25px 16px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .section-title span {
-            color: var(--primary);
-            background: #000;
-            padding: 0 4px;
-            color: #FFF;
-        }
-
-        /* NEW WELCOME BANNER SECTION (MATCHED WITH DESIGN) */
+        /* WELCOME BANNER SECTION */
         .welcome-banner-card {
             background: linear-gradient(180deg, #FFE500 0%, #F3CA00 100%);
             border-radius: 16px;
@@ -350,7 +268,6 @@
             margin: 10px 0;
         }
 
-        /* Background crowd motif overlay */
         .welcome-banner-card::before {
             content: "";
             position: absolute;
@@ -358,7 +275,7 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://picsum.photos/500/800?grayscale');
+            background-image: url('https://picsum.photos/id/1025/500/800');
             background-size: cover;
             background-position: center;
             opacity: 0.08;
@@ -406,31 +323,12 @@
             position: relative;
         }
 
-        .divider-line::after {
-            content: "";
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: #111;
-            border-radius: 50%;
-            top: -1.5px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
         .welcome-description {
             font-size: 11px;
             color: var(--text-muted);
             line-height: 1.45;
             font-weight: 600;
             margin-bottom: 12px;
-        }
-
-        .welcome-description strong {
-            display: block;
-            margin-top: 10px;
-            color: #000;
-            font-size: 12px;
         }
 
         .welcome-btn-group {
@@ -442,86 +340,152 @@
             width: 100%;
         }
 
-        /* Person Image Styling */
+        /* PERSON IMAGE WITH OVERLAY BLEND */
         .welcome-person-container {
             position: absolute;
             bottom: 0;
             right: -10px;
-            width: 48%;
-            height: 82%;
+            width: 52%;
+            height: 85%;
             z-index: 3;
             display: flex;
             align-items: flex-end;
             justify-content: center;
+            /* Gradient Mask to smoothly blend image bottom/left into background */
+            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
+                                linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
+                        linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
         }
 
         .welcome-person-img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            object-position: bottom right;
-            filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.15));
+            object-fit: cover;
+            object-position: top center;
+            filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.2));
+            mix-blend-mode: multiply; /* Suitable Overlay Blend */
         }
 
-        /* WHY JOIN GRID */
-        .why-join {
-            background-color: #FAFAFA;
+        /* SECTIONS */
+        section { padding: 25px 16px; }
+
+        .section-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            text-transform: uppercase;
         }
+
+        .section-title span {
+            background: #000;
+            padding: 2px 6px;
+            color: #FFF;
+        }
+
+        /* INCREASED CARD SIZES (WHY JOIN TNSF) */
+        .why-join { background-color: #FAFAFA; }
 
         .grid-2x2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 14px;
         }
 
         .card {
             background: var(--light);
-            border: 1px solid #EEE;
-            border-radius: 6px;
-            padding: 12px 8px;
+            border: 1px solid #E2E2E2;
+            border-radius: 10px;
+            padding: 20px 14px; /* Increased padding */
+            min-height: 160px;   /* Increased height */
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .card-icon {
-            width: 36px;
-            height: 36px;
+            width: 46px; /* Increased icon box */
+            height: 46px;
             background: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px auto;
-            font-size: 16px;
+            margin-bottom: 10px;
+            font-size: 20px;
             color: var(--dark);
         }
 
         .card h4 {
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 800;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             text-transform: uppercase;
         }
 
         .card p {
-            font-size: 8px;
+            font-size: 10px;
             color: var(--text-muted);
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
-        /* ACTIVITIES GALLERY */
-        .activities-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .activity-img {
+        /* CONTINUOUS AUTO-SCROLLING ACTIVITIES CARDS */
+        .scroll-container {
             width: 100%;
-            height: 85px;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .scroll-track {
+            display: flex;
+            gap: 15px;
+            width: max-content;
+            animation: scrollLeft 18s linear infinite;
+        }
+
+        .scroll-track:hover {
+            animation-play-state: paused; /* Pause on touch/hover */
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .activity-card {
+            width: 220px; /* Increased activity card size */
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 4px;
-            background-color: #DDD;
+        }
+
+        .activity-card-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: #FFF;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 12px 8px 6px 8px;
+            text-align: center;
         }
 
         /* CTA BANNER */
@@ -529,36 +493,40 @@
             background-color: var(--dark);
             color: var(--light);
             text-align: center;
-            padding: 20px 16px;
-            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://picsum.photos/400/200?grayscale');
+            padding: 24px 16px;
+            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/500/300');
             background-size: cover;
         }
 
         .cta-icon {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             background: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px auto;
+            margin: 0 auto 10px auto;
             color: var(--dark);
         }
 
         .cta-banner h3 {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 800;
         }
 
-        .cta-banner h3 span {
-            color: var(--primary);
-        }
+        .cta-banner h3 span { color: var(--primary); }
 
         .cta-banner p {
-            font-size: 9px;
+            font-size: 10px;
             color: #CCC;
-            margin: 4px 0 12px 0;
+            margin: 6px 0 16px 0;
+        }
+
+        .cta-banner .btn-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
         }
 
         /* FOOTER */
@@ -597,9 +565,7 @@
             margin-bottom: 15px;
         }
 
-        .footer-links li {
-            margin-bottom: 4px;
-        }
+        .footer-links li { margin-bottom: 4px; }
 
         .footer-links a {
             color: #AAA;
@@ -614,15 +580,15 @@
         }
 
         .social-icon {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             background: #333;
             color: var(--light);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 11px;
             text-decoration: none;
         }
 
@@ -640,9 +606,7 @@
             margin-bottom: 6px;
         }
 
-        .footer-contact-item i {
-            color: var(--primary);
-        }
+        .footer-contact-item i { color: var(--primary); }
 
         .copyright {
             background-color: var(--primary);
@@ -655,13 +619,8 @@
         }
 
         /* DYNAMIC PAGES / MODALS */
-        .page-view {
-            display: none;
-        }
-
-        .page-view.active {
-            display: block;
-        }
+        .page-view { display: none; }
+        .page-view.active { display: block; }
 
         .modal {
             display: none;
@@ -677,9 +636,7 @@
             padding: 16px;
         }
 
-        .modal.active {
-            display: flex;
-        }
+        .modal.active { display: flex; }
 
         .modal-content {
             background: var(--light);
@@ -702,9 +659,7 @@
             cursor: pointer;
         }
 
-        .form-group {
-            margin-bottom: 12px;
-        }
+        .form-group { margin-bottom: 12px; }
 
         .form-group label {
             display: block;
@@ -782,13 +737,8 @@
             object-fit: cover;
         }
 
-        .incharge-info {
-            padding: 8px;
-        }
-
-        .incharge-info h4 {
-            font-size: 12px;
-        }
+        .incharge-info { padding: 8px; }
+        .incharge-info h4 { font-size: 12px; }
 
         .incharge-info p {
             font-size: 10px;
@@ -809,21 +759,23 @@
         <!-- HEADER -->
         <header>
             <div class="brand">
-                <div class="logo-circle">TNSF</div>
+                <!-- LOGO LINK -->
+                <img src="https://picsum.photos/id/1062/100/100" alt="TNSF Logo" class="logo-img">
                 <div class="brand-text">
                     <h1>TNSF PRODDATUR</h1>
                     <p>The Voice of Students</p>
                 </div>
-                </div>
+            </div>
             <button class="menu-btn" id="open-menu"><i class="fas fa-bars"></i></button>
         </header>
 
-        <!-- HERO SECTION -->
+        <!-- HERO SLIDER SECTION -->
         <div class="hero">
             <div class="slider-container">
-                <div class="slide active" style="background-image: url('https://picsum.photos/500/300?random=1');"></div>
-                <div class="slide" style="background-image: url('https://picsum.photos/500/300?random=2');"></div>
-                <div class="slide" style="background-image: url('https://picsum.photos/500/300?random=3');"></div>
+                <!-- HERO IMAGE LINKS -->
+                <div class="slide active" style="background-image: url('https://picsum.photos/id/1059/600/300');"></div>
+                <div class="slide" style="background-image: url('https://picsum.photos/id/1018/600/300');"></div>
+                <div class="slide" style="background-image: url('https://picsum.photos/id/1015/600/300');"></div>
             </div>
             <div class="hero-content">
                 <h2>Together For <span>Students</span><br>Together For <span>Future</span></h2>
@@ -831,21 +783,9 @@
             </div>
         </div>
 
-        <!-- HERO BUTTONS -->
-        <div class="hero-actions">
-            <div class="btn-container">
-                <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
-                <button class="btn btn-dark" id="hero-contact-btn"><i class="fas fa-phone"></i> CONTACT US</button>
-                
-                <!-- Contact Dropdown -->
-                <div class="dropdown-menu" id="contact-dropdown">
-                    <a href="tel:+911234567890"><i class="fas fa-phone-alt"></i> Call Us</a>
-                    <a href="https://wa.me/911234567890" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                </div>
-            </div>
-        </div>
+        <!-- REMOVED BUTTONS BETWEEN HEADER/HERO AND WELCOME SECTION -->
 
-        <!-- EXACT UPDATED WELCOME SECTION AS PER DESIGN IMAGE -->
+        <!-- WELCOME BANNER SECTION -->
         <section style="padding: 12px;">
             <div class="welcome-banner-card">
                 <div class="welcome-content-left">
@@ -866,15 +806,14 @@
                     </div>
                 </div>
 
-                <!-- PERSON IMAGE WITH EASY LINK CHANGING -->
+                <!-- LEADER/PERSON IMAGE WITH SUITABLE BLEND OVERLAY -->
                 <div class="welcome-person-container">
-                    <!-- CHANGE YOUR IMAGE URL HERE BELOW IN THE 'src' ATTRIBUTE -->
-                    <img id="person-image" class="welcome-person-img" src="images (1).jpeg" alt="TNSF Leader Image">
+                    <img id="person-image" class="welcome-person-img" src="https://picsum.photos/id/1005/400/600" alt="TNSF Leader Image">
                 </div>
             </div>
         </section>
 
-        <!-- WHY JOIN TNSF -->
+        <!-- WHY JOIN TNSF (INCREASED CARD SIZES) -->
         <section class="why-join">
             <h3 class="section-title">WHY JOIN <span>TNSF?</span></h3>
             <div class="grid-2x2">
@@ -901,14 +840,47 @@
             </div>
         </section>
 
-        <!-- OUR ACTIVITIES -->
+        <!-- OUR ACTIVITIES (CONTINUOUS AUTO-SCROLLING LEFT TO RIGHT) -->
         <section class="activities">
             <h3 class="section-title">OUR <span>ACTIVITIES</span></h3>
-            <div class="activities-grid">
-                <img src="https://picsum.photos/200/150?random=10" alt="Activity 1" class="activity-img">
-                <img src="https://picsum.photos/200/150?random=11" alt="Activity 2" class="activity-img">
-                <img src="https://picsum.photos/200/150?random=12" alt="Activity 3" class="activity-img">
-                <img src="https://picsum.photos/200/150?random=13" alt="Activity 4" class="activity-img">
+            <div class="scroll-container">
+                <div class="scroll-track">
+                    <!-- Original Set -->
+                    <div class="activity-card">
+                        <img src="https://picsum.photos/id/1020/300/200" alt="Activity 1">
+                        <div class="activity-card-title">Student Rallies</div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="https://picsum.photos/id/1024/300/200" alt="Activity 2">
+                        <div class="activity-card-title">Campus Awareness</div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="https://picsum.photos/id/1025/300/200" alt="Activity 3">
+                        <div class="activity-card-title">Blood Donation Camps</div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="https://picsum.photos/id/1040/300/200" alt="Activity 4">
+                        <div class="activity-card-title">Youth Leadership</div>
+                    </div>
+
+                    <!-- Duplicated Set for Infinite Seamless Loop -->
+                    <div class="activity-card">
+                        <img src="https://picsum.photos/id/1020/300/200" alt="Activity 1">
+                        <div class="activity-card-title">Student Rallies</div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="https://picsum.photos/id/1024/300/200" alt="Activity 2">
+                        <div class="activity-card-title">Campus Awareness</div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="https://picsum.photos/id/1025/300/200" alt="Activity 3">
+                        <div class="activity-card-title">Blood Donation Camps</div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="https://picsum.photos/id/1040/300/200" alt="Activity 4">
+                        <div class="activity-card-title">Youth Leadership</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -926,7 +898,7 @@
         <!-- FOOTER -->
         <footer>
             <div class="footer-brand">
-                <div class="logo-circle">TNSF</div>
+                <img src="https://picsum.photos/id/1062/100/100" alt="TNSF Logo" class="logo-img">
                 <div class="brand-text">
                     <h1 style="color:var(--primary); font-size:12px;">TNSF PRODDATUR</h1>
                     <p style="font-size:8px; color:#AAA;">The Voice of Students</p>
@@ -964,7 +936,7 @@
     <div id="about-page" class="page-view">
         <header>
             <div class="brand">
-                <div class="logo-circle">TNSF</div>
+                <img src="https://picsum.photos/id/1062/100/100" alt="TNSF Logo" class="logo-img">
                 <div class="brand-text">
                     <h1>TNSF PRODDATUR</h1>
                     <p>About Us</p>
@@ -978,16 +950,15 @@
         </div>
 
         <section class="welcome">
-            <p class="welcome-subtitle">Welcome to</p>
             <h3>TNSF <span>PRODDATUR</span></h3>
-            <p>Telugu Nadu Students Federation (TNSF) is dedicated to empowering student communities across Proddatur. Our organization strives to ensure quality education, fair student rights, and strong youth leadership development.</p>
+            <p style="margin-top:10px; font-size:12px; line-height:1.5;">Telugu Nadu Students Federation (TNSF) is dedicated to empowering student communities across Proddatur. Our organization strives to ensure quality education, fair student rights, and strong youth leadership development.</p>
         </section>
 
         <section>
             <h3 class="section-title">STAGE WISE <span>INCHARGES</span></h3>
             
             <div class="incharge-card">
-                <img src="https://picsum.photos/300/150?random=20" alt="President">
+                <img src="https://picsum.photos/id/1012/300/150" alt="President">
                 <div class="incharge-info">
                     <h4>Town President</h4>
                     <p>TNSF Proddatur</p>
@@ -995,7 +966,7 @@
             </div>
 
             <div class="incharge-card">
-                <img src="https://picsum.photos/300/150?random=21" alt="Incharge">
+                <img src="https://picsum.photos/id/1027/300/150" alt="Incharge">
                 <div class="incharge-info">
                     <h4>College Level Incharges</h4>
                     <p>Proddatur Constituency</p>
@@ -1003,7 +974,7 @@
             </div>
 
             <div class="incharge-card">
-                <img src="https://picsum.photos/300/150?random=22" alt="Youth Wing">
+                <img src="https://picsum.photos/id/1005/300/150" alt="Youth Wing">
                 <div class="incharge-info">
                     <h4>Youth Wing Committee</h4>
                     <p>District Representatives</p>
@@ -1020,7 +991,7 @@
     <div id="contact-page" class="page-view">
         <header>
             <div class="brand">
-                <div class="logo-circle">TNSF</div>
+                <img src="https://picsum.photos/id/1062/100/100" alt="TNSF Logo" class="logo-img">
                 <div class="brand-text">
                     <h1>TNSF PRODDATUR</h1>
                     <p>Contact Us</p>
@@ -1074,7 +1045,7 @@
     <div class="sidebar" id="sidebar">
         <button class="close-btn" id="close-menu"><i class="fas fa-times"></i></button>
         <div class="sidebar-brand">
-            <div class="logo-circle">TNSF</div>
+            <img src="https://picsum.photos/id/1062/100/100" alt="TNSF Logo" class="logo-img">
             <h2>TNSF PRODDATUR</h2>
             <p>The Voice of Students</p>
         </div>
@@ -1139,9 +1110,6 @@
         const closeMenuBtn = document.getElementById('close-menu');
         const allOpenMenuBtns = document.querySelectorAll('.open-menu-btn');
         
-        const contactDropdown = document.getElementById('contact-dropdown');
-        const heroContactBtn = document.getElementById('hero-contact-btn');
-        
         const joinModal = document.getElementById('join-modal');
         const closeJoinModalBtn = document.getElementById('close-join-modal');
         const joinBtns = document.querySelectorAll('.open-join-modal');
@@ -1172,16 +1140,6 @@
         closeMenuBtn.addEventListener('click', closeSidebar);
         sidebarOverlay.addEventListener('click', closeSidebar);
         allOpenMenuBtns.forEach(btn => btn.addEventListener('click', openSidebar));
-
-        // Hero Contact Dropdown Toggle
-        heroContactBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            contactDropdown.classList.toggle('show');
-        });
-
-        document.addEventListener('click', () => {
-            contactDropdown.classList.remove('show');
-        });
 
         // Join Modal Open/Close
         joinBtns.forEach(btn => {
@@ -1246,7 +1204,7 @@
             successModal.classList.remove('active');
         });
 
-        // Auto Image Slider for Hero Section
+        // Hero Slider Auto-Switch
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
 
