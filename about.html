@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>TNSF Kadapa Parliament</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - TNSF Kadapa Parliament</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -12,7 +12,7 @@
       --text-dark: #111111;
       --text-muted: #555555;
       --card-bg: #FFFFFF;
-      --bg-color: #FFFDF2;
+      --bg-color: #FFFDF0;
     }
 
     * {
@@ -25,29 +25,31 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-dark);
-      padding: 16px;
+      padding: 20px 16px;
       min-height: 100vh;
-      max-width: 450px;
-      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
     }
 
     .container {
+      max-width: 480px;
       width: 100%;
-      position: relative;
+      margin: 0 auto;
     }
 
     .view-section {
       display: none;
-      width: 100%;
     }
 
     .view-section.active {
       display: block;
     }
 
+    /* Headings */
     .section-title {
-      color: var(--primary-dark);
-      font-size: 12px;
+      color: #D4A000;
+      font-size: 13px;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -55,11 +57,11 @@
     }
 
     .main-heading {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 800;
-      line-height: 1.18;
+      line-height: 1.2;
       margin-bottom: 8px;
-      color: #111;
+      color: #111111;
     }
 
     .accent-bar {
@@ -67,204 +69,206 @@
       height: 4px;
       background-color: var(--primary);
       border-radius: 2px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .description {
       color: var(--text-muted);
-      font-size: 13px;
-      line-height: 1.5;
-      margin-bottom: 22px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 24px;
     }
 
+    /* Leader Cards */
     .leader-list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
 
-    /* Target Overlay Card Design */
     .leader-card {
-      position: relative;
-      background: linear-gradient(135deg, #FFE853 0%, #FFD200 60%, #E6B800 100%);
-      border-radius: 36px;
-      height: 220px;
+      background: linear-gradient(135deg, #FFDD00 0%, #F5C400 100%);
+      border-radius: 20px;
+      height: 145px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      box-shadow: 0 12px 28px rgba(230, 185, 0, 0.3);
+      position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      padding-right: 20px;
+      box-shadow: 0 6px 20px rgba(245, 196, 0, 0.25);
+      padding: 0 16px 0 0;
     }
 
-    /* Halftone Dot Pattern Effect in Background */
-    .card-dot-pattern {
-      position: absolute;
-      left: -20px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 220px;
-      height: 220px;
-      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px);
-      background-size: 12px 12px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Large Overlay Image Container */
-    .avatar-wrapper {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 60%;
+    /* Person Image Container with requested Blend Mask */
+    .card-person-container {
+      position: relative;
+      width: 45%;
       height: 100%;
-      z-index: 2;
+      flex-shrink: 0;
       display: flex;
       align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
+                          linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+      mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
+                  linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
     }
 
-    .avatar-wrapper img {
+    .card-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      mix-blend-mode: multiply;
+    }
+
+    .card-person-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top center;
-      /* Soft bottom edge blend into the card base */
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 100%);
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 100%);
-      filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.15));
-    }
-
-    /* Card Details Layout */
-    .card-content {
-      position: relative;
+      filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.2));
+      mix-blend-mode: multiply;
       z-index: 3;
-      margin-left: auto;
-      width: 52%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
     }
 
-    .card-text h3 {
-      font-size: 30px;
+    /* Text Content Alignment */
+    .card-text-content {
+      flex-grow: 1;
+      padding-left: 8px;
+      padding-right: 8px;
+      z-index: 4;
+    }
+
+    .card-text-content h3 {
+      font-size: 22px;
       font-weight: 800;
-      color: #111;
-      line-height: 1.05;
-      letter-spacing: -0.5px;
+      color: #000000;
+      line-height: 1.1;
+      margin-bottom: 6px;
     }
 
-    .badge-role {
+    .card-role-pill {
       display: inline-block;
-      background-color: #FFDE00;
-      color: #111;
-      font-size: 14px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      color: #000;
+      font-size: 11px;
       font-weight: 800;
-      padding: 10px 14px;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      line-height: 1.25;
-      max-width: 140px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 4px;
     }
 
-    .org-text {
-      font-size: 12px;
-      color: #222;
+    .card-org {
+      font-size: 11px;
+      color: #222222;
       font-weight: 700;
-      line-height: 1.2;
     }
 
     .arrow-btn {
-      position: relative;
-      z-index: 3;
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background-color: #FFE800;
+      background-color: #FFE700;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #000;
-      font-size: 15px;
+      color: #000000;
+      font-size: 14px;
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 4;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
 
-    /* Overview Page Styling */
+    /* Overview Page */
     .details-card {
       background: var(--card-bg);
-      border-radius: 32px;
+      border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .overview-header-banner {
-      background: linear-gradient(135deg, #FFE853 0%, #FFD200 60%, #E6B800 100%);
+      background: linear-gradient(135deg, #FFDD00 0%, #F5C400 100%);
+      height: 230px;
       position: relative;
-      padding: 16px 16px 0px 16px;
       display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      align-items: flex-end;
+      padding: 0 16px;
     }
 
     .back-btn {
-      align-self: flex-start;
+      position: absolute;
+      top: 16px;
+      left: 16px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background-color: #FFDE00;
+      background-color: #FFE700;
       color: #000;
       border: none;
-      padding: 8px 16px;
-      border-radius: 10px;
+      padding: 8px 14px;
+      border-radius: 8px;
       font-weight: 800;
-      font-size: 12px;
+      font-size: 13px;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
       z-index: 10;
-      margin-bottom: 8px;
     }
 
     .header-content {
+      width: 100%;
       display: flex;
-      align-items: flex-end;
       justify-content: space-between;
-      gap: 10px;
+      align-items: flex-end;
       z-index: 2;
     }
 
-    .person-overlay-img {
-      width: 170px;
-      height: 195px;
+    .overview-person-container {
+      position: relative;
+      width: 45%;
+      height: 190px;
+      display: flex;
+      align-items: flex-end;
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
+                          linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+      mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
+                  linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
+    }
+
+    .overview-person-img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       object-position: top center;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-      filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.15));
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.2));
     }
 
     .header-info {
-      padding-bottom: 20px;
+      padding-bottom: 16px;
       text-align: right;
-      flex: 1;
     }
 
     .header-info h2 {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
       color: #111;
-      line-height: 1.1;
     }
 
     .header-info .role {
-      color: #B88600;
+      color: #444;
       font-size: 13px;
-      font-weight: 800;
-      margin-top: 4px;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
     .social-links {
@@ -274,8 +278,8 @@
     }
 
     .social-btn {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -283,38 +287,40 @@
       color: #FFF;
       text-decoration: none;
       font-size: 13px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
     .fb { background-color: #3b5998; }
     .tw { background-color: #1da1f2; }
-    .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .ig { background-color: #e1306c; }
     .wa { background-color: #25d366; }
 
+    /* Overview Body Details */
     .overview-body {
-      padding: 22px;
+      padding: 24px 20px;
     }
 
     .overview-heading {
       font-size: 16px;
       font-weight: 800;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      position: relative;
+      display: inline-block;
     }
 
     .overview-heading::after {
       content: '';
-      display: block;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
       width: 25px;
       height: 3px;
       background-color: var(--primary);
-      margin-top: 3px;
-      border-radius: 2px;
     }
 
     .overview-bio {
       color: var(--text-muted);
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.6;
       margin-top: 10px;
       margin-bottom: 20px;
     }
@@ -325,44 +331,41 @@
     }
 
     .info-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: 32px 100px 1fr;
       align-items: center;
-      padding: 11px 0;
+      padding: 12px 0;
       border-top: 1px solid #F0F0F0;
-      font-size: 13px;
-      gap: 10px;
+      font-size: 12.5px;
     }
 
     .info-icon {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       background-color: #FFF9E6;
       color: #B88600;
-      border-radius: 50%;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 11px;
-      flex-shrink: 0;
     }
 
     .info-label {
       font-weight: 700;
       color: var(--text-dark);
-      width: 95px;
-      flex-shrink: 0;
     }
 
     .info-value {
       color: var(--text-muted);
-      flex: 1;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <!-- View 1: Mobile Leader Cards -->
+    
+    <!-- LIST VIEW PAGE -->
     <div class="view-section active" id="list-view">
       <div class="section-title">ABOUT US</div>
       <h1 class="main-heading">Building a Stronger<br>Tomorrow Together</h1>
@@ -373,66 +376,65 @@
       </p>
 
       <div class="leader-list">
-        <!-- Varun Tej Card -->
-        <div class="leader-card" onclick="redirectToOverview(0)">
-          <div class="card-dot-pattern"></div>
-          <div class="avatar-wrapper">
-            <img src="file_0000000068388211bd38df15796481e7.png" alt="Varun Tej">
+        <!-- Leader Card 1 -->
+        <div class="leader-card" onclick="openOverview(0)">
+          <div class="card-person-container">
+            <div class="card-bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300');"></div>
+            <!-- Insert Image URL here -->
+            <img class="card-person-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400" alt="Varun Tej">
           </div>
-          <div class="card-content">
-            <div class="card-text">
-              <h3>Varun Tej</h3>
-            </div>
-            <div class="badge-role">Parliament<br>President</div>
-            <div class="org-text">TNSF Kadapa<br>Parliament</div>
-          </div>
-          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
-        </div>
-
-        <!-- Mahesh Reddy Card -->
-        <div class="leader-card" onclick="redirectToOverview(1)">
-          <div class="card-dot-pattern"></div>
-          <div class="avatar-wrapper">
-            <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Mahesh Reddy">
-          </div>
-          <div class="card-content">
-            <div class="card-text">
-              <h3>Mahesh Reddy</h3>
-            </div>
-            <div class="badge-role">General<br>Secretary</div>
-            <div class="org-text">TNSF Kadapa<br>Parliament</div>
+          <div class="card-text-content">
+            <h3>Varun Tej</h3>
+            <span class="card-role-pill">Parliament President</span><br>
+            <span class="card-org">TNSF Kadapa Parliament</span>
           </div>
           <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
 
-        <!-- Karthik Yadav Card -->
-        <div class="leader-card" onclick="redirectToOverview(2)">
-          <div class="card-dot-pattern"></div>
-          <div class="avatar-wrapper">
-            <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Karthik Yadav">
+        <!-- Leader Card 2 -->
+        <div class="leader-card" onclick="openOverview(1)">
+          <div class="card-person-container">
+            <div class="card-bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300');"></div>
+            <!-- Insert Image URL here -->
+            <img class="card-person-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400" alt="Mahesh Reddy">
           </div>
-          <div class="card-content">
-            <div class="card-text">
-              <h3>Karthik Yadav</h3>
-            </div>
-            <div class="badge-role">Treasurer<br>Officer</div>
-            <div class="org-text">TNSF Kadapa<br>Parliament</div>
+          <div class="card-text-content">
+            <h3>Mahesh Reddy</h3>
+            <span class="card-role-pill">General Secretary</span><br>
+            <span class="card-org">TNSF Kadapa Parliament</span>
+          </div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+
+        <!-- Leader Card 3 -->
+        <div class="leader-card" onclick="openOverview(2)">
+          <div class="card-person-container">
+            <div class="card-bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300');"></div>
+            <!-- Insert Image URL here -->
+            <img class="card-person-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400" alt="Karthik Yadav">
+          </div>
+          <div class="card-text-content">
+            <h3>Karthik Yadav</h3>
+            <span class="card-role-pill">Treasurer</span><br>
+            <span class="card-org">TNSF Kadapa Parliament</span>
           </div>
           <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
       </div>
     </div>
 
-    <!-- View 2: Overview Detail View -->
+    <!-- OVERVIEW VIEW PAGE -->
     <div class="view-section" id="overview-view">
       <div class="details-card">
         
         <div class="overview-header-banner">
-          <div class="card-dot-pattern"></div>
           <button class="back-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Back</button>
           
           <div class="header-content">
-            <img id="detail-img" class="person-overlay-img" src="" alt="Leader Photo">
+            <div class="overview-person-container">
+              <!-- Insert Overview Image URL here -->
+              <img id="detail-img" class="overview-person-img" src="" alt="Leader Photo">
+            </div>
             <div class="header-info">
               <h2 id="detail-name"></h2>
               <div id="detail-role" class="role"></div>
@@ -481,6 +483,7 @@
 
       </div>
     </div>
+
   </div>
 
   <script>
@@ -488,8 +491,8 @@
       {
         name: "Varun Tej",
         role: "Parliament President",
-        image: "file_0000000068388211bd38df15796481e7.png",
-        bio: "Varun Tej has been a guiding force behind TNSF Kadapa Parliament. With a vision for student empowerment and social change, he leads with integrity, dedication, and a commitment to building a better future for all.",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400",
+        bio: "Varun Tej has been a guiding force behind TNSF Kadapa Parliament. With a vision for student empowerment and social change, he leads with integrity, dedication, and commitment.",
         dob: "15 August 1990",
         hometown: "Kadapa, Andhra Pradesh",
         education: "MBA, Sri Venkateswara University",
@@ -499,8 +502,8 @@
       {
         name: "Mahesh Reddy",
         role: "General Secretary",
-        image: "https://i.ibb.co/C30H2mK/person-cutout.png",
-        bio: "Mahesh Reddy manages daily organizational strategies and student campaigns. He is dedicated to structuring impactful activities across educational institutions in Kadapa.",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400",
+        bio: "Mahesh Reddy manages daily organizational strategies and student campaigns across educational institutions in Kadapa.",
         dob: "10 May 1992",
         hometown: "Proddatur, Andhra Pradesh",
         education: "B.Tech in Computer Science",
@@ -510,8 +513,8 @@
       {
         name: "Karthik Yadav",
         role: "Treasurer",
-        image: "https://i.ibb.co/C30H2mK/person-cutout.png",
-        bio: "Karthik Yadav drives financial strategy and transparent allocation of organizational resources to maximize impact for welfare programs.",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400",
+        bio: "Karthik Yadav drives financial strategy and transparent allocation of organizational resources for student welfare programs.",
         dob: "22 November 1994",
         hometown: "Rajampet, Andhra Pradesh",
         education: "M.Com in Finance",
@@ -520,7 +523,7 @@
       }
     ];
 
-    function redirectToOverview(index) {
+    function openOverview(index) {
       const data = leaders[index];
       
       document.getElementById('detail-name').innerText = data.name;
