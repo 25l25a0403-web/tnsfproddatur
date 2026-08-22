@@ -26,9 +26,8 @@
       background-color: var(--bg-color);
       color: var(--text-dark);
       padding: 16px;
-      padding-top: 24px;
       min-height: 100vh;
-      max-width: 450px; /* Pure Mobile View */
+      max-width: 450px; /* Mobile View Container */
       margin: 0 auto;
     }
 
@@ -77,38 +76,33 @@
       color: var(--text-muted);
       font-size: 13px;
       line-height: 1.5;
-      margin-bottom: 30px;
+      margin-bottom: 22px;
     }
 
-    /* Leader List Container */
+    /* Card List */
     .leader-list {
       display: flex;
       flex-direction: column;
-      gap: 30px; /* Space for overlay pop-out images */
+      gap: 20px;
     }
 
-    /* Card Wrapper to support overlay extension */
-    .leader-card-wrapper {
-      position: relative;
-      width: 100%;
-      cursor: pointer;
-    }
-
+    /* Leader Card Container */
     .leader-card {
       position: relative;
       background: linear-gradient(135deg, #FFF08A 0%, #FFD200 50%, #EEB400 100%);
       border-radius: 28px;
-      padding: 16px 18px 16px 135px; /* Left padding space for overlay image */
+      padding: 16px 18px 16px 0px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
       box-shadow: 0 10px 25px rgba(230, 185, 0, 0.35);
-      min-height: 130px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
       overflow: hidden;
+      min-height: 150px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
     }
 
-    /* Crowd/Flag Texture Overlay inside Card */
+    /* Background Banner Overlay inside Card */
     .card-bg-overlay {
       position: absolute;
       top: 0;
@@ -123,27 +117,44 @@
       z-index: 1;
     }
 
-    /* Person Image Overlay Cutout Positioned Above the Card */
-    .leader-overlay-img {
-      position: absolute;
-      left: -5px;
-      bottom: 0;
-      height: 155px; /* Bigger height so it overlays outside top/bottom */
-      width: auto;
-      z-index: 10; /* Keeps image overlaying top of card */
-      filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.22));
-      pointer-events: none;
+    .card-left {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      z-index: 2;
+      height: 100%;
+      flex: 1;
+    }
+
+    /* Direct Person Cutout Overlay (No Box/Border) */
+    .avatar-wrapper {
+      width: 140px;
+      height: 155px;
+      position: relative;
+      flex-shrink: 0;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: -16px;
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom left;
+      filter: drop-shadow(3px 4px 8px rgba(0, 0, 0, 0.22));
     }
 
     .card-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding-bottom: 4px;
       z-index: 2;
     }
 
     .card-text h3 {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 800;
       color: #111;
       line-height: 1.1;
@@ -154,7 +165,7 @@
       align-self: flex-start;
       background-color: var(--primary);
       color: #000;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
       padding: 5px 10px;
       border-radius: 8px;
@@ -169,8 +180,8 @@
     }
 
     .arrow-btn {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background-color: #FFE600;
       display: flex;
@@ -241,6 +252,7 @@
       z-index: 2;
     }
 
+    /* Overview Cutout Direct Overlay */
     .person-overlay-img {
       width: 165px;
       height: 185px;
@@ -295,7 +307,7 @@
     .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
     .wa { background-color: #25d366; }
 
-    /* Overview Content */
+    /* Overview Content Body */
     .overview-body {
       padding: 22px;
     }
@@ -367,7 +379,7 @@
 <body>
 
   <div class="container">
-    <!-- View 1: Card List View -->
+    <!-- View 1: Mobile Cards List -->
     <div class="view-section active" id="list-view">
       <div class="section-title">ABOUT US</div>
       <h1 class="main-heading">Building a Stronger<br>Tomorrow Together</h1>
@@ -379,48 +391,51 @@
 
       <div class="leader-list">
         <!-- Varun Tej Card -->
-        <div class="leader-card-wrapper" onclick="redirectToOverview(0)">
-          <!-- Overlay Transparent Cutout Image directly on card -->
-          <img class="leader-overlay-img" src="755063636_18385822585206821_2809575467455819912_n..jpg" alt="Varun Tej">
-          <div class="leader-card">
-            <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
+        <div class="leader-card" onclick="redirectToOverview(0)">
+          <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
+          <div class="card-left">
+            <div class="avatar-wrapper">
+              <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Varun Tej">
+            </div>
             <div class="card-text">
               <h3>Varun Tej</h3>
               <span class="badge-role">Parliament President</span>
               <span class="org-text">TNSF Kadapa Parliament</span>
             </div>
-            <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
           </div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
 
         <!-- Mahesh Reddy Card -->
-        <div class="leader-card-wrapper" onclick="redirectToOverview(1)">
-          <!-- Overlay Transparent Cutout Image directly on card -->
-          <img class="leader-overlay-img" src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Mahesh Reddy">
-          <div class="leader-card">
-            <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
+        <div class="leader-card" onclick="redirectToOverview(1)">
+          <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
+          <div class="card-left">
+            <div class="avatar-wrapper">
+              <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Mahesh Reddy">
+            </div>
             <div class="card-text">
               <h3>Mahesh Reddy</h3>
               <span class="badge-role">General Secretary</span>
               <span class="org-text">TNSF Kadapa Parliament</span>
             </div>
-            <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
           </div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
 
         <!-- Karthik Yadav Card -->
-        <div class="leader-card-wrapper" onclick="redirectToOverview(2)">
-          <!-- Overlay Transparent Cutout Image directly on card -->
-          <img class="leader-overlay-img" src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Karthik Yadav">
-          <div class="leader-card">
-            <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
+        <div class="leader-card" onclick="redirectToOverview(2)">
+          <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
+          <div class="card-left">
+            <div class="avatar-wrapper">
+              <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Karthik Yadav">
+            </div>
             <div class="card-text">
               <h3>Karthik Yadav</h3>
               <span class="badge-role">Treasurer</span>
               <span class="org-text">TNSF Kadapa Parliament</span>
             </div>
-            <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
           </div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
       </div>
     </div>
