@@ -26,8 +26,9 @@
       background-color: var(--bg-color);
       color: var(--text-dark);
       padding: 16px;
+      padding-top: 24px;
       min-height: 100vh;
-      max-width: 450px; /* Enforced mobile screen boundary */
+      max-width: 450px; /* Pure Mobile View */
       margin: 0 auto;
     }
 
@@ -76,29 +77,35 @@
       color: var(--text-muted);
       font-size: 13px;
       line-height: 1.5;
-      margin-bottom: 22px;
+      margin-bottom: 30px;
     }
 
-    /* Leader Card Styling - Increased Size & Direct Blend Overlay */
+    /* Leader List Container */
     .leader-list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 30px; /* Space for overlay pop-out images */
+    }
+
+    /* Card Wrapper to support overlay extension */
+    .leader-card-wrapper {
+      position: relative;
+      width: 100%;
+      cursor: pointer;
     }
 
     .leader-card {
       position: relative;
       background: linear-gradient(135deg, #FFF08A 0%, #FFD200 50%, #EEB400 100%);
       border-radius: 28px;
-      padding: 16px 18px 16px 0px; /* Left padding zeroed to allow overlay to touch the edge */
+      padding: 16px 18px 16px 135px; /* Left padding space for overlay image */
       display: flex;
       align-items: center;
       justify-content: space-between;
-      cursor: pointer;
       box-shadow: 0 10px 25px rgba(230, 185, 0, 0.35);
-      overflow: hidden;
-      min-height: 150px; /* Increased Card Size */
+      min-height: 130px;
       border: 1px solid rgba(255, 255, 255, 0.7);
+      overflow: hidden;
     }
 
     /* Crowd/Flag Texture Overlay inside Card */
@@ -116,44 +123,27 @@
       z-index: 1;
     }
 
-    .card-left {
-      display: flex;
-      align-items: flex-end;
-      gap: 6px;
-      z-index: 2;
-      height: 100%;
-      flex: 1;
-    }
-
-    /* Direct Person Cutout Container - No Square Box background */
-    .avatar-wrapper {
-      width: 135px;
-      height: 150px;
-      position: relative;
-      flex-shrink: 0;
-      display: flex;
-      align-items: flex-end;
-      margin-bottom: -16px; /* Aligns cutout perfectly with the card bottom boundary */
-    }
-
-    .avatar-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: bottom left;
-      filter: drop-shadow(3px 4px 8px rgba(0, 0, 0, 0.22));
+    /* Person Image Overlay Cutout Positioned Above the Card */
+    .leader-overlay-img {
+      position: absolute;
+      left: -5px;
+      bottom: 0;
+      height: 155px; /* Bigger height so it overlays outside top/bottom */
+      width: auto;
+      z-index: 10; /* Keeps image overlaying top of card */
+      filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.22));
+      pointer-events: none;
     }
 
     .card-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-bottom: 4px;
       z-index: 2;
     }
 
     .card-text h3 {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       color: #111;
       line-height: 1.1;
@@ -164,7 +154,7 @@
       align-self: flex-start;
       background-color: var(--primary);
       color: #000;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
       padding: 5px 10px;
       border-radius: 8px;
@@ -179,8 +169,8 @@
     }
 
     .arrow-btn {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background-color: #FFE600;
       display: flex;
@@ -251,7 +241,6 @@
       z-index: 2;
     }
 
-    /* Overview Cutout Direct Overlay */
     .person-overlay-img {
       width: 165px;
       height: 185px;
@@ -390,57 +379,48 @@
 
       <div class="leader-list">
         <!-- Varun Tej Card -->
-        <div class="leader-card" onclick="redirectToOverview(0)">
-          <!-- Background Flag/Crowd Texture Link -->
-          <div class="card-bg-overlay" style="background-image: url('755063636_18385822585206821_2809575467455819912_n..jpg');"></div>
-          <div class="card-left">
-            <div class="avatar-wrapper">
-              <!-- Insert Leader Transparent Cutout PNG Link Here -->
-              <img src="755063636_18385822585206821_2809575467455819912_n..jpg" alt="Varun Tej">
-            </div>
+        <div class="leader-card-wrapper" onclick="redirectToOverview(0)">
+          <!-- Overlay Transparent Cutout Image directly on card -->
+          <img class="leader-overlay-img" src="755063636_18385822585206821_2809575467455819912_n..jpg" alt="Varun Tej">
+          <div class="leader-card">
+            <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
             <div class="card-text">
               <h3>Varun Tej</h3>
               <span class="badge-role">Parliament President</span>
               <span class="org-text">TNSF Kadapa Parliament</span>
             </div>
+            <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
           </div>
-          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
 
         <!-- Mahesh Reddy Card -->
-        <div class="leader-card" onclick="redirectToOverview(1)">
-          <!-- Background Flag/Crowd Texture Link -->
-          <div class="card-bg-overlay" style="background-image: url('755063636_18385822585206821_2809575467455819912_n..jpg');"></div>
-          <div class="card-left">
-            <div class="avatar-wrapper">
-              <!-- Insert Leader Transparent Cutout PNG Link Here -->
-              <img src="755063636_18385822585206821_2809575467455819912_n..jpg" alt="Mahesh Reddy">
-            </div>
+        <div class="leader-card-wrapper" onclick="redirectToOverview(1)">
+          <!-- Overlay Transparent Cutout Image directly on card -->
+          <img class="leader-overlay-img" src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Mahesh Reddy">
+          <div class="leader-card">
+            <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
             <div class="card-text">
               <h3>Mahesh Reddy</h3>
               <span class="badge-role">General Secretary</span>
               <span class="org-text">TNSF Kadapa Parliament</span>
             </div>
+            <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
           </div>
-          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
 
         <!-- Karthik Yadav Card -->
-        <div class="leader-card" onclick="redirectToOverview(2)">
-          <!-- Background Flag/Crowd Texture Link -->
-          <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
-          <div class="card-left">
-            <div class="avatar-wrapper">
-              <!-- Insert Leader Transparent Cutout PNG Link Here -->
-              <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Karthik Yadav">
-            </div>
+        <div class="leader-card-wrapper" onclick="redirectToOverview(2)">
+          <!-- Overlay Transparent Cutout Image directly on card -->
+          <img class="leader-overlay-img" src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Karthik Yadav">
+          <div class="leader-card">
+            <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
             <div class="card-text">
               <h3>Karthik Yadav</h3>
               <span class="badge-role">Treasurer</span>
               <span class="org-text">TNSF Kadapa Parliament</span>
             </div>
+            <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
           </div>
-          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
       </div>
     </div>
@@ -454,7 +434,6 @@
           <button class="back-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Back</button>
           
           <div class="header-content">
-            <!-- Cutout Image Direct Overlay -->
             <img id="detail-img" class="person-overlay-img" src="" alt="Leader Photo">
             <div class="header-info">
               <h2 id="detail-name"></h2>
