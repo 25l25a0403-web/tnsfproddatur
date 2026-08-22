@@ -9,8 +9,8 @@
     :root {
       --primary: #FFD200;
       --primary-dark: #E5BB00;
-      --text-dark: #1A1A1A;
-      --text-muted: #666666;
+      --text-dark: #111111;
+      --text-muted: #555555;
       --card-bg: #FFFFFF;
       --bg-color: #FFFDF0;
     }
@@ -25,7 +25,7 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-dark);
-      padding: 40px 20px;
+      padding: 20px;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -33,11 +33,12 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 500px;
       width: 100%;
+      margin: 0 auto;
     }
 
-    /* Views toggle */
+    /* Views Toggle */
     .view-section {
       display: none;
     }
@@ -46,21 +47,21 @@
       display: block;
     }
 
-    /* Left Section Header */
+    /* Section Typography */
     .section-title {
       color: var(--primary-dark);
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .main-heading {
-      font-size: 36px;
+      font-size: 28px;
       font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 12px;
+      line-height: 1.2;
+      margin-bottom: 8px;
       color: #111;
     }
 
@@ -69,167 +70,174 @@
       height: 4px;
       background-color: var(--primary);
       border-radius: 2px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .description {
       color: var(--text-muted);
       font-size: 13.5px;
       line-height: 1.6;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
 
     .sub-heading {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    /* Redesigned Card Matching Image Overlay */
+    /* Leader Card Styling */
     .leader-list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
 
-    .leader-banner-card {
-      position: relative;
-      background: linear-gradient(135deg, #FFF9D2 0%, #FFE866 50%, #FFD200 100%);
+    .leader-card {
+      background: linear-gradient(135deg, #FFF9D2 0%, #FFF3A1 50%, #FFDC2E 100%);
       border-radius: 18px;
-      overflow: hidden;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 160px;
-      padding: 0 24px;
       cursor: pointer;
-      box-shadow: 0 8px 25px rgba(230, 185, 0, 0.15);
-      border: 1px solid rgba(255, 210, 0, 0.4);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .leader-banner-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(230, 185, 0, 0.3);
+    /* Left Image Overlay container */
+    .card-photo-wrapper {
+      position: relative;
+      width: 110px;
+      height: 100px;
+      flex-shrink: 0;
     }
 
-    /* Background crowd texture simulation */
-    .leader-banner-card::before {
-      content: "";
+    /* Background pattern mix for card photo */
+    .card-bg-pattern {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 10% 50%, rgba(255, 255, 255, 0.6) 0%, transparent 60%);
-      pointer-events: none;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+      mix-blend-mode: multiply;
+      border-radius: 12px;
     }
 
-    .card-person-overlay {
+    /* Cutout person image */
+    .card-person-img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
       height: 100%;
-      display: flex;
-      align-items: flex-end;
-      z-index: 2;
-      width: 35%;
-    }
-
-    .card-person-overlay img {
-      height: 150px;
       object-fit: contain;
       object-position: bottom left;
-      filter: drop-shadow(2px 5px 8px rgba(0,0,0,0.15));
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
     }
 
-    .card-details-center {
-      z-index: 2;
+    .card-text-content {
       flex-grow: 1;
-      padding-left: 10px;
+      padding-left: 12px;
+      z-index: 1;
     }
 
     .badge-tag {
-      font-family: 'Georgia', serif;
-      font-style: italic;
-      font-size: 22px;
-      font-weight: bold;
-      color: #111;
-      background: #FFE500;
-      padding: 2px 14px;
-      border-radius: 20px;
       display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    .card-details-center h3 {
-      font-size: 32px;
-      font-weight: 900;
-      color: #111;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .role-badge {
-      display: inline-block;
-      background-color: var(--primary);
-      color: #111;
+      font-family: 'Caveat', 'Segoe Script', cursive, sans-serif;
+      font-size: 18px;
       font-weight: 700;
-      font-size: 13px;
-      padding: 4px 12px;
+      color: #111;
+      background: #FFE600;
+      padding: 2px 10px;
       border-radius: 6px;
       margin-bottom: 4px;
     }
 
-    .sub-org {
-      font-size: 13px;
-      color: #333;
-      font-weight: 600;
+    .card-text-content h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #000;
+      line-height: 1.1;
     }
 
-    .action-arrow {
-      width: 42px;
-      height: 42px;
+    .card-role-pill {
+      display: inline-block;
+      background: var(--primary);
+      color: #000;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-top: 4px;
+    }
+
+    .card-org {
+      font-size: 11px;
+      color: #444;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .arrow-btn {
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      background-color: #FFD200;
+      background-color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #000;
-      font-size: 16px;
-      z-index: 2;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-size: 12px;
       flex-shrink: 0;
+      z-index: 1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    /* Right Section: Overview Card */
+    /* Overview Page Styling */
     .details-card {
       background: var(--card-bg);
-      border-radius: 20px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     .overview-header-banner {
-      background: linear-gradient(135deg, #FFF9D2 0%, #FFD200 100%);
-      height: 250px;
+      background: linear-gradient(135deg, #FFF7C2 0%, #FFDE38 100%);
+      height: 240px;
       position: relative;
       display: flex;
       align-items: flex-end;
-      padding: 0 30px;
+      padding: 0 16px;
+    }
+
+    .header-bg-mix {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      mix-blend-mode: multiply;
     }
 
     .back-btn {
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 16px;
+      left: 16px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background-color: #FFD200;
+      background-color: var(--primary);
       color: #000;
       border: none;
-      padding: 8px 18px;
+      padding: 8px 14px;
       border-radius: 8px;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
       z-index: 10;
     }
 
@@ -238,51 +246,50 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      z-index: 2;
     }
 
-    .person-overlay-img {
-      height: 230px;
+    .overview-person-img {
+      height: 200px;
       object-fit: contain;
       object-position: bottom;
       filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.15));
     }
 
     .header-info {
-      padding-bottom: 25px;
+      padding-bottom: 20px;
       text-align: right;
-      flex-grow: 1;
     }
 
     .header-info h2 {
-      font-size: 34px;
+      font-size: 26px;
       font-weight: 800;
       color: #111;
-      margin-bottom: 2px;
     }
 
     .header-info .role {
-      color: #D9A000;
-      font-size: 16px;
+      color: var(--primary-dark);
+      font-size: 14px;
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .social-links {
       display: flex;
       justify-content: flex-end;
-      gap: 10px;
+      gap: 8px;
     }
 
     .social-btn {
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #FFF;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .fb { background-color: #3b5998; }
@@ -290,24 +297,35 @@
     .ig { background-color: #e1306c; }
     .wa { background-color: #25d366; }
 
+    /* Overview Body */
     .overview-body {
-      padding: 30px;
+      padding: 24px 20px;
     }
 
     .overview-heading {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 800;
-      margin-bottom: 12px;
-      border-bottom: 2px solid #FFD200;
+      margin-bottom: 8px;
+      position: relative;
       display: inline-block;
-      padding-bottom: 4px;
+    }
+
+    .overview-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 25px;
+      height: 3px;
+      background-color: var(--primary);
     }
 
     .overview-bio {
       color: var(--text-muted);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.6;
-      margin-bottom: 25px;
+      margin-top: 10px;
+      margin-bottom: 20px;
     }
 
     .info-list {
@@ -317,23 +335,23 @@
 
     .info-row {
       display: grid;
-      grid-template-columns: 40px 140px 1fr;
+      grid-template-columns: 32px 110px 1fr;
       align-items: center;
       padding: 12px 0;
       border-top: 1px solid #F0F0F0;
-      font-size: 14px;
+      font-size: 12.5px;
     }
 
     .info-icon {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       background-color: #FFF9E6;
       color: #B88600;
       border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .info-label {
@@ -344,106 +362,83 @@
     .info-value {
       color: var(--text-muted);
     }
-
-    @media (max-width: 768px) {
-      .leader-banner-card {
-        height: auto;
-        padding: 15px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .card-person-overlay {
-        width: 100%;
-        justify-content: center;
-      }
-      .card-person-overlay img {
-        height: 120px;
-      }
-      .card-details-center {
-        padding-left: 0;
-        margin-top: 10px;
-      }
-      .action-arrow {
-        align-self: flex-end;
-      }
-    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <!-- Main Leadership List View -->
+    
+    <!-- LIST VIEW PAGE -->
     <div class="view-section active" id="list-view">
       <div class="section-title">ABOUT US</div>
       <h1 class="main-heading">Building a Stronger<br>Tomorrow Together</h1>
       <div class="accent-bar"></div>
       
       <p class="description">
-        TNSF Kadapa Parliament is committed to the upliftment of students and the empowerment of youth. We work towards creating opportunities, raising voices, and building a progressive society through unity, leadership, and selfless service.
+        TNSF Kadapa Parliament is committed to the upliftment of students and the empowerment of youth through unity and leadership.
       </p>
 
       <h2 class="sub-heading">Our Leadership</h2>
       <div class="accent-bar"></div>
 
       <div class="leader-list">
-        <!-- Card 1: Varun Tej -->
-        <div class="leader-banner-card" onclick="openOverview(0)">
-          <div class="card-person-overlay">
-            <!-- Replace image link here for Card 1 cut-out image -->
-            <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Varun Tej" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'">
+        <!-- Leader Card 1 -->
+        <div class="leader-card" onclick="openOverview(0)">
+          <div class="card-photo-wrapper">
+            <div class="card-bg-pattern" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300');"></div>
+            <img class="card-person-img" src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Varun Tej" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300'">
           </div>
-          <div class="card-details-center">
-            <div class="badge-tag">Our Leadership</div>
+          <div class="card-text-content">
+            <div class="badge-tag">Our Leadership</div><br>
             <h3>Varun Tej</h3>
-            <div><span class="role-badge">Parliament President</span></div>
-            <div class="sub-org">TNSF Kadapa Parliament</div>
+            <span class="card-role-pill">Parliament President</span>
+            <div class="card-org">TNSF Kadapa Parliament</div>
           </div>
-          <div class="action-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
 
-        <!-- Card 2: Mahesh Reddy -->
-        <div class="leader-banner-card" onclick="openOverview(1)">
-          <div class="card-person-overlay">
-            <!-- Replace image link here for Card 2 cut-out image -->
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300" alt="Mahesh Reddy">
+        <!-- Leader Card 2 -->
+        <div class="leader-card" onclick="openOverview(1)">
+          <div class="card-photo-wrapper">
+            <div class="card-bg-pattern" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300');"></div>
+            <img class="card-person-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300" alt="Mahesh Reddy">
           </div>
-          <div class="card-details-center">
-            <div class="badge-tag">Our Leadership</div>
+          <div class="card-text-content">
+            <div class="badge-tag">Our Leadership</div><br>
             <h3>Mahesh Reddy</h3>
-            <div><span class="role-badge">General Secretary</span></div>
-            <div class="sub-org">TNSF Kadapa Parliament</div>
+            <span class="card-role-pill">General Secretary</span>
+            <div class="card-org">TNSF Kadapa Parliament</div>
           </div>
-          <div class="action-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
 
-        <!-- Card 3: Karthik Yadav -->
-        <div class="leader-banner-card" onclick="openOverview(2)">
-          <div class="card-person-overlay">
-            <!-- Replace image link here for Card 3 cut-out image -->
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=300" alt="Karthik Yadav">
+        <!-- Leader Card 3 -->
+        <div class="leader-card" onclick="openOverview(2)">
+          <div class="card-photo-wrapper">
+            <div class="card-bg-pattern" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300');"></div>
+            <img class="card-person-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300" alt="Karthik Yadav">
           </div>
-          <div class="card-details-center">
-            <div class="badge-tag">Our Leadership</div>
+          <div class="card-text-content">
+            <div class="badge-tag">Our Leadership</div><br>
             <h3>Karthik Yadav</h3>
-            <div><span class="role-badge">Treasurer</span></div>
-            <div class="sub-org">TNSF Kadapa Parliament</div>
+            <span class="card-role-pill">Treasurer</span>
+            <div class="card-org">TNSF Kadapa Parliament</div>
           </div>
-          <div class="action-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
       </div>
     </div>
 
-    <!-- Overview View Panel -->
+    <!-- OVERVIEW VIEW PAGE -->
     <div class="view-section" id="overview-view">
       <div class="details-card">
         
-        <!-- Header Banner with Overlay -->
         <div class="overview-header-banner">
+          <div class="header-bg-mix" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600');"></div>
           <button class="back-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Back</button>
           
           <div class="header-content">
-            <!-- Replace image link dynamically or in JS -->
-            <img id="detail-img" class="person-overlay-img" src="" alt="Leader Photo">
+            <img id="detail-img" class="overview-person-img" src="" alt="Leader Photo">
             <div class="header-info">
               <h2 id="detail-name"></h2>
               <div id="detail-role" class="role"></div>
@@ -457,7 +452,6 @@
           </div>
         </div>
 
-        <!-- Bio & Details -->
         <div class="overview-body">
           <h3 class="overview-heading">Overview</h3>
           <p id="detail-bio" class="overview-bio"></p>
@@ -493,6 +487,7 @@
 
       </div>
     </div>
+
   </div>
 
   <script>
@@ -500,19 +495,20 @@
       {
         name: "Varun Tej",
         role: "Parliament President",
-        image: "https://i.ibb.co/C30H2mK/person-cutout.png",
-        bio: "Varun Tej has been a guiding force behind TNSF Kadapa Parliament. With a vision for student empowerment and social change, he leads with integrity, dedication, and a commitment to building a better future for all.",
+        personImage: "https://i.ibb.co/C30H2mK/person-cutout.png",
+        fallbackImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400",
+        bio: "Varun Tej has been a guiding force behind TNSF Kadapa Parliament. With a vision for student empowerment and social change, he leads with integrity and dedication.",
         dob: "15 August 1990",
         hometown: "Kadapa, Andhra Pradesh",
         education: "MBA, Sri Venkateswara University",
         experience: "10+ Years in Youth & Social Services",
-        vision: "To empower every student, strengthen youth leadership, and create a positive impact on society."
+        vision: "To empower every student, strengthen youth leadership, and create a positive impact."
       },
       {
         name: "Mahesh Reddy",
         role: "General Secretary",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
-        bio: "Mahesh Reddy manages daily organizational strategies and student campaigns. He is dedicated to structuring impactful activities across educational institutions in Kadapa.",
+        personImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400",
+        bio: "Mahesh Reddy manages daily organizational strategies and student campaigns. He is dedicated to structuring impactful activities across Kadapa.",
         dob: "10 May 1992",
         hometown: "Proddatur, Andhra Pradesh",
         education: "B.Tech in Computer Science",
@@ -522,13 +518,13 @@
       {
         name: "Karthik Yadav",
         role: "Treasurer",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400",
-        bio: "Karthik Yadav drives financial strategy and transparent allocation of organizational resources to maximize impact for welfare programs.",
+        personImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400",
+        bio: "Karthik Yadav drives financial strategy and transparent allocation of organizational resources to maximize welfare programs.",
         dob: "22 November 1994",
         hometown: "Rajampet, Andhra Pradesh",
         education: "M.Com in Finance",
         experience: "5+ Years in Finance & Social Campaigns",
-        vision: "To maintain financial transparency and ensure maximum aid reach for needy students."
+        vision: "To maintain financial transparency and ensure maximum aid reach for students."
       }
     ];
 
@@ -537,7 +533,11 @@
       
       document.getElementById('detail-name').innerText = data.name;
       document.getElementById('detail-role').innerText = data.role;
-      document.getElementById('detail-img').src = data.image;
+      
+      const imgElem = document.getElementById('detail-img');
+      imgElem.src = data.personImage;
+      imgElem.onerror = () => { imgElem.src = data.fallbackImage; };
+
       document.getElementById('detail-bio').innerText = data.bio;
       document.getElementById('detail-dob').innerText = data.dob;
       document.getElementById('detail-hometown').innerText = data.hometown;
@@ -547,12 +547,13 @@
 
       document.getElementById('list-view').classList.remove('active');
       document.getElementById('overview-view').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo(0, 0);
     }
 
     function goBack() {
       document.getElementById('overview-view').classList.remove('active');
       document.getElementById('list-view').classList.add('active');
+      window.scrollTo(0, 0);
     }
   </script>
 </body>
