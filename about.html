@@ -27,7 +27,7 @@
       color: var(--text-dark);
       padding: 16px;
       min-height: 100vh;
-      max-width: 450px; /* Mobile View Container */
+      max-width: 450px;
       margin: 0 auto;
     }
 
@@ -36,7 +36,6 @@
       position: relative;
     }
 
-    /* Page View Visibility */
     .view-section {
       display: none;
       width: 100%;
@@ -46,7 +45,6 @@
       display: block;
     }
 
-    /* Top Heading */
     .section-title {
       color: var(--primary-dark);
       font-size: 12px;
@@ -79,132 +77,132 @@
       margin-bottom: 22px;
     }
 
-    /* Card List */
     .leader-list {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
-    /* Leader Card Container */
+    /* Target Overlay Card Design */
     .leader-card {
       position: relative;
-      background: linear-gradient(135deg, #FFF08A 0%, #FFD200 50%, #EEB400 100%);
-      border-radius: 28px;
-      padding: 16px 18px 16px 0px;
+      background: linear-gradient(135deg, #FFE853 0%, #FFD200 60%, #E6B800 100%);
+      border-radius: 36px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      box-shadow: 0 10px 25px rgba(230, 185, 0, 0.35);
+      box-shadow: 0 12px 28px rgba(230, 185, 0, 0.3);
       overflow: hidden;
-      min-height: 150px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding-right: 20px;
     }
 
-    /* Background Banner Overlay inside Card */
-    .card-bg-overlay {
+    /* Halftone Dot Pattern Effect in Background */
+    .card-dot-pattern {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0.22;
-      mix-blend-mode: overlay;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 220px;
+      height: 220px;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px);
+      background-size: 12px 12px;
+      border-radius: 50%;
       pointer-events: none;
       z-index: 1;
     }
 
-    .card-left {
-      display: flex;
-      align-items: flex-end;
-      gap: 6px;
-      z-index: 2;
-      height: 100%;
-      flex: 1;
-    }
-
-    /* Direct Person Cutout Overlay (No Box/Border) */
+    /* Large Overlay Image Container */
     .avatar-wrapper {
-      width: 140px;
-      height: 155px;
-      position: relative;
-      flex-shrink: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60%;
+      height: 100%;
+      z-index: 2;
       display: flex;
       align-items: flex-end;
-      margin-bottom: -16px;
     }
 
     .avatar-wrapper img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: bottom left;
-      filter: drop-shadow(3px 4px 8px rgba(0, 0, 0, 0.22));
+      object-fit: cover;
+      object-position: top center;
+      /* Soft bottom edge blend into the card base */
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 100%);
+      filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.15));
     }
 
-    .card-text {
+    /* Card Details Layout */
+    .card-content {
+      position: relative;
+      z-index: 3;
+      margin-left: auto;
+      width: 52%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding-bottom: 4px;
-      z-index: 2;
+      gap: 10px;
     }
 
     .card-text h3 {
-      font-size: 24px;
+      font-size: 30px;
       font-weight: 800;
       color: #111;
-      line-height: 1.1;
-      margin-bottom: 6px;
+      line-height: 1.05;
+      letter-spacing: -0.5px;
     }
 
     .badge-role {
-      align-self: flex-start;
-      background-color: var(--primary);
-      color: #000;
-      font-size: 12px;
+      display: inline-block;
+      background-color: #FFDE00;
+      color: #111;
+      font-size: 14px;
       font-weight: 800;
-      padding: 5px 10px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      padding: 10px 14px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      line-height: 1.25;
+      max-width: 140px;
     }
 
     .org-text {
-      font-size: 11px;
+      font-size: 12px;
       color: #222;
-      font-weight: 600;
-      margin-top: 6px;
+      font-weight: 700;
+      line-height: 1.2;
     }
 
     .arrow-btn {
-      width: 40px;
-      height: 40px;
+      position: relative;
+      z-index: 3;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background-color: #FFE600;
+      background-color: #FFE800;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #000;
-      font-size: 14px;
+      font-size: 15px;
       flex-shrink: 0;
-      z-index: 2;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    /* Overview Section Styling */
+    /* Overview Page Styling */
     .details-card {
       background: var(--card-bg);
-      border-radius: 28px;
+      border-radius: 32px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .overview-header-banner {
-      background: linear-gradient(135deg, #FFF08A 0%, #FFD200 50%, #EEB400 100%);
+      background: linear-gradient(135deg, #FFE853 0%, #FFD200 60%, #E6B800 100%);
       position: relative;
       padding: 16px 16px 0px 16px;
       display: flex;
@@ -212,30 +210,16 @@
       overflow: hidden;
     }
 
-    .overview-bg-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0.22;
-      mix-blend-mode: overlay;
-      pointer-events: none;
-      z-index: 1;
-    }
-
     .back-btn {
       align-self: flex-start;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background-color: var(--primary);
+      background-color: #FFDE00;
       color: #000;
       border: none;
       padding: 8px 16px;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: 800;
       font-size: 12px;
       cursor: pointer;
@@ -252,14 +236,14 @@
       z-index: 2;
     }
 
-    /* Overview Cutout Direct Overlay */
     .person-overlay-img {
-      width: 165px;
-      height: 185px;
-      object-fit: contain;
-      object-position: bottom left;
-      filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.2));
-      margin-bottom: -2px;
+      width: 170px;
+      height: 195px;
+      object-fit: cover;
+      object-position: top center;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+      filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.15));
     }
 
     .header-info {
@@ -276,7 +260,7 @@
     }
 
     .header-info .role {
-      color: #CC9100;
+      color: #B88600;
       font-size: 13px;
       font-weight: 800;
       margin-top: 4px;
@@ -307,7 +291,6 @@
     .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
     .wa { background-color: #25d366; }
 
-    /* Overview Content Body */
     .overview-body {
       padding: 22px;
     }
@@ -379,7 +362,7 @@
 <body>
 
   <div class="container">
-    <!-- View 1: Mobile Cards List -->
+    <!-- View 1: Mobile Leader Cards -->
     <div class="view-section active" id="list-view">
       <div class="section-title">ABOUT US</div>
       <h1 class="main-heading">Building a Stronger<br>Tomorrow Together</h1>
@@ -392,48 +375,48 @@
       <div class="leader-list">
         <!-- Varun Tej Card -->
         <div class="leader-card" onclick="redirectToOverview(0)">
-          <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
-          <div class="card-left">
-            <div class="avatar-wrapper">
-              <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Varun Tej">
-            </div>
+          <div class="card-dot-pattern"></div>
+          <div class="avatar-wrapper">
+            <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Varun Tej">
+          </div>
+          <div class="card-content">
             <div class="card-text">
               <h3>Varun Tej</h3>
-              <span class="badge-role">Parliament President</span>
-              <span class="org-text">TNSF Kadapa Parliament</span>
             </div>
+            <div class="badge-role">Parliament<br>President</div>
+            <div class="org-text">TNSF Kadapa<br>Parliament</div>
           </div>
           <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
 
         <!-- Mahesh Reddy Card -->
         <div class="leader-card" onclick="redirectToOverview(1)">
-          <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
-          <div class="card-left">
-            <div class="avatar-wrapper">
-              <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Mahesh Reddy">
-            </div>
+          <div class="card-dot-pattern"></div>
+          <div class="avatar-wrapper">
+            <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Mahesh Reddy">
+          </div>
+          <div class="card-content">
             <div class="card-text">
               <h3>Mahesh Reddy</h3>
-              <span class="badge-role">General Secretary</span>
-              <span class="org-text">TNSF Kadapa Parliament</span>
             </div>
+            <div class="badge-role">General<br>Secretary</div>
+            <div class="org-text">TNSF Kadapa<br>Parliament</div>
           </div>
           <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
 
         <!-- Karthik Yadav Card -->
         <div class="leader-card" onclick="redirectToOverview(2)">
-          <div class="card-bg-overlay" style="background-image: url('https://i.ibb.co/C30H2mK/person-cutout.png');"></div>
-          <div class="card-left">
-            <div class="avatar-wrapper">
-              <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Karthik Yadav">
-            </div>
+          <div class="card-dot-pattern"></div>
+          <div class="avatar-wrapper">
+            <img src="https://i.ibb.co/C30H2mK/person-cutout.png" alt="Karthik Yadav">
+          </div>
+          <div class="card-content">
             <div class="card-text">
               <h3>Karthik Yadav</h3>
-              <span class="badge-role">Treasurer</span>
-              <span class="org-text">TNSF Kadapa Parliament</span>
             </div>
+            <div class="badge-role">Treasurer<br>Officer</div>
+            <div class="org-text">TNSF Kadapa<br>Parliament</div>
           </div>
           <div class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></div>
         </div>
@@ -445,7 +428,7 @@
       <div class="details-card">
         
         <div class="overview-header-banner">
-          <div id="overview-bg" class="overview-bg-overlay"></div>
+          <div class="card-dot-pattern"></div>
           <button class="back-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Back</button>
           
           <div class="header-content">
@@ -506,7 +489,6 @@
         name: "Varun Tej",
         role: "Parliament President",
         image: "https://i.ibb.co/C30H2mK/person-cutout.png",
-        bgOverlay: "https://i.ibb.co/C30H2mK/person-cutout.png",
         bio: "Varun Tej has been a guiding force behind TNSF Kadapa Parliament. With a vision for student empowerment and social change, he leads with integrity, dedication, and a commitment to building a better future for all.",
         dob: "15 August 1990",
         hometown: "Kadapa, Andhra Pradesh",
@@ -518,7 +500,6 @@
         name: "Mahesh Reddy",
         role: "General Secretary",
         image: "https://i.ibb.co/C30H2mK/person-cutout.png",
-        bgOverlay: "https://i.ibb.co/C30H2mK/person-cutout.png",
         bio: "Mahesh Reddy manages daily organizational strategies and student campaigns. He is dedicated to structuring impactful activities across educational institutions in Kadapa.",
         dob: "10 May 1992",
         hometown: "Proddatur, Andhra Pradesh",
@@ -530,7 +511,6 @@
         name: "Karthik Yadav",
         role: "Treasurer",
         image: "https://i.ibb.co/C30H2mK/person-cutout.png",
-        bgOverlay: "https://i.ibb.co/C30H2mK/person-cutout.png",
         bio: "Karthik Yadav drives financial strategy and transparent allocation of organizational resources to maximize impact for welfare programs.",
         dob: "22 November 1994",
         hometown: "Rajampet, Andhra Pradesh",
@@ -546,7 +526,6 @@
       document.getElementById('detail-name').innerText = data.name;
       document.getElementById('detail-role').innerText = data.role;
       document.getElementById('detail-img').src = data.image;
-      document.getElementById('overview-bg').style.backgroundImage = `url('${data.bgOverlay}')`;
       document.getElementById('detail-bio').innerText = data.bio;
       document.getElementById('detail-dob').innerText = data.dob;
       document.getElementById('detail-hometown').innerText = data.hometown;
