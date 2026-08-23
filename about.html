@@ -380,7 +380,6 @@
         <div class="leader-card" onclick="openOverview(0)">
           <div class="card-person-container">
             <div class="card-bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300');"></div>
-            <!-- Insert Image URL here -->
             <img class="card-person-img" src="file_00000000cc1c8211a7826a139b27867d.png" alt="Bojja Tirumalesh">
           </div>
           <div class="card-text-content">
@@ -395,7 +394,6 @@
         <div class="leader-card" onclick="openOverview(1)">
           <div class="card-person-container">
             <div class="card-bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300');"></div>
-            <!-- Insert Image URL here -->
             <img class="card-person-img" src="file_000000007af0820886d31e0044d35230.png" alt="Mahesh Reddy">
           </div>
           <div class="card-text-content">
@@ -410,7 +408,6 @@
         <div class="leader-card" onclick="openOverview(2)">
           <div class="card-person-container">
             <div class="card-bg-overlay" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=300');"></div>
-            <!-- Insert Image URL here -->
             <img class="card-person-img" src="file_00000000e5b48211babf2fb94a0524d0.png" alt="Karthik Yadav">
           </div>
           <div class="card-text-content">
@@ -432,17 +429,16 @@
           
           <div class="header-content">
             <div class="overview-person-container">
-              <!-- Insert Overview Image URL here -->
               <img id="detail-img" class="overview-person-img" src="" alt="Leader Photo">
             </div>
             <div class="header-info">
               <h2 id="detail-name"></h2>
               <div id="detail-role" class="role"></div>
               <div class="social-links">
-                <a href="#" class="social-btn fb"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-btn tw"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="social-btn ig"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-btn wa"><i class="fa-brands fa-whatsapp"></i></a>
+                <a id="social-fb" href="#" target="_blank" class="social-btn fb"><i class="fa-brands fa-facebook-f"></i></a>
+                <a id="social-tw" href="#" target="_blank" class="social-btn tw"><i class="fa-brands fa-twitter"></i></a>
+                <a id="social-ig" href="#" target="_blank" class="social-btn ig"><i class="fa-brands fa-instagram"></i></a>
+                <a id="social-wa" href="#" target="_blank" class="social-btn wa"><i class="fa-brands fa-whatsapp"></i></a>
               </div>
             </div>
           </div>
@@ -497,7 +493,13 @@
         hometown: "Kadapa, Andhra Pradesh",
         education: "MBA, Sri Venkateswara University",
         experience: "10+ Years in Youth & Social Services",
-        vision: "To empower every student, strengthen youth leadership, and create a positive impact on society."
+        vision: "To empower every student, strengthen youth leadership, and create a positive impact on society.",
+        socials: {
+          facebook: "https://facebook.com/bojja.tirumalesh",
+          twitter: "https://twitter.com/bojja_tirumalesh",
+          instagram: "https://instagram.com/bojja_tirumalesh",
+          whatsapp: "https://wa.me/910000000000"
+        }
       },
       {
         name: "Bejivemula Chethan Reddy",
@@ -508,7 +510,13 @@
         hometown: "Proddatur, Andhra Pradesh",
         education: "B.Tech in Computer Science",
         experience: "7+ Years in Organizational Leadership",
-        vision: "To organize and unitize student movements effectively across all districts."
+        vision: "To organize and unitize student movements effectively across all districts.",
+        socials: {
+          facebook: "https://facebook.com/chethanreddy",
+          twitter: "https://twitter.com/chethanreddy",
+          instagram: "https://instagram.com/chethanreddy",
+          whatsapp: "https://wa.me/910000000001"
+        }
       },
       {
         name: "Shaik Sadhik",
@@ -519,7 +527,13 @@
         hometown: "Rajampet, Andhra Pradesh",
         education: "M.Com in Finance",
         experience: "5+ Years in Finance & Social Campaigns",
-        vision: "To maintain financial transparency and ensure maximum aid reach for needy students."
+        vision: "To maintain financial transparency and ensure maximum aid reach for needy students.",
+        socials: {
+          facebook: "https://facebook.com/shaiksadhik",
+          twitter: "https://twitter.com/shaiksadhik",
+          instagram: "https://instagram.com/shaiksadhik",
+          whatsapp: "https://wa.me/910000000002"
+        }
       }
     ];
 
@@ -535,6 +549,12 @@
       document.getElementById('detail-education').innerText = data.education;
       document.getElementById('detail-experience').innerText = data.experience;
       document.getElementById('detail-vision').innerText = data.vision;
+
+      /* Update Social Media Links Dynamically */
+      document.getElementById('social-fb').href = data.socials.facebook || '#';
+      document.getElementById('social-tw').href = data.socials.twitter || '#';
+      document.getElementById('social-ig').href = data.socials.instagram || '#';
+      document.getElementById('social-wa').href = data.socials.whatsapp || '#';
 
       document.getElementById('list-view').classList.remove('active');
       document.getElementById('overview-view').classList.add('active');
