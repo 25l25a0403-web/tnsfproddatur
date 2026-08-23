@@ -870,35 +870,6 @@
             font-size: 16px;
         }
 
-        .incharge-card {
-            background: #FFF;
-            border: 1px solid #EEE;
-            border-radius: 6px;
-            overflow: hidden;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .incharge-card img {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-        }
-
-        .incharge-info { padding: 8px; }
-        .incharge-info h4 { font-size: 12px; }
-
-        .incharge-info p {
-            font-size: 10px;
-            color: var(--primary);
-            font-weight: bold;
-            background: var(--dark);
-            display: inline-block;
-            padding: 2px 6px;
-            border-radius: 2px;
-            margin-top: 2px;
-        }
-
         /* ADMIN PAGE STYLES */
         .admin-view {
             background-color: var(--light);
@@ -1013,9 +984,7 @@
     </style>
 </head>
 <body>
-    <!-- MAIN HOME PAGE VIEW -->
     <div id="home-page" class="page-view active">
-        <!-- HEADER -->
         <header>
             <div class="brand">
                 <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img" id="main-logo-img">
@@ -1027,7 +996,6 @@
             <button class="menu-btn" id="open-menu"><i class="fas fa-bars"></i></button>
         </header>
 
-        <!-- HERO SLIDER SECTION -->
         <div class="hero">
             <div class="slider-container">
                 <div class="slide active" style="background-image: url('file_00000000e6108208a6a7fccbbfd81eff.png');"></div>
@@ -1040,7 +1008,6 @@
             </div>
         </div>
 
-        <!-- WELCOME BANNER SECTION -->
         <section style="padding: 12px;">
             <div class="welcome-banner-card">
                 <div class="welcome-content-left">
@@ -1067,7 +1034,6 @@
             </div>
         </section>
 
-        <!-- WHY JOIN TNSF -->
         <section class="why-join">
             <h3 class="section-title">WHY JOIN <span>TNSF?</span></h3>
             <div class="grid-2x2">
@@ -1094,7 +1060,6 @@
             </div>
         </section>
 
-        <!-- OUR ACTIVITIES -->
         <section class="activities">
             <h3 class="section-title">OUR <span>ACTIVITIES</span></h3>
             <div class="scroll-container">
@@ -1126,8 +1091,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- CTA BANNER NEAR FOOTER -->
         <div class="cta-banner">
             <div class="cta-icon"><i class="fas fa-users"></i></div>
             <h3>BE A PART OF THE <span>CHANGE</span></h3>
@@ -1138,7 +1101,6 @@
             </div>
         </div>
 
-        <!-- NEW SOCIAL MEDIA SECTION -->
         <div class="social-media-section">
             <div class="social-header">
                 <div class="social-header-line"></div>
@@ -1185,7 +1147,6 @@
             </div>
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <div class="footer-brand">
                 <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
@@ -1198,7 +1159,7 @@
             
             <div class="footer-title">Quick Links</div>
             <ul class="footer-links">
-                <li><a href="about.html" class="nav-to-about">> About Us</a></li>
+                <li><a href="about.html">> About Us</a></li>
                 <li><a href="#" class="nav-to-contact">> Contact Us</a></li>
                 <li><a href="#" class="open-join-modal">> Join TNSF</a></li>
             </ul>
@@ -1221,44 +1182,7 @@
             </div>
         </footer>
     </div>
-    <!-- ABOUT US PAGE -->
-    <div id="about-page" class="page-view">
-        <header>
-            <div class="brand">
-                <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
-                <div class="brand-text">
-                    <h1>TNSF KADAPA PARLIAMENT</h1>
-                    <p>About Us</p>
-                </div>
-            </div>
-            <button class="menu-btn open-menu-btn"><i class="fas fa-bars"></i></button>
-        </header>
 
-        <div class="page-header">
-            <h2>ABOUT TNSF KADAPA PARLIAMENT</h2>
-        </div>
-
-        <section class="welcome">
-            <h3>TNSF <span>KADAPA PARLIAMENT</span></h3>
-            <p style="margin-top:10px; font-size:12px; line-height:1.5;">Telugu Nadu Students Federation (TNSF) is dedicated to empowering student communities across Kadapa Parliament. Our organization strives to ensure quality education, fair student rights, and strong youth leadership development.</p>
-        </section>
-
-        <section>
-            <h3 class="section-title">PARLIAMENT WIDE<span>LEADERSHIP</span></h3>
-            <div class="incharge-card">
-                <img src="https://picsum.photos/id/1012/300/150" alt="President">
-                <div class="incharge-info">
-                    <h4>Parliament President</h4>
-                    <p>TNSF Kadapa Parliament</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 15px;">
-                <button class="btn btn-dark nav-to-home"><i class="fas fa-arrow-left"></i> Back to Home</button>
-            </div>
-        </section>
-    </div>
-
-    <!-- CONTACT US PAGE -->
     <div id="contact-page" class="page-view">
         <header>
             <div class="brand">
@@ -1297,7 +1221,6 @@
         </section>
     </div>
 
-    <!-- ADMIN PAGE VIEW -->
     <div id="admin-page" class="page-view admin-view">
         <header>
             <div class="brand">
@@ -1315,14 +1238,12 @@
             <p style="font-size: 11px; opacity:0.8;">Manage student applications and parliamentary data.</p>
         </div>
 
-        <!-- SEARCH BAR -->
         <div class="admin-search-box">
             <div class="form-group" style="margin-bottom: 0;">
                 <input type="text" id="admin-search-input" class="form-control" placeholder="Search by name or contact number..." onkeyup="filterAdminData()">
             </div>
         </div>
 
-        <!-- TWO BUTTONS PER ROW -->
         <div class="admin-btn-grid">
             <button class="btn btn-yellow" onclick="showAdminTab('requests')"><i class="fas fa-bell"></i> Requests</button>
             <button class="btn btn-yellow" onclick="showAdminTab('accepted')"><i class="fas fa-check-circle"></i> Accepted</button>
@@ -1331,11 +1252,9 @@
         </div>
 
         <section id="admin-content-area" style="padding-top: 5px;">
-            <!-- Dynamic Content Renders Here -->
-        </section>
+            </section>
     </div>
 
-    <!-- NAVIGATION SIDEBAR -->
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
     <div class="sidebar" id="sidebar">
         <button class="close-btn" id="close-menu"><i class="fas fa-times"></i></button>
@@ -1345,13 +1264,12 @@
             <p>The Voice of Students</p>
         </div>
         <ul class="nav-links" id="sidebar-links">
-            <li><a href="about.html" class="nav-to-about"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
             <li><a href="#" class="nav-to-contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
             <li><a href="#" class="btn-sidebar-join open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</a></li>
         </ul>
     </div>
 
-    <!-- ADMIN LOGIN MODAL -->
     <div class="modal" id="admin-login-modal">
         <div class="modal-content" style="max-width:320px; text-align:center;">
             <button class="modal-close" id="close-admin-modal"><i class="fas fa-times"></i></button>
@@ -1372,7 +1290,6 @@
         </div>
     </div>
 
-    <!-- JOIN TNSF MODAL FORM -->
     <div class="modal" id="join-modal">
         <div class="modal-content">
             <button class="modal-close" id="close-join-modal"><i class="fas fa-times"></i></button>
@@ -1420,7 +1337,6 @@
         </div>
     </div>
 
-    <!-- OVERVIEW DETAIL POPUP MODAL -->
     <div class="modal" id="overview-modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('overview-modal')"><i class="fas fa-times"></i></button>
@@ -1430,7 +1346,6 @@
         </div>
     </div>
 
-    <!-- SUCCESS POPUP MODAL -->
     <div class="modal" id="success-modal">
         <div class="popup-box">
             <i class="fas fa-check-circle"></i>
@@ -1439,7 +1354,7 @@
             <button class="btn btn-dark" id="close-success-popup" style="width: 100%;">OK</button>
         </div>
     </div>
-    <!-- JAVASCRIPT -->
+
     <script>
         // Sample Storage Array
         let applications = [
@@ -1469,10 +1384,8 @@
         const contactPageForm = document.getElementById('contact-page-form');
 
         const homePage = document.getElementById('home-page');
-        const aboutPage = document.getElementById('about-page');
         const contactPage = document.getElementById('contact-page');
         const adminPage = document.getElementById('admin-page');
-
         // Admin Auth Modal
         const mainLogoImg = document.getElementById('main-logo-img');
         const adminLoginModal = document.getElementById('admin-login-modal');
@@ -1514,7 +1427,7 @@
             if (isAdminLoggedIn) {
                 sidebarLinks.innerHTML = `
                     <li><a href="#" onclick="showPage(adminPage)"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</a></li>
-                    <li><a href="about.html" class="nav-to-about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
                     <li><a href="#" onclick="logoutAdmin()" style="color:#ff4d4d !important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 `;
                 bindNavigationEvents();
@@ -1560,7 +1473,6 @@
         // View Routing
         function showPage(page) {
             homePage.classList.remove('active');
-            aboutPage.classList.remove('active');
             contactPage.classList.remove('active');
             adminPage.classList.remove('active');
             page.classList.add('active');
@@ -1569,7 +1481,6 @@
         }
 
         function bindNavigationEvents() {
-            document.querySelectorAll('.nav-to-about').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(aboutPage); }));
             document.querySelectorAll('.nav-to-contact').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(contactPage); }));
             document.querySelectorAll('.nav-to-home').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(homePage); }));
         }
