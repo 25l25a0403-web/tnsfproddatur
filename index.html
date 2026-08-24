@@ -311,6 +311,12 @@
             font-weight: 700;
         }
 
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            font-weight: 800;
+        }
+
         .btn-dark {
             background-color: var(--dark);
             color: var(--light);
@@ -509,320 +515,6 @@
             line-height: 1.4;
         }
 
-        /* ACTIVITIES SECTION */
-        .scroll-container {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            padding: 10px 0;
-        }
-
-        .scroll-track {
-            display: flex;
-            gap: 15px;
-            width: max-content;
-            animation: scrollLeft 18s linear infinite;
-        }
-
-        .scroll-track:hover { animation-play-state: paused; }
-
-        @keyframes scrollLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .activity-card {
-            width: 220px;
-            height: 150px;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            flex-shrink: 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-        }
-
-        .activity-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .activity-card-title {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: #FFF;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 12px 8px 6px 8px;
-            text-align: center;
-        }
-
-        /* CTA BANNER NEAR FOOTER */
-        .cta-banner {
-            background-color: var(--dark);
-            color: var(--light);
-            text-align: center;
-            padding: 28px 16px;
-            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/500/300');
-            background-size: cover;
-        }
-
-        .cta-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 10px auto;
-            color: var(--dark);
-        }
-
-        .cta-banner h3 {
-            font-size: 16px;
-            font-weight: 800;
-        }
-
-        .cta-banner h3 span { color: var(--primary); }
-
-        .cta-banner p {
-            font-size: 11px;
-            color: #CCC;
-            margin: 6px 0 16px 0;
-        }
-
-        .cta-banner .btn-container {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        /* SOCIAL MEDIA SECTION */
-        .social-media-section {
-            background-color: var(--social-bg);
-            padding: 25px 0;
-            position: relative;
-            border-radius: 16px;
-            margin: 15px 12px;
-        }
-
-        .social-header {
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .social-header-line {
-            width: 30px;
-            height: 2px;
-            background-color: var(--primary);
-        }
-
-        .social-header h3 {
-            font-size: 16px;
-            font-weight: 900;
-            color: #000;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .social-slider-wrapper {
-            position: relative;
-            padding: 0 35px;
-        }
-
-        .social-slider {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding: 5px 0;
-        }
-
-        .social-slider::-webkit-scrollbar {
-            display: none;
-        }
-
-        .social-card {
-            flex: 0 0 145px;
-            scroll-snap-align: center;
-            background: #FFF;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: inherit;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .social-card-img-wrap {
-            position: relative;
-            width: 100%;
-            height: 200px;
-        }
-
-        .social-card-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .social-play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 28px;
-            height: 28px;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #000;
-            font-size: 10px;
-        }
-
-        .social-card-footer {
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #333;
-            background: #FFF;
-        }
-
-        .social-card-footer i {
-            font-size: 14px;
-            color: #E1306C;
-        }
-
-        .social-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 32px;
-            height: 32px;
-            background: #FFF;
-            border: 1px solid #EAEAEA;
-            border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            color: #333;
-            font-size: 12px;
-        }
-
-        .social-nav-btn.prev { left: 8px; }
-        .social-nav-btn.next { right: 8px; }
-
-        /* FOOTER */
-        footer {
-            background-color: var(--dark);
-            color: var(--light);
-            padding: 24px 20px 12px 20px;
-            margin-top: auto;
-            font-size: 12px;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .footer-text {
-            font-size: 10px;
-            color: #AAA;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .footer-title {
-            color: var(--light);
-            font-weight: bold;
-            font-size: 12px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .footer-links {
-            list-style: none;
-            margin-bottom: 15px;
-        }
-
-        .footer-links li { margin-bottom: 4px; }
-
-        .footer-links a {
-            color: #AAA;
-            text-decoration: none;
-            font-size: 11px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .social-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #333;
-            color: var(--light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            text-decoration: none;
-        }
-
-        .social-icon.fb { background: #3b5998; }
-        .social-icon.insta { background: #e1306c; }
-        .social-icon.wa { background: #25d366; }
-        .social-icon.yt { background: #ff0000; }
-
-        .footer-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #AAA;
-            font-size: 11px;
-            margin-bottom: 6px;
-        }
-
-        .footer-contact-item i { color: var(--primary); }
-
-        .copyright {
-            background-color: var(--primary);
-            color: var(--dark);
-            text-align: center;
-            padding: 8px;
-            font-size: 10px;
-            font-weight: bold;
-            margin: 20px -20px -12px -20px;
-        }
-
         /* DYNAMIC PAGES / MODALS */
         .page-view { display: none; }
         .page-view.active { display: block; }
@@ -886,42 +578,28 @@
             resize: vertical;
         }
 
-        .popup-box {
-            background: var(--light);
-            padding: 25px 20px;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 320px;
-            width: 100%;
+        /* NOTIFICATION USER SELECTION LIST */
+        .user-select-list {
+            max-height: 160px;
+            overflow-y: auto;
+            border: 1px solid #CCC;
+            border-radius: 4px;
+            padding: 8px;
+            margin-bottom: 14px;
+            background: #FAFAFA;
         }
 
-        .popup-box i {
-            font-size: 40px;
-            color: #25d366;
-            margin-bottom: 10px;
-        }
-
-        .popup-box h3 {
-            font-size: 16px;
-            margin-bottom: 6px;
-        }
-
-        .popup-box p {
+        .user-select-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px;
+            border-bottom: 1px solid #EAEAEA;
             font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
         }
 
-        .page-header {
-            background: var(--dark);
-            color: var(--light);
-            padding: 18px;
-            text-align: center;
-        }
-
-        .page-header h2 {
-            color: var(--primary);
-            font-size: 18px;
+        .user-select-item:last-child {
+            border-bottom: none;
         }
 
         /* ADMIN PAGE STYLES */
@@ -972,184 +650,34 @@
             cursor: pointer;
         }
 
-        .data-card h4 {
-            font-size: 13px;
-            color: var(--text-dark);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .data-card p {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        .watermark-container {
-            position: relative;
-            min-height: 300px;
-        }
-
-        .watermark-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 180px;
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .data-sheet {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            font-size: 11px;
-        }
-
-        .data-sheet th, .data-sheet td {
-            border: 1px solid #DDD;
-            padding: 8px;
-            text-align: left;
-        }
-
-        .data-sheet th {
+        /* FOOTER */
+        footer {
             background-color: var(--dark);
-            color: var(--primary);
+            color: var(--light);
+            padding: 24px 20px 12px 20px;
+            margin-top: auto;
+            font-size: 12px;
         }
 
-        .switch-btn {
-            background: #CCC;
-            border: none;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .switch-btn.active-on {
-            background: #28A745;
-            color: #FFF;
-        }
-
-        /* HISTORY & RECENT ACTIVITIES STYLES */
-        .history-card {
-            background: #FFF;
-            border: 1px solid #EAEAEA;
-            border-left: 4px solid var(--primary);
-            border-radius: 6px;
-            padding: 10px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 11px;
-        }
-
-        .history-card-body {
-            flex-grow: 1;
-        }
-
-        .history-card-body .title {
-            font-weight: bold;
-            color: #111;
-        }
-
-        .history-card-body .time {
-            font-size: 9.5px;
-            color: #777;
-            margin-top: 2px;
-        }
-
-        .filter-chip-container {
-            display: flex;
-            gap: 6px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-            margin-bottom: 12px;
-        }
-
-        .filter-chip {
-            background: #EFEFEF;
-            border: 1px solid #DDD;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 10px;
-            font-weight: 600;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-
-        .filter-chip.active {
-            background: var(--dark);
-            color: var(--primary);
-            border-color: var(--dark);
-        }
-
-        .date-range-box {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            margin-bottom: 12px;
-            background: #F0F0F0;
+        .copyright {
+            background-color: var(--primary);
+            color: var(--dark);
+            text-align: center;
             padding: 8px;
-            border-radius: 6px;
-        }
-
-        .action-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            padding: 4px 0;
-            border-bottom: 1px solid #EEE;
+            font-size: 10px;
+            font-weight: bold;
+            margin: 20px -20px -12px -20px;
         }
 
         /* DESKTOP RESPONSIVENESS MEDIA QUERIES */
         @media (min-width: 768px) {
-            .hero .slider-container {
-                height: 320px;
-            }
-            .hero-content h2 {
-                font-size: 28px;
-            }
-            .hero-content p {
-                font-size: 13px;
-            }
-            .stat-card {
-                padding: 22px 16px;
-            }
-            .stat-number {
-                font-size: 34px;
-            }
-            .stat-label {
-                font-size: 12px;
-            }
-            .welcome-btn-group {
-                flex-direction: row;
-            }
-            .welcome-btn-group .btn {
-                flex: 1;
-            }
-            .grid-2x2 {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .social-card {
-                flex: 0 0 180px;
-            }
-            .social-card-img-wrap {
-                height: 240px;
-            }
-            .admin-btn-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .admin-btn-grid .btn[style*="grid-column: span 2;"] {
-                grid-column: span 4 !important;
-            }
+            .hero-content h2 { font-size: 28px; }
+            .stat-card { padding: 22px 16px; }
+            .stat-number { font-size: 34px; }
+            .welcome-btn-group { flex-direction: row; }
+            .welcome-btn-group .btn { flex: 1; }
+            .admin-btn-grid { grid-template-columns: repeat(4, 1fr); }
+            .admin-btn-grid .full-span { grid-column: span 4 !important; }
         }
     </style>
 </head>
@@ -1169,8 +697,6 @@
         <div class="hero">
             <div class="slider-container">
                 <div class="slide active" style="background-image: url('file_00000000e6108208a6a7fccbbfd81eff.png');"></div>
-                <div class="slide" style="background-image: url('file_000000004d8c82118062e5a56160084a.png');"></div>
-                <div class="slide" style="background-image: url('file_00000000e5e88208ac80eaca358c39b1.png');"></div>
             </div>
             <div class="hero-content">
                 <h2>Together For <span>Students</span><br>Together For <span>Future</span></h2>
@@ -1201,212 +727,21 @@
                     <div class="welcome-subtitle-script">Welcome to</div>
                     <div class="welcome-title-main">TNSF</div>
                     <div class="welcome-title-sub">KADAPA PARLIAMENT</div>
-                    
                     <div class="divider-line"></div>
-
                     <p class="welcome-description">
-                        TNSF KADAPA PARLIAMENT is a platform for every student to raise their voice, develop leadership skills and work for the betterment of society.
-                        <strong>Together, we can build a strong and bright future.</strong>
-                    </p>
-
+                        TNSF KADAPA PARLIAMENT is a platform for every student to raise their voice and build a strong future.</p>
                     <div class="welcome-btn-group">
                         <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
-                        <button class="btn btn-white nav-to-contact"><i class="fas fa-phone"></i> CONTACT US</button>
-                    </div>
-                </div>
-
-                <div class="welcome-person-container">
-                    <img id="person-image" class="welcome-person-img" src="images (1).jpeg" alt="TNSF Leader Image">
-                </div>
-            </div>
-        </section>
-
-        <section class="why-join">
-            <h3 class="section-title">WHY JOIN <span>TNSF?</span></h3>
-            <div class="grid-2x2">
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-users"></i></div>
-                    <h4>Voice of Students</h4>
-                    <p>We raise the issues that matter to students.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-flag"></i></div>
-                    <h4>Leadership Development</h4>
-                    <p>Build leadership skills and become a change maker.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-book"></i></div>
-                    <h4>Education & Awareness</h4>
-                    <p>Promote quality education and student awareness.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
-                    <h4>Events & Activities</h4>
-                    <p>Participate in events, camps and social activities.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="activities">
-            <h3 class="section-title">OUR <span>ACTIVITIES</span></h3>
-            <div class="scroll-container">
-                <div class="scroll-track">
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 1">
-                        <div class="activity-card-title">Student Rallies</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 2">
-                        <div class="activity-card-title">Campus Awareness</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 3">
-                        <div class="activity-card-title">Blood Donation Camps</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 4">
-                        <div class="activity-card-title">Youth Leadership</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 1">
-                        <div class="activity-card-title">Student Rallies</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 2">
-                        <div class="activity-card-title">Campus Awareness</div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <div class="cta-banner">
-            <div class="cta-icon"><i class="fas fa-users"></i></div>
-            <h3>BE A PART OF THE <span>CHANGE</span></h3>
-            <p>Join TNSF Proddatur and work together for students, society and a better tomorrow.</p>
-            <div class="btn-container">
-                <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
-                <button class="btn btn-dark nav-to-contact"><i class="fas fa-phone"></i> CONTACT US</button>
-            </div>
-        </div>
-
-        <div class="social-media-section">
-            <div class="social-header">
-                <div class="social-header-line"></div>
-                <h3>SOCIAL MEDIA</h3>
-                <div class="social-header-line"></div>
-            </div>
-
-            <div class="social-slider-wrapper">
-                <button class="social-nav-btn prev" id="social-prev"><i class="fas fa-chevron-left"></i></button>
-                
-                <div class="social-slider" id="social-slider">
-                    <a href="https://www.instagram.com/reel/DcIGDragVn0/?igsi=MWdoZTkwbnVqc3YzMA==" target="_blank" class="social-card">
-                        <div class="social-card-img-wrap">
-                            <img src="Screenshot_2026-08-21-20-43-28-32_1c337646f29875672b5a61192b9010f9.jpg" alt="Post" class="social-card-img">
-                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                        <div class="social-card-footer">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </div>
-                    </a>
-
-                    <a href="https://www.instagram.com/reel/DcP_ZhhADKf/?igsi=eG9vbWFrZmY5ejZ4" target="_blank" class="social-card">
-                        <div class="social-card-img-wrap">
-                            <img src="IMG-20260820-WA0009.jpg" alt="Post" class="social-card-img">
-                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                        <div class="social-card-footer">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </div>
-                    </a>
-
-                    <a href="https://www.instagram.com/reel/DcIGDragVn0/?igsi=MWdoZTkwbnVqc3YzMA==" target="_blank" class="social-card">
-                        <div class="social-card-img-wrap">
-                            <img src="file_00000000bbc0821192f24e0f51f7811d.png" alt="Post" class="social-card-img">
-                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                        <div class="social-card-footer">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </div>
-                    </a>
-                </div>
-
-                <button class="social-nav-btn next" id="social-next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </div>
 
         <footer>
-            <div class="footer-brand">
-                <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
-                <div class="brand-text">
-                    <h1 style="color:var(--primary); font-size:12px;">TNSF KADAPA PARLIAMENT</h1>
-                    <p style="font-size:8px; color:#AAA;">The Voice of Students</p>
-                </div>
-            </div>
-            <p class="footer-text">Together for Students,<br>Together for Future.<br>Unite | Learn | Lead | Succeed</p>
-            
-            <div class="footer-title">Quick Links</div>
-            <ul class="footer-links">
-                <li><a href="about.html">> About Us</a></li>
-                <li><a href="#" class="nav-to-contact">> Contact Us</a></li>
-                <li><a href="#" class="open-join-modal">> Join TNSF</a></li>
-            </ul>
-
-            <div class="footer-title">Follow Us</div>
-            <div class="social-icons">
-                <a href="#" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon insta"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon wa"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="social-icon yt"><i class="fab fa-youtube"></i></a>
-            </div>
-
-            <div class="footer-title">Contact Us</div>
-            <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> +91 7893447784,9581965939,6303254192</div>
-            <div class="footer-contact-item"><i class="fas fa-envelope"></i> tnsfkadapaparliament@gmail.com</div>
-            <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> KADAPA, Andhra Pradesh</div>
-
             <div class="copyright">
                 © 2026 TNSF KADAPA PARLIAMENT. All Rights Reserved.
             </div>
         </footer>
-    </div>
-
-    <div id="contact-page" class="page-view">
-        <header>
-            <div class="brand">
-                <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
-                <div class="brand-text">
-                    <h1>TNSF KADAPA PARLIAMENT</h1>
-                    <p>Contact Us</p>
-                </div>
-            </div>
-            <button class="menu-btn open-menu-btn"><i class="fas fa-bars"></i></button>
-        </header>
-
-        <div class="page-header">
-            <h2>GET IN TOUCH</h2>
-        </div>
-
-        <section>
-            <form id="contact-page-form">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" class="form-control" required placeholder="Enter your full name">
-                </div>
-                <div class="form-group">
-                    <label>Contact Number</label>
-                    <input type="tel" class="form-control" required placeholder="Enter mobile number">
-                </div>
-                <div class="form-group">
-                    <label>Mail Address</label>
-                    <input type="email" class="form-control" required placeholder="Enter email address">
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">SUBMIT</button>
-            </form>
-            <div style="text-align: center; margin-top: 20px;">
-                <button class="btn btn-dark nav-to-home"><i class="fas fa-arrow-left"></i> Back to Home</button>
-            </div>
-        </section>
     </div>
 
     <div id="admin-page" class="page-view admin-view">
@@ -1449,34 +784,63 @@
         </div>
 
         <div class="admin-btn-grid">
+            <button class="btn btn-whatsapp full-span" style="grid-column: span 2;" onclick="openNotificationModal()"><i class="fab fa-whatsapp"></i> Send Notification</button>
             <button class="btn btn-yellow" onclick="showAdminTab('requests')"><i class="fas fa-bell"></i> Requests</button>
             <button class="btn btn-yellow" onclick="showAdminTab('accepted')"><i class="fas fa-check-circle"></i> Accepted</button>
             <button class="btn btn-yellow" onclick="showAdminTab('constituencies')"><i class="fas fa-map-marker-alt"></i> Constituencies</button>
             <button class="btn btn-yellow" onclick="showAdminTab('rejected')"><i class="fas fa-times-circle"></i> Rejected</button>
         </div>
 
-        <section id="admin-content-area" style="padding-top: 5px;">
-        </section>
+        <section id="admin-content-area" style="padding-top: 5px;"></section>
     </div>
 
-    <div class="sidebar-overlay" id="sidebar-overlay"></div>
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" id="close-menu"><i class="fas fa-times"></i></button>
-        <div class="sidebar-brand">
-            <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
-            <h2>TNSF KADAPA PARLIAMENT</h2>
-            <p>The Voice of Students</p>
+    <!-- SEND NOTIFICATION MODAL -->
+    <div class="modal" id="notification-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('notification-modal')"><i class="fas fa-times"></i></button>
+            <h3 style="font-size:16px; margin-bottom:12px; text-align:center;"><i class="fab fa-whatsapp" style="color:#25D366;"></i> Send WhatsApp Notification</h3>
+            
+            <div class="form-group">
+                <label>Filter by Constituency</label>
+                <select id="notif-constituency-filter" class="form-control" onchange="renderNotificationUserList()">
+                    <option value="all">All Constituencies</option>
+                    <option value="Badvel">Badvel</option>
+                    <option value="Kadapa">Kadapa</option>
+                    <option value="Pulivendla">Pulivendla</option>
+                    <option value="Kamalapuram">Kamalapuram</option>
+                    <option value="Jammalamadugu">Jammalamadugu</option>
+                    <option value="Proddatur">Proddatur</option>
+                    <option value="Mydukur">Mydukur</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Search User</label>
+                <input type="text" id="notif-user-search" class="form-control" placeholder="Search by name or number..." onkeyup="renderNotificationUserList()">
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <label style="font-size:11px; font-weight:bold;">Select Recipients</label>
+                <label style="font-size:10px; cursor:pointer;"><input type="checkbox" id="select-all-notif-users" onchange="toggleSelectAllNotifUsers(this)"> Select All</label>
+            </div>
+
+            <div class="user-select-list" id="notif-user-list">
+                <!-- Dynamic User List Rendered Here -->
+            </div>
+
+            <div class="form-group">
+                <label>Notification Message</label>
+                <textarea id="notif-message" class="form-control" placeholder="Type your broadcast message here..."></textarea>
+            </div>
+
+            <button class="btn btn-whatsapp" style="width:100%;" onclick="sendWhatsAppNotification()"><i class="fab fa-whatsapp"></i> Send Notification</button>
         </div>
-        <ul class="nav-links" id="sidebar-links">
-            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-            <li><a href="#" class="nav-to-contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
-            <li><a href="#" class="btn-sidebar-join open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</a></li>
-        </ul>
     </div>
 
+    <!-- AUTHENTICATION MODAL -->
     <div class="modal" id="admin-login-modal">
         <div class="modal-content" style="max-width:320px; text-align:center;">
-            <button class="modal-close" id="close-admin-modal"><i class="fas fa-times"></i></button>
+            <button class="modal-close" onclick="closeModal('admin-login-modal')"><i class="fas fa-times"></i></button>
             <img src="images (3).jpeg" class="logo-img" style="width:60px; height:60px; margin-bottom:10px;">
             <h3 style="margin-bottom:15px; font-size:16px;">Admin Authentication</h3>
             <form id="admin-login-form">
@@ -1494,666 +858,140 @@
         </div>
     </div>
 
-    <div class="modal" id="join-modal">
-        <div class="modal-content">
-            <button class="modal-close" id="close-join-modal"><i class="fas fa-times"></i></button>
-            <h3 style="font-size:16px; margin-bottom:15px; text-align:center;">JOIN TNSF FORM</h3>
-            <form id="join-tnsf-form">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="form-name" class="form-control" required placeholder="Your full name">
-                </div>
-                <div class="form-group">
-                    <label>Contact Number</label>
-                    <input type="tel" id="form-contact" class="form-control" required placeholder="Your mobile number">
-                </div>
-                <div class="form-group">
-                    <label>Constituency</label>
-                    <select id="form-constituency" class="form-control" required>
-                        <option value="">Select Constituency</option>
-                        <option value="Badvel">Badvel</option>
-                        <option value="Kadapa">Kadapa</option>
-                        <option value="Pulivendla">Pulivendla</option>
-                        <option value="Kamalapuram">Kamalapuram</option>
-                        <option value="Jammalamadugu">Jammalamadugu</option>
-                        <option value="Proddatur">Proddatur</option>
-                        <option value="Mydukur">Mydukur</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>College / Institution</label>
-                    <input type="text" id="form-college" class="form-control" required placeholder="College name">
-                </div>
-                <div class="form-group">
-                    <label>City</label>
-                    <input type="text" id="form-city" class="form-control" required placeholder="Your city">
-                </div>
-                <div class="form-group">
-                    <label>Full Address</label>
-                    <textarea id="form-address" class="form-control" required placeholder="Complete address"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Why you choose TNSF?</label>
-                    <textarea id="form-reason" class="form-control" required placeholder="State your reason"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">SUBMIT APPLICATION</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="modal" id="overview-modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('overview-modal')"><i class="fas fa-times"></i></button>
-            <h3 style="font-size:16px; margin-bottom:12px; text-align:center; color:var(--dark);">Overview Details</h3>
-            <div id="overview-details-content" style="font-size:12px; line-height:1.6;"></div>
-            <div id="overview-actions" style="margin-top:15px; display:flex; gap:10px; justify-content:center;"></div>
-        </div>
-    </div>
-
-    <div class="modal" id="success-modal">
-        <div class="popup-box">
-            <i class="fas fa-check-circle"></i>
-            <h3>Thank You!</h3>
-            <p>Our team will contact you soon.</p>
-            <button class="btn btn-dark" id="close-success-popup" style="width: 100%;">OK</button>
-        </div>
-    </div>
-
     <script>
-        // Sample Storage Array
         let applications = [
-            { id: 1, name: "Suresh Kumar", contact: "9876543210", constituency: "Kadapa", college: "KSRM", city: "Kadapa", address: "7/12 RK Nagar", reason: "Social service interest", status: "pending", active: true },
-            { id: 2, name: "Ramesh Reddy", contact: "9123456789", constituency: "Proddatur", college: "YVU", city: "Proddatur", address: "Main Bazaar", reason: "Student rights protection", status: "accepted", active: true },
-            { id: 3, name: "Venkatesh B", contact: "8899001122", constituency: "Pulivendla", college: "GDC", city: "Pulivendla", address: "Ring Road", reason: "Leadership Skills", status: "rejected", active: true }
+            { id: 1, name: "Suresh Kumar", contact: "9876543210", constituency: "Kadapa", college: "KSRM", city: "Kadapa", address: "7/12 RK Nagar", status: "accepted", active: true },
+            { id: 2, name: "Ramesh Reddy", contact: "9123456789", constituency: "Proddatur", college: "YVU", city: "Proddatur", address: "Main Bazaar", status: "accepted", active: true },
+            { id: 3, name: "Venkatesh B", contact: "8899001122", constituency: "Pulivendla", college: "GDC", city: "Pulivendla", address: "Ring Road", status: "accepted", active: true }
         ];
 
-        // System Activity History Logs
-        let activityLogs = [
-            { id: 101, action: "Admin Logged In", date: new Date().toISOString() },
-            { id: 102, action: "Accepted Application: Ramesh Reddy", date: new Date(Date.now() - 3600000 * 2).toISOString() },
-            { id: 103, action: "Rejected Application: Venkatesh B", date: new Date(Date.now() - 86400000 * 2).toISOString() },
-            { id: 104, action: "New Registration: Suresh Kumar", date: new Date(Date.now() - 86400000 * 10).toISOString() }
-        ];
-
-        let activeAdminTab = 'requests';
-        let historyFilter = 'all';
-        let selectedHistoryIds = [];
         let isAdminLoggedIn = false;
+        let selectedNotifUsers = [];
 
-        // ANIMATED COUNTER SCRIPT
         function animateCounters() {
             const counters = document.querySelectorAll('.animated-counter');
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 let start = 0;
-                const duration = 1800; // Animation duration in ms
+                const duration = 1500;
                 const startTime = performance.now();
 
                 function updateCount(currentTime) {
                     const elapsed = currentTime - startTime;
                     const progress = Math.min(elapsed / duration, 1);
-                    const currentVal = Math.floor(progress * target);
-                    
-                    counter.innerText = currentVal.toLocaleString() + (target >= 1000 ? '+' : '');
-
-                    if (progress < 1) {
-                        requestAnimationFrame(updateCount);
-                    } else {
-                        counter.innerText = target.toLocaleString() + (target >= 1000 ? '+' : '');
-                    }
+                    counter.innerText = Math.floor(progress * target).toLocaleString() + (target >= 1000 ? '+' : '');
+                    if (progress < 1) requestAnimationFrame(updateCount);
                 }
                 requestAnimationFrame(updateCount);
             });
         }
 
-        // Trigger Stats Animation on Scroll or Page Load
-        let animated = false;
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !animated) {
-                    animateCounters();
-                    animated = true;
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.stats-section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Helper function for history logging
-        function logActivity(action) {
-            activityLogs.unshift({
-                id: Date.now(),
-                action: action,
-                date: new Date().toISOString()
-            });
-        }
-
-        // DOM Elements
-        const sidebar = document.getElementById('sidebar');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
-        const openMenuBtn = document.getElementById('open-menu');
-        const closeMenuBtn = document.getElementById('close-menu');
-        const allOpenMenuBtns = document.querySelectorAll('.open-menu-btn');
-        
-        const joinModal = document.getElementById('join-modal');
-        const closeJoinModalBtn = document.getElementById('close-join-modal');
-        const joinBtns = document.querySelectorAll('.open-join-modal');
-        
-        const successModal = document.getElementById('success-modal');
-        const closeSuccessBtn = document.getElementById('close-success-popup');
-
-        const joinForm = document.getElementById('join-tnsf-form');
-        const contactPageForm = document.getElementById('contact-page-form');
-
-        const homePage = document.getElementById('home-page');
-        const contactPage = document.getElementById('contact-page');
-        const adminPage = document.getElementById('admin-page');
-        
-        // Admin Auth Modal
         const mainLogoImg = document.getElementById('main-logo-img');
-        const adminLoginModal = document.getElementById('admin-login-modal');
-        const closeAdminModal = document.getElementById('close-admin-modal');
-        const adminLoginForm = document.getElementById('admin-login-form');
-
-        // Toggle Admin Modal via Main Logo
         mainLogoImg.addEventListener('click', () => {
-            if(isAdminLoggedIn) {
-                showPage(adminPage);
-            } else {
-                adminLoginModal.classList.add('active');
-            }
+            if(isAdminLoggedIn) showPage(document.getElementById('admin-page'));
+            else document.getElementById('admin-login-modal').classList.add('active');
         });
 
-        closeAdminModal.addEventListener('click', () => {
-            adminLoginModal.classList.remove('active');
-        });
-
-        adminLoginForm.addEventListener('submit', (e) => {
+        document.getElementById('admin-login-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const u = document.getElementById('admin-user').value;
             const p = document.getElementById('admin-pass').value;
 
             if (u === 'tnsfkadapa' && p === '@tnsfkadapa') {
                 isAdminLoggedIn = true;
-                adminLoginModal.classList.remove('active');
-                document.getElementById('login-error').style.display = 'none';
-                logActivity("Admin successfully logged into panel");
-                updateSidebarMenu();
-                showPage(adminPage);
-                showAdminTab('requests');
-                setTimeout(animateCounters, 100);
+                document.getElementById('admin-login-modal').classList.remove('active');
+                showPage(document.getElementById('admin-page'));
             } else {
                 document.getElementById('login-error').style.display = 'block';
             }
         });
 
-        function updateSidebarMenu() {
-            const sidebarLinks = document.getElementById('sidebar-links');
-            if (isAdminLoggedIn) {
-                sidebarLinks.innerHTML = `
-                    <li><a href="#" onclick="showPage(adminPage)"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</a></li>
-                    <li><a href="#" onclick="showPage(adminPage); showAdminTab('history');"><i class="fas fa-history"></i> Admin History</a></li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-                    <li><a href="#" onclick="logoutAdmin()" style="color:#ff4d4d !important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                `;
-                bindNavigationEvents();
-            }
-        }
-
-        function logoutAdmin() {
-            isAdminLoggedIn = false;
-            location.reload();
-        }
-
-        // Sidebar Navigation
-        function openSidebar() {
-            sidebar.classList.add('active');
-            sidebarOverlay.classList.add('active');
-        }
-
-        function closeSidebar() {
-            sidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-        }
-
-        openMenuBtn.addEventListener('click', openSidebar);
-        closeMenuBtn.addEventListener('click', closeSidebar);
-        sidebarOverlay.addEventListener('click', closeSidebar);
-        allOpenMenuBtns.forEach(btn => btn.addEventListener('click', openSidebar));
-
-        document.getElementById('admin-menu-btn').addEventListener('click', openSidebar);
-
-        // Join Modal
-        joinBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                closeSidebar();
-                joinModal.classList.add('active');
-            });
-        });
-
-        closeJoinModalBtn.addEventListener('click', () => {
-            joinModal.classList.remove('active');
-        });
-
-        // View Routing
         function showPage(page) {
-            homePage.classList.remove('active');
-            contactPage.classList.remove('active');
-            adminPage.classList.remove('active');
+            document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
             page.classList.add('active');
-            closeSidebar();
             window.scrollTo(0, 0);
-            setTimeout(animateCounters, 100);
+            animateCounters();
         }
-
-        function bindNavigationEvents() {
-            document.querySelectorAll('.nav-to-contact').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(contactPage); }));
-            document.querySelectorAll('.nav-to-home').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(homePage); }));
-        }
-        bindNavigationEvents();
-
-        // Form Submissions
-        joinForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const newReq = {
-                id: applications.length + 1,
-                name: document.getElementById('form-name').value,
-                contact: document.getElementById('form-contact').value,
-                constituency: document.getElementById('form-constituency').value,
-                college: document.getElementById('form-college').value,
-                city: document.getElementById('form-city').value,
-                address: document.getElementById('form-address').value,
-                reason: document.getElementById('form-reason').value,
-                status: 'pending',
-                active: true
-            };
-
-            applications.push(newReq);
-            logActivity(`New join application submitted by ${newReq.name}`);
-            joinModal.classList.remove('active');
-            joinForm.reset();
-            successModal.classList.add('active');
-        });
-
-        contactPageForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            logActivity(`Contact form submitted`);
-            contactPageForm.reset();
-            successModal.classList.add('active');
-        });
-
-        closeSuccessBtn.addEventListener('click', () => successModal.classList.remove('active'));
 
         function closeModal(id) {
             document.getElementById(id).classList.remove('active');
         }
 
-        // ADMIN TAB RENDER logic
-        function showAdminTab(tab) {
-            activeAdminTab = tab;
-            const container = document.getElementById('admin-content-area');
-            const searchVal = document.getElementById('admin-search-input').value.toLowerCase();
-
-            let html = "";
-
-            if (tab === 'requests') {
-                const list = applications.filter(a => a.status === 'pending' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
-                if(list.length === 0) html = "<p style='text-align:center; padding:20px;'>No pending requests found.</p>";
-                list.forEach(item => {
-                    html += `
-                        <div class="data-card" onclick="openOverviewModal(${item.id})">
-                            <h4><i class="fas fa-bell" style="color:var(--primary);"></i> ${item.name} <span style="font-size:10px; color:#666;">${item.constituency}</span></h4>
-                            <p><strong>Contact:</strong> ${item.contact} | <strong>College:</strong> ${item.college}</p>
-                        </div>
-                    `;
-                });
-            } else if (tab === 'accepted') {
-                const list = applications.filter(a => a.status === 'accepted' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
-                if(list.length === 0) html = "<p style='text-align:center; padding:20px;'>No accepted members found.</p>";
-                list.forEach(item => {
-                    html += `
-                        <div class="data-card" onclick="openOverviewModal(${item.id})">
-                            <h4><i class="fas fa-check-circle" style="color:green;"></i> ${item.name}</h4>
-                            <p><strong>Contact:</strong> ${item.contact} | <strong>Constituency:</strong> ${item.constituency}</p>
-                        </div>
-                    `;
-                });
-            } else if (tab === 'constituencies') {
-                html = `
-                    <div style="margin-bottom:15px; text-align:center;">
-                        <select id="constituency-dropdown" class="form-control" style="width:70%; display:inline-block;">
-                            <option value="">Choose Constituency</option>
-                            <option value="Badvel">Badvel</option>
-                            <option value="Kadapa">Kadapa</option>
-                            <option value="Pulivendla">Pulivendla</option>
-                            <option value="Kamalapuram">Kamalapuram</option>
-                            <option value="Jammalamadugu">Jammalamadugu</option>
-                            <option value="Proddatur">Proddatur</option>
-                            <option value="Mydukur">Mydukur</option>
-                        </select>
-                        <button class="btn btn-yellow" onclick="renderConstituencyData()"><i class="fas fa-filter"></i> GET</button>
-                    </div>
-                    <div id="constituency-sheet-view" class="watermark-container">
-                        <img src="images (3).jpeg" class="watermark-logo">
-                        <div id="constituency-table-wrapper">
-                            <p style="text-align:center; color:#888; padding:20px;">Select a constituency and click GET.</p>
-                        </div>
-                    </div>
-                `;
-            } else if (tab === 'rejected') {
-                const list = applications.filter(a => a.status === 'rejected' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
-                html = `
-                    <div class="watermark-container">
-                        <img src="images (3).jpeg" class="watermark-logo">
-                        <table class="data-sheet">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Contact</th>
-                                    <th>Constituency</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${list.map(i => `
-                                    <tr>
-                                        <td>${i.name}</td>
-                                        <td>${i.contact}</td>
-                                        <td>${i.constituency}</td>
-                                    </tr>
-                                `).join('')}
-                                ${list.length === 0 ? '<tr><td colspan="3" style="text-align:center;">No rejected records found.</td></tr>' : ''}
-                            </tbody>
-                        </table>
-                    </div>
-                `;
-            } else if (tab === 'history') {
-                selectedHistoryIds = [];
-                html = renderHistorySection(searchVal);
-            }
-
-            container.innerHTML = html;
+        /* NOTIFICATION BROADCAST LOGIC */
+        function openNotificationModal() {
+            document.getElementById('notification-modal').classList.add('active');
+            renderNotificationUserList();
         }
 
-        // HISTORY UI & LOGIC RENDERER
-        function setHistoryFilter(f) {
-            historyFilter = f;
-            showAdminTab('history');
-        }
+        function renderNotificationUserList() {
+            const constFilter = document.getElementById('notif-constituency-filter').value;
+            const searchVal = document.getElementById('notif-user-search').value.toLowerCase();
+            const container = document.getElementById('notif-user-list');
 
-        function renderHistorySection(searchVal) {
-            let now = new Date();
-            let filteredLogs = activityLogs.filter(log => {
-                let matchesSearch = log.action.toLowerCase().includes(searchVal);
-                let logDate = new Date(log.date);
-
-                if(!matchesSearch) return false;
-
-                if (historyFilter === 'today') {
-                    return logDate.toDateString() === now.toDateString();
-                } else if (historyFilter === 'week') {
-                    let oneWeekAgo = new Date();
-                    oneWeekAgo.setDate(now.getDate() - 7);
-                    return logDate >= oneWeekAgo;
-                } else if (historyFilter === 'month') {
-                    return logDate.getMonth() === now.getMonth() && logDate.getFullYear() === now.getFullYear();
-                } else if (historyFilter === 'custom') {
-                    let startDate = document.getElementById('start-date') ? new Date(document.getElementById('start-date').value) : null;
-                    let endDate = document.getElementById('end-date') ? new Date(document.getElementById('end-date').value) : null;
-                    if (startDate && !isNaN(startDate.getTime())) {
-                        if (logDate < startDate) return false;
-                    }
-                    if (endDate && !isNaN(endDate.getTime())) {
-                        endDate.setHours(23,59,59,999);
-                        if (logDate > endDate) return false;
-                    }
-                    return true;
-                }
-                return true;
+            const filtered = applications.filter(u => {
+                const matchesConst = (constFilter === 'all' || u.constituency === constFilter);
+                const matchesSearch = u.name.toLowerCase().includes(searchVal) || u.contact.includes(searchVal);
+                return matchesConst && matchesSearch;
             });
 
-            return `
-                <div style="padding:0 5px;">
-                    <h3 style="font-size:14px; margin-bottom:10px;"><i class="fas fa-history"></i> Recent Activity Logs</h3>
-                    
-                    <div class="filter-chip-container">
-                        <button class="filter-chip ${historyFilter === 'all' ? 'active' : ''}" onclick="setHistoryFilter('all')">All</button>
-                        <button class="filter-chip ${historyFilter === 'today' ? 'active' : ''}" onclick="setHistoryFilter('today')">Today</button>
-                        <button class="filter-chip ${historyFilter === 'week' ? 'active' : ''}" onclick="setHistoryFilter('week')">This Week</button>
-                        <button class="filter-chip ${historyFilter === 'month' ? 'active' : ''}" onclick="setHistoryFilter('month')">This Month</button>
-                        <button class="filter-chip ${historyFilter === 'custom' ? 'active' : ''}" onclick="setHistoryFilter('custom')">Date Range</button>
-                    </div>
+            if(filtered.length === 0) {
+                container.innerHTML = `<p style="text-align:center; font-size:11px; color:#999; padding:10px;">No users found.</p>`;
+                return;
+            }
 
-                    ${historyFilter === 'custom' ? `
-                        <div class="date-range-box">
-                            <input type="date" id="start-date" class="form-control" style="font-size:10px;">
-                            <span style="font-size:10px;">to</span>
-                            <input type="date" id="end-date" class="form-control" style="font-size:10px;">
-                            <button class="btn btn-yellow" style="padding:6px 10px; font-size:10px;" onclick="showAdminTab('history')">Apply</button>
-                        </div>
-                    ` : ''}
-
-                    <div class="action-bar">
-                        <label style="font-size:11px; cursor:pointer;">
-                            <input type="checkbox" onchange="toggleSelectAllHistory(this)"> Select All
-                        </label>
-                        <div>
-                            <button class="btn btn-danger" style="padding:6px 10px; font-size:10px;" onclick="deleteSelectedHistory()"><i class="fas fa-trash"></i> Delete Selected</button>
-                            <button class="btn btn-dark" style="padding:6px 10px; font-size:10px;" onclick="clearAllHistory()"><i class="fas fa-broom"></i> Clear All</button>
-                        </div>
-                    </div>
-
-                    <div id="history-list">
-                        ${filteredLogs.length === 0 ? '<p style="text-align:center; padding:20px; color:#888;">No recent activity logs found.</p>' : ''}
-                        ${filteredLogs.map(log => `
-                            <div class="history-card">
-                                <input type="checkbox" class="history-checkbox" value="${log.id}" onchange="toggleSelectHistoryItem(${log.id}, this.checked)">
-                                <div class="history-card-body">
-                                    <div class="title">${log.action}</div>
-                                    <div class="time"><i class="far fa-clock"></i> ${new Date(log.date).toLocaleString()}</div>
-                                </div>
-                                <button style="background:none; border:none; color:#d9534f; cursor:pointer;" onclick="deleteSingleHistory(${log.id})"><i class="fas fa-trash-alt"></i></button>
-                            </div>
-                        `).join('')}
+            container.innerHTML = filtered.map(u => `
+                <div class="user-select-item">
+                    <input type="checkbox" class="notif-user-cb" value="${u.contact}" ${selectedNotifUsers.includes(u.contact) ? 'checked' : ''} onchange="toggleNotifUser('${u.contact}', this.checked)">
+                    <div>
+                        <strong>${u.name}</strong> (${u.constituency})
+                        <div style="color:#777; font-size:9.5px;">${u.contact}</div>
                     </div>
                 </div>
-            `;
+            `).join('');
         }
 
-        function toggleSelectHistoryItem(id, isChecked) {
+        function toggleNotifUser(contact, isChecked) {
             if(isChecked) {
-                if(!selectedHistoryIds.includes(id)) selectedHistoryIds.push(id);
+                if(!selectedNotifUsers.includes(contact)) selectedNotifUsers.push(contact);
             } else {
-                selectedHistoryIds = selectedHistoryIds.filter(i => i !== id);
+                selectedNotifUsers = selectedNotifUsers.filter(c => c !== contact);
             }
         }
 
-        function toggleSelectAllHistory(masterCert) {
-            const checkboxes = document.querySelectorAll('.history-checkbox');
-            selectedHistoryIds = [];
+        function toggleSelectAllNotifUsers(master) {
+            const checkboxes = document.querySelectorAll('.notif-user-cb');
             checkboxes.forEach(cb => {
-                cb.checked = masterCert.checked;
-                if(masterCert.checked) {
-                    selectedHistoryIds.push(parseInt(cb.value));
-                }
+                cb.checked = master.checked;
+                toggleNotifUser(cb.value, master.checked);
             });
         }
 
-        function deleteSingleHistory(id) {
-            activityLogs = activityLogs.filter(l => l.id !== id);
-            showAdminTab('history');
-        }
+        function sendWhatsAppNotification() {
+            const msg = document.getElementById('notif-message').value;
 
-        function deleteSelectedHistory() {
-            if(selectedHistoryIds.length === 0) {
-                alert("Please select at least one history record to delete.");
-                return;
-            }
-            if(confirm("Are you sure you want to delete selected history records?")) {
-                activityLogs = activityLogs.filter(l => !selectedHistoryIds.includes(l.id));
-                selectedHistoryIds = [];
-                showAdminTab('history');
-            }
-        }
-
-        function clearAllHistory() {
-            if(confirm("Are you sure you want to clear ALL activity history?")) {
-                activityLogs = [];
-                selectedHistoryIds = [];
-                showAdminTab('history');
-            }
-        }
-
-        function filterAdminData() {
-            if(activeAdminTab !== 'constituencies') {
-                showAdminTab(activeAdminTab);
-            }
-        }
-
-        function openOverviewModal(id) {
-            const item = applications.find(a => a.id === id);
-            if (!item) return;
-
-            const content = document.getElementById('overview-details-content');
-            const actions = document.getElementById('overview-actions');
-
-            content.innerHTML = `
-                <p><strong>Name:</strong> ${item.name}</p>
-                <p><strong>Contact:</strong> ${item.contact}</p>
-                <p><strong>Constituency:</strong> ${item.constituency}</p>
-                <p><strong>College:</strong> ${item.college}</p>
-                <p><strong>City:</strong> ${item.city}</p>
-                <p><strong>Address:</strong> ${item.address}</p>
-                <p><strong>Why TNSF:</strong> ${item.reason}</p>
-                <p><strong>Current Status:</strong> <span style="text-transform:uppercase; font-weight:bold;">${item.status}</span></p>
-            `;
-
-            if(item.status === 'pending') {
-                actions.innerHTML = `
-                    <button class="btn btn-success" onclick="updateStatus(${item.id}, 'accepted')">Accept</button>
-                    <button class="btn btn-danger" onclick="updateStatus(${item.id}, 'rejected')">Reject</button>
-                `;
-            } else {
-                actions.innerHTML = `<button class="btn btn-dark" onclick="closeModal('overview-modal')">Close</button>`;
-            }
-
-            document.getElementById('overview-modal').classList.add('active');
-        }
-
-        function updateStatus(id, newStatus) {
-            const item = applications.find(a => a.id === id);
-            if(item) {
-                item.status = newStatus;
-                logActivity(`Changed status of ${item.name} to ${newStatus}`);
-            }
-            closeModal('overview-modal');
-            showAdminTab(activeAdminTab);
-        }
-
-        function renderConstituencyData() {
-            const selectedVal = document.getElementById('constituency-dropdown').value;
-            const tableWrapper = document.getElementById('constituency-table-wrapper');
-            
-            if(!selectedVal) {
-                tableWrapper.innerHTML = `<p style="text-align:center; color:red; padding:10px;">Please choose a constituency first.</p>`;
+            if(selectedNotifUsers.length === 0) {
+                alert("Please select at least one recipient user!");
                 return;
             }
 
-            const searchVal = document.getElementById('admin-search-input').value.toLowerCase();
-            const list = applications.filter(a => a.constituency === selectedVal && a.active && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+            if(!msg.trim()) {
+                alert("Please enter a message to send.");
+                return;
+            }
 
-            let html = `
-                <table class="data-sheet">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Contact</th>
-                            <th>Constituency</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            list.forEach(i => {
-                html += `
-                    <tr>
-                        <td>${i.name}</td>
-                        <td>${i.contact}</td>
-                        <td>${i.constituency}</td>
-                        <td>
-                            <button class="switch-btn active-on" onclick="toggleActiveStatus(${i.id})">OFF / ON</button>
-                        </td>
-                    </tr>
-                `;
+            // Open WhatsApp Web/API link for the chosen user numbers iteratively
+            selectedNotifUsers.forEach((contact, index) => {
+                setTimeout(() => {
+                    const cleanNum = contact.replace(/\D/g, '');
+                    const phoneWithCode = cleanNum.length === 10 ? '91' + cleanNum : cleanNum;
+                    const url = `https://api.whatsapp.com/send?phone=${phoneWithCode}&text=${encodeURIComponent(msg)}`;
+                    window.open(url, '_blank');
+                }, index * 800); // Trigger sequential windows
             });
 
-            html += `
-                    </tbody>
-                </table>
-            `;
-
-            if(list.length === 0) {
-                html = `<p style="text-align:center; padding:20px;">No active records for ${selectedVal}.</p>`;
-            }
-
-            tableWrapper.innerHTML = html;
+            closeModal('notification-modal');
         }
 
-        function toggleActiveStatus(id) {
-            const item = applications.find(a => a.id === id);
-            if (item) {
-                item.active = false;
-                logActivity(`Deactivated member: ${item.name}`);
-                renderConstituencyData();
-            }
-        }
-
-        // Hero Auto Slider
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 3000);
-
-        // SOCIAL MEDIA AUTOMATIC SCROLLING
-        const socialSlider = document.getElementById('social-slider');
-        const socialPrevBtn = document.getElementById('social-prev');
-        const socialNextBtn = document.getElementById('social-next');
-        const stepWidth = 157;
-
-        function scrollSocialNext() {
-            if (socialSlider.scrollLeft + socialSlider.clientWidth >= socialSlider.scrollWidth - 10) {
-                socialSlider.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                socialSlider.scrollBy({ left: stepWidth, behavior: 'smooth' });
-            }
-        }
-
-        function scrollSocialPrev() {
-            if (socialSlider.scrollLeft <= 0) {
-                socialSlider.scrollTo({ left: socialSlider.scrollWidth, behavior: 'smooth' });
-            } else {
-                socialSlider.scrollBy({ left: -stepWidth, behavior: 'smooth' });
-            }
-        }
-
-        socialNextBtn.addEventListener('click', scrollSocialNext);
-        socialPrevBtn.addEventListener('click', scrollSocialPrev);
-
-        let socialAutoScroll = setInterval(scrollSocialNext, 3500);
-
-        socialSlider.addEventListener('mouseenter', () => clearInterval(socialAutoScroll));
-        socialSlider.addEventListener('mouseleave', () => {
-            socialAutoScroll = setInterval(scrollSocialNext, 3500);
-        });
-
-        // Initialize counters on window load
         window.addEventListener('DOMContentLoaded', () => {
             animateCounters();
         });
