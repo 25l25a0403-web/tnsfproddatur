@@ -361,7 +361,6 @@
             width: 100%;
         }
 
-        /* PERSON IMAGE WITH OVERLAY BLEND */
         .welcome-person-container {
             position: absolute;
             bottom: 0;
@@ -547,7 +546,7 @@
             justify-content: center;
         }
 
-        /* NEW SOCIAL MEDIA SECTION */
+        /* SOCIAL MEDIA SECTION */
         .social-media-section {
             background-color: var(--social-bg);
             padding: 25px 0;
@@ -772,7 +771,6 @@
         /* DYNAMIC PAGES / MODALS */
         .page-view { display: none; }
         .page-view.active { display: block; }
-
         .modal {
             display: none;
             position: fixed;
@@ -904,8 +902,8 @@
 
         .admin-btn-grid .btn {
             width: 100%;
-            padding: 14px 8px;
-            font-size: 12px;
+            padding: 12px 6px;
+            font-size: 11px;
         }
 
         .data-card {
@@ -980,6 +978,79 @@
         .switch-btn.active-on {
             background: #28A745;
             color: #FFF;
+        }
+
+        /* HISTORY & RECENT ACTIVITIES STYLES */
+        .history-card {
+            background: #FFF;
+            border: 1px solid #EAEAEA;
+            border-left: 4px solid var(--primary);
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+        }
+
+        .history-card-body {
+            flex-grow: 1;
+        }
+
+        .history-card-body .title {
+            font-weight: bold;
+            color: #111;
+        }
+
+        .history-card-body .time {
+            font-size: 9.5px;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        .filter-chip-container {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .filter-chip {
+            background: #EFEFEF;
+            border: 1px solid #DDD;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .filter-chip.active {
+            background: var(--dark);
+            color: var(--primary);
+            border-color: var(--dark);
+        }
+
+        .date-range-box {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 12px;
+            background: #F0F0F0;
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 4px 0;
+            border-bottom: 1px solid #EEE;
         }
     </style>
 </head>
@@ -1182,7 +1253,6 @@
             </div>
         </footer>
     </div>
-
     <div id="contact-page" class="page-view">
         <header>
             <div class="brand">
@@ -1240,7 +1310,7 @@
 
         <div class="admin-search-box">
             <div class="form-group" style="margin-bottom: 0;">
-                <input type="text" id="admin-search-input" class="form-control" placeholder="Search by name or contact number..." onkeyup="filterAdminData()">
+                <input type="text" id="admin-search-input" class="form-control" placeholder="Search..." onkeyup="filterAdminData()">
             </div>
         </div>
 
@@ -1249,10 +1319,11 @@
             <button class="btn btn-yellow" onclick="showAdminTab('accepted')"><i class="fas fa-check-circle"></i> Accepted</button>
             <button class="btn btn-yellow" onclick="showAdminTab('constituencies')"><i class="fas fa-map-marker-alt"></i> Constituencies</button>
             <button class="btn btn-yellow" onclick="showAdminTab('rejected')"><i class="fas fa-times-circle"></i> Rejected</button>
+            <button class="btn btn-yellow" onclick="showAdminTab('history')" style="grid-column: span 2;"><i class="fas fa-history"></i> History / Recent Activity</button>
         </div>
 
         <section id="admin-content-area" style="padding-top: 5px;">
-            </section>
+        </section>
     </div>
 
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
@@ -1363,8 +1434,27 @@
             { id: 3, name: "Venkatesh B", contact: "8899001122", constituency: "Pulivendla", college: "GDC", city: "Pulivendla", address: "Ring Road", reason: "Leadership Skills", status: "rejected", active: true }
         ];
 
+        // System Activity History Logs
+        let activityLogs = [
+            { id: 101, action: "Admin Logged In", date: new Date().toISOString() },
+            { id: 102, action: "Accepted Application: Ramesh Reddy", date: new Date(Date.now() - 3600000 * 2).toISOString() },
+            { id: 103, action: "Rejected Application: Venkatesh B", date: new Date(Date.now() - 86400000 * 2).toISOString() },
+            { id: 104, action: "New Registration: Suresh Kumar", date: new Date(Date.now() - 86400000 * 10).toISOString() }
+        ];
+
         let activeAdminTab = 'requests';
+        let historyFilter = 'all';
+        let selectedHistoryIds = [];
         let isAdminLoggedIn = false;
+
+        // Helper function for history logging
+        function logActivity(action) {
+            activityLogs.unshift({
+                id: Date.now(),
+                action: action,
+                date: new Date().toISOString()
+            });
+        }
 
         // DOM Elements
         const sidebar = document.getElementById('sidebar');
@@ -1386,6 +1476,7 @@
         const homePage = document.getElementById('home-page');
         const contactPage = document.getElementById('contact-page');
         const adminPage = document.getElementById('admin-page');
+        
         // Admin Auth Modal
         const mainLogoImg = document.getElementById('main-logo-img');
         const adminLoginModal = document.getElementById('admin-login-modal');
@@ -1414,6 +1505,7 @@
                 isAdminLoggedIn = true;
                 adminLoginModal.classList.remove('active');
                 document.getElementById('login-error').style.display = 'none';
+                logActivity("Admin successfully logged into panel");
                 updateSidebarMenu();
                 showPage(adminPage);
                 showAdminTab('requests');
@@ -1427,6 +1519,7 @@
             if (isAdminLoggedIn) {
                 sidebarLinks.innerHTML = `
                     <li><a href="#" onclick="showPage(adminPage)"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</a></li>
+                    <li><a href="#" onclick="showPage(adminPage); showAdminTab('history');"><i class="fas fa-history"></i> Admin History</a></li>
                     <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
                     <li><a href="#" onclick="logoutAdmin()" style="color:#ff4d4d !important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 `;
@@ -1490,7 +1583,6 @@
         joinForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Add submitted form to requests
             const newReq = {
                 id: applications.length + 1,
                 name: document.getElementById('form-name').value,
@@ -1505,6 +1597,7 @@
             };
 
             applications.push(newReq);
+            logActivity(`New join application submitted by ${newReq.name}`);
             joinModal.classList.remove('active');
             joinForm.reset();
             successModal.classList.add('active');
@@ -1512,6 +1605,7 @@
 
         contactPageForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            logActivity(`Contact form submitted`);
             contactPageForm.reset();
             successModal.classList.add('active');
         });
@@ -1600,9 +1694,141 @@
                         </table>
                     </div>
                 `;
+            } else if (tab === 'history') {
+                selectedHistoryIds = [];
+                html = renderHistorySection(searchVal);
             }
 
             container.innerHTML = html;
+        }
+
+        // HISTORY UI & LOGIC RENDERER
+        function setHistoryFilter(f) {
+            historyFilter = f;
+            showAdminTab('history');
+        }
+
+        function renderHistorySection(searchVal) {
+            let now = new Date();
+            let filteredLogs = activityLogs.filter(log => {
+                let matchesSearch = log.action.toLowerCase().includes(searchVal);
+                let logDate = new Date(log.date);
+
+                if(!matchesSearch) return false;
+
+                if (historyFilter === 'today') {
+                    return logDate.toDateString() === now.toDateString();
+                } else if (historyFilter === 'week') {
+                    let oneWeekAgo = new Date();
+                    oneWeekAgo.setDate(now.getDate() - 7);
+                    return logDate >= oneWeekAgo;
+                } else if (historyFilter === 'month') {
+                    return logDate.getMonth() === now.getMonth() && logDate.getFullYear() === now.getFullYear();
+                } else if (historyFilter === 'custom') {
+                    let startDate = document.getElementById('start-date') ? new Date(document.getElementById('start-date').value) : null;
+                    let endDate = document.getElementById('end-date') ? new Date(document.getElementById('end-date').value) : null;
+                    if (startDate && !isNaN(startDate.getTime())) {
+                        if (logDate < startDate) return false;
+                    }
+                    if (endDate && !isNaN(endDate.getTime())) {
+                        endDate.setHours(23,59,59,999);
+                        if (logDate > endDate) return false;
+                    }
+                    return true;
+                }
+                return true;
+            });
+
+            return `
+                <div style="padding:0 5px;">
+                    <h3 style="font-size:14px; margin-bottom:10px;"><i class="fas fa-history"></i> Recent Activity Logs</h3>
+                    
+                    <div class="filter-chip-container">
+                        <button class="filter-chip ${historyFilter === 'all' ? 'active' : ''}" onclick="setHistoryFilter('all')">All</button>
+                        <button class="filter-chip ${historyFilter === 'today' ? 'active' : ''}" onclick="setHistoryFilter('today')">Today</button>
+                        <button class="filter-chip ${historyFilter === 'week' ? 'active' : ''}" onclick="setHistoryFilter('week')">This Week</button>
+                        <button class="filter-chip ${historyFilter === 'month' ? 'active' : ''}" onclick="setHistoryFilter('month')">This Month</button>
+                        <button class="filter-chip ${historyFilter === 'custom' ? 'active' : ''}" onclick="setHistoryFilter('custom')">Date Range</button>
+                    </div>
+
+                    ${historyFilter === 'custom' ? `
+                        <div class="date-range-box">
+                            <input type="date" id="start-date" class="form-control" style="font-size:10px;">
+                            <span style="font-size:10px;">to</span>
+                            <input type="date" id="end-date" class="form-control" style="font-size:10px;">
+                            <button class="btn btn-yellow" style="padding:6px 10px; font-size:10px;" onclick="showAdminTab('history')">Apply</button>
+                        </div>
+                    ` : ''}
+
+                    <div class="action-bar">
+                        <label style="font-size:11px; cursor:pointer;">
+                            <input type="checkbox" onchange="toggleSelectAllHistory(this)"> Select All
+                        </label>
+                        <div>
+                            <button class="btn btn-danger" style="padding:6px 10px; font-size:10px;" onclick="deleteSelectedHistory()"><i class="fas fa-trash"></i> Delete Selected</button>
+                            <button class="btn btn-dark" style="padding:6px 10px; font-size:10px;" onclick="clearAllHistory()"><i class="fas fa-broom"></i> Clear All</button>
+                        </div>
+                    </div>
+
+                    <div id="history-list">
+                        ${filteredLogs.length === 0 ? '<p style="text-align:center; padding:20px; color:#888;">No recent activity logs found.</p>' : ''}
+                        ${filteredLogs.map(log => `
+                            <div class="history-card">
+                                <input type="checkbox" class="history-checkbox" value="${log.id}" onchange="toggleSelectHistoryItem(${log.id}, this.checked)">
+                                <div class="history-card-body">
+                                    <div class="title">${log.action}</div>
+                                    <div class="time"><i class="far fa-clock"></i> ${new Date(log.date).toLocaleString()}</div>
+                                </div>
+                                <button style="background:none; border:none; color:#d9534f; cursor:pointer;" onclick="deleteSingleHistory(${log.id})"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleSelectHistoryItem(id, isChecked) {
+            if(isChecked) {
+                if(!selectedHistoryIds.includes(id)) selectedHistoryIds.push(id);
+            } else {
+                selectedHistoryIds = selectedHistoryIds.filter(i => i !== id);
+            }
+        }
+
+        function toggleSelectAllHistory(masterCert) {
+            const checkboxes = document.querySelectorAll('.history-checkbox');
+            selectedHistoryIds = [];
+            checkboxes.forEach(cb => {
+                cb.checked = masterCert.checked;
+                if(masterCert.checked) {
+                    selectedHistoryIds.push(parseInt(cb.value));
+                }
+            });
+        }
+
+        function deleteSingleHistory(id) {
+            activityLogs = activityLogs.filter(l => l.id !== id);
+            showAdminTab('history');
+        }
+
+        function deleteSelectedHistory() {
+            if(selectedHistoryIds.length === 0) {
+                alert("Please select at least one history record to delete.");
+                return;
+            }
+            if(confirm("Are you sure you want to delete selected history records?")) {
+                activityLogs = activityLogs.filter(l => !selectedHistoryIds.includes(l.id));
+                selectedHistoryIds = [];
+                showAdminTab('history');
+            }
+        }
+
+        function clearAllHistory() {
+            if(confirm("Are you sure you want to clear ALL activity history?")) {
+                activityLogs = [];
+                selectedHistoryIds = [];
+                showAdminTab('history');
+            }
         }
 
         function filterAdminData() {
@@ -1610,6 +1836,7 @@
                 showAdminTab(activeAdminTab);
             }
         }
+
         function openOverviewModal(id) {
             const item = applications.find(a => a.id === id);
             if (!item) return;
@@ -1644,6 +1871,7 @@
             const item = applications.find(a => a.id === id);
             if(item) {
                 item.status = newStatus;
+                logActivity(`Changed status of ${item.name} to ${newStatus}`);
             }
             closeModal('overview-modal');
             showAdminTab(activeAdminTab);
@@ -1702,7 +1930,8 @@
         function toggleActiveStatus(id) {
             const item = applications.find(a => a.id === id);
             if (item) {
-                item.active = false; // Turn off to remove from constituency list
+                item.active = false;
+                logActivity(`Deactivated member: ${item.name}`);
                 renderConstituencyData();
             }
         }
