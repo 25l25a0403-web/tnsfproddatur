@@ -16,6 +16,7 @@
             --red-brand: #8B0000;
             --social-bg: #FFFDF0;
             --admin-bg: #FFFFFF;
+            --max-width: 1000px;
         }
 
         * {
@@ -27,21 +28,11 @@
         }
 
         body {
-            background-color: #EFEFEF;
+            background-color: #ECEFF1;
             color: var(--text-dark);
+            max-width: var(--max-width);
             margin: 0 auto;
             position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Responsive Wrapper Constraints */
-        .app-container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            background-color: var(--light);
             box-shadow: 0 0 25px rgba(0,0,0,0.15);
             min-height: 100vh;
             display: flex;
@@ -52,7 +43,7 @@
         header {
             background-color: var(--dark);
             color: var(--light);
-            padding: 12px 20px;
+            padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -96,64 +87,6 @@
             cursor: pointer;
         }
 
-        /* ANIMATED STATS SECTION */
-        .stats-banner {
-            background: linear-gradient(135deg, #1A1A1A 0%, #0F0F0F 100%);
-            border-bottom: 3px solid var(--primary);
-            padding: 20px 15px;
-            color: var(--light);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            text-align: center;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 204, 0, 0.2);
-            border-radius: 10px;
-            padding: 12px 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary);
-        }
-
-        .stat-icon {
-            color: var(--primary);
-            font-size: 20px;
-            margin-bottom: 6px;
-        }
-
-        .stat-number {
-            font-size: 22px;
-            font-weight: 900;
-            color: #FFFFFF;
-            line-height: 1;
-        }
-
-        .stat-number span {
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 10px;
-            color: #BBB;
-            margin-top: 4px;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
         /* SIDEBAR NAV */
         .sidebar-overlay {
             position: fixed;
@@ -169,13 +102,13 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -280px;
-            width: 260px;
+            right: -300px;
+            width: 280px;
             height: 100%;
             background-color: var(--dark);
             z-index: 201;
             transition: right 0.3s ease;
-            padding: 20px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
         }
@@ -188,7 +121,7 @@
             background: none;
             border: none;
             color: var(--light);
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
             margin-bottom: 20px;
         }
@@ -199,9 +132,9 @@
         }
 
         .sidebar-brand .logo-img {
-            margin: 0 auto 8px auto;
-            width: 52px;
-            height: 52px;
+            margin: 0 auto 10px auto;
+            width: 60px;
+            height: 60px;
         }
 
         .sidebar-brand h2 {
@@ -211,7 +144,7 @@
 
         .sidebar-brand p {
             color: #AAA;
-            font-size: 10px;
+            font-size: 11px;
         }
 
         .nav-links {
@@ -237,7 +170,7 @@
             color: var(--dark) !important;
             font-weight: bold;
             padding: 10px !important;
-            border-radius: 4px;
+            border-radius: 6px;
             justify-content: center;
             margin-top: 10px;
         }
@@ -253,7 +186,7 @@
         .slider-container {
             position: relative;
             width: 100%;
-            height: 220px;
+            height: 240px;
             overflow: hidden;
         }
 
@@ -294,6 +227,60 @@
             margin-top: 6px;
             letter-spacing: 1px;
             color: #DDD;
+        }
+
+        /* ANIMATED STATS SECTION */
+        .stats-section {
+            padding: 16px;
+            background: #FFFFFF;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #0F0F0F 0%, #2A2A2A 100%);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 18px 12px;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-icon {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #E0E0E0;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
         }
 
         /* BUTTON STYLES */
@@ -354,7 +341,7 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             display: flex;
             flex-direction: column;
-            margin: 10px 0;
+            margin: 0;
         }
 
         .welcome-banner-card::before {
@@ -375,19 +362,19 @@
         .welcome-content-left {
             position: relative;
             z-index: 2;
-            width: 58%;
+            width: 60%;
         }
 
         .welcome-subtitle-script {
             font-family: 'Brush Script MT', cursive, sans-serif;
-            font-size: 26px;
+            font-size: 28px;
             color: #111111;
             margin-bottom: 2px;
             font-weight: 500;
         }
 
         .welcome-title-main {
-            font-size: 40px;
+            font-size: 42px;
             font-weight: 950;
             line-height: 0.85;
             color: #000000;
@@ -433,8 +420,8 @@
             position: absolute;
             bottom: 0;
             right: -10px;
-            width: 52%;
-            height: 85%;
+            width: 50%;
+            height: 88%;
             z-index: 3;
             display: flex;
             align-items: flex-end;
@@ -457,7 +444,7 @@
         }
 
         /* SECTIONS */
-        section { padding: 25px 20px; }
+        section { padding: 25px 16px; background-color: #FFFFFF; }
 
         .section-title {
             text-align: center;
@@ -578,14 +565,14 @@
             background-color: var(--dark);
             color: var(--light);
             text-align: center;
-            padding: 30px 20px;
+            padding: 28px 16px;
             background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/500/300');
             background-size: cover;
         }
 
         .cta-icon {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             background: var(--primary);
             border-radius: 50%;
             display: flex;
@@ -596,21 +583,21 @@
         }
 
         .cta-banner h3 {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 800;
         }
 
         .cta-banner h3 span { color: var(--primary); }
 
         .cta-banner p {
-            font-size: 10px;
+            font-size: 11px;
             color: #CCC;
             margin: 6px 0 16px 0;
         }
 
         .cta-banner .btn-container {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             justify-content: center;
         }
 
@@ -751,20 +738,20 @@
         footer {
             background-color: var(--dark);
             color: var(--light);
-            padding: 25px 20px 10px 20px;
+            padding: 24px 20px 12px 20px;
             margin-top: auto;
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .footer-brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 12px;
         }
 
         .footer-text {
-            font-size: 9.5px;
+            font-size: 10px;
             color: #AAA;
             margin-bottom: 15px;
             line-height: 1.4;
@@ -773,7 +760,7 @@
         .footer-title {
             color: var(--light);
             font-weight: bold;
-            font-size: 11px;
+            font-size: 12px;
             margin-bottom: 8px;
             text-transform: uppercase;
         }
@@ -788,7 +775,7 @@
         .footer-links a {
             color: #AAA;
             text-decoration: none;
-            font-size: 10px;
+            font-size: 11px;
         }
 
         .social-icons {
@@ -798,15 +785,15 @@
         }
 
         .social-icon {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: #333;
             color: var(--light);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
+            font-size: 12px;
             text-decoration: none;
         }
 
@@ -820,7 +807,7 @@
             align-items: center;
             gap: 8px;
             color: #AAA;
-            font-size: 10px;
+            font-size: 11px;
             margin-bottom: 6px;
         }
 
@@ -833,7 +820,7 @@
             padding: 8px;
             font-size: 10px;
             font-weight: bold;
-            margin: 20px -20px -10px -20px;
+            margin: 20px -20px -12px -20px;
         }
 
         /* DYNAMIC PAGES / MODALS */
@@ -888,9 +875,9 @@
 
         .form-control {
             width: 100%;
-            padding: 10px 12px;
+            padding: 10px;
             border: 1px solid #CCC;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 12px;
         }
 
@@ -928,13 +915,13 @@
         .page-header {
             background: var(--dark);
             color: var(--light);
-            padding: 15px;
+            padding: 18px;
             text-align: center;
         }
 
         .page-header h2 {
             color: var(--primary);
-            font-size: 16px;
+            font-size: 18px;
         }
 
         /* ADMIN PAGE STYLES */
@@ -957,16 +944,16 @@
         }
 
         .admin-search-box {
-            padding: 15px 20px;
+            padding: 15px;
             background: var(--gray-bg);
             border-bottom: 1px solid #EAEAEA;
         }
 
         .admin-btn-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 12px;
-            padding: 20px;
+            padding: 15px;
         }
 
         .admin-btn-grid .btn {
@@ -1122,328 +1109,357 @@
             border-bottom: 1px solid #EEE;
         }
 
-        /* RESPONSIVE MEDIA QUERIES FOR MOBILE AND TABLETS */
-        @media screen and (max-width: 600px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+        /* DESKTOP RESPONSIVENESS MEDIA QUERIES */
+        @media (min-width: 768px) {
+            .hero .slider-container {
+                height: 320px;
             }
-            .stat-number { font-size: 18px; }
-            .stat-icon { font-size: 18px; }
+            .hero-content h2 {
+                font-size: 28px;
+            }
+            .hero-content p {
+                font-size: 13px;
+            }
+            .stat-card {
+                padding: 22px 16px;
+            }
+            .stat-number {
+                font-size: 34px;
+            }
+            .stat-label {
+                font-size: 12px;
+            }
+            .welcome-btn-group {
+                flex-direction: row;
+            }
+            .welcome-btn-group .btn {
+                flex: 1;
+            }
+            .grid-2x2 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .social-card {
+                flex: 0 0 180px;
+            }
+            .social-card-img-wrap {
+                height: 240px;
+            }
             .admin-btn-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(4, 1fr);
             }
-            .admin-btn-grid .btn-history {
-                grid-column: span 2;
-            }
-            .welcome-content-left {
-                width: 100%;
-            }
-            .welcome-person-container {
-                display: none; /* Hide background person cutout on small mobile to retain typography alignment */
+            .admin-btn-grid .btn[style*="grid-column: span 2;"] {
+                grid-column: span 4 !important;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="app-container">
-        <!-- HOME PAGE -->
-        <div id="home-page" class="page-view active">
-            <header>
-                <div class="brand">
-                    <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img" id="main-logo-img">
-                    <div class="brand-text">
-                        <h1>TNSF KADAPA PARLIAMENT</h1>
-                        <p>The Voice of Students</p>
-                    </div>
-                </div>
-                <button class="menu-btn" id="open-menu"><i class="fas fa-bars"></i></button>
-            </header>
-
-            <!-- ANIMATED MEMBERS STATS SECTION (Home Page) -->
-            <div class="stats-banner">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <i class="fas fa-users stat-icon"></i>
-                        <div class="stat-number"><span class="counter" data-target="12500">0</span>+</div>
-                        <div class="stat-label">Total Members</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-university stat-icon"></i>
-                        <div class="stat-number"><span class="counter" data-target="150">0</span>+</div>
-                        <div class="stat-label">Colleges</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-map-marked-alt stat-icon"></i>
-                        <div class="stat-number"><span class="counter" data-target="7">0</span></div>
-                        <div class="stat-label">Constituencies</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-calendar-check stat-icon"></i>
-                        <div class="stat-number"><span class="counter" data-target="450">0</span>+</div>
-                        <div class="stat-label">Events Held</div>
-                    </div>
+    <div id="home-page" class="page-view active">
+        <header>
+            <div class="brand">
+                <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img" id="main-logo-img">
+                <div class="brand-text">
+                    <h1>TNSF KADAPA PARLIAMENT</h1>
+                    <p>The Voice of Students</p>
                 </div>
             </div>
+            <button class="menu-btn" id="open-menu"><i class="fas fa-bars"></i></button>
+        </header>
 
-            <div class="hero">
-                <div class="slider-container">
-                    <div class="slide active" style="background-image: url('file_00000000e6108208a6a7fccbbfd81eff.png');"></div>
-                    <div class="slide" style="background-image: url('file_000000004d8c82118062e5a56160084a.png');"></div>
-                    <div class="slide" style="background-image: url('file_00000000e5e88208ac80eaca358c39b1.png');"></div>
+        <div class="hero">
+            <div class="slider-container">
+                <div class="slide active" style="background-image: url('file_00000000e6108208a6a7fccbbfd81eff.png');"></div>
+                <div class="slide" style="background-image: url('file_000000004d8c82118062e5a56160084a.png');"></div>
+                <div class="slide" style="background-image: url('file_00000000e5e88208ac80eaca358c39b1.png');"></div>
+            </div>
+            <div class="hero-content">
+                <h2>Together For <span>Students</span><br>Together For <span>Future</span></h2>
+                <p>Unite | Learn | Lead | Succeed</p>
+            </div>
+        </div>
+
+        <!-- STATS SECTION ABOVE WELCOME SECTION -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users stat-icon"></i>
+                    <div class="stat-number animated-counter" data-target="15000">0</div>
+                    <div class="stat-label">Total Members</div>
                 </div>
-                <div class="hero-content">
-                    <h2>Together For <span>Students</span><br>Together For <span>Future</span></h2>
-                    <p>Unite | Learn | Lead | Succeed</p>
+                <div class="stat-card">
+                    <i class="fas fa-map-marked-alt stat-icon"></i>
+                    <div class="stat-number animated-counter" data-target="7">0</div>
+                    <div class="stat-label">Constituencies</div>
                 </div>
             </div>
+        </div>
 
-            <section style="padding: 12px;">
-                <div class="welcome-banner-card">
-                    <div class="welcome-content-left">
-                        <div class="welcome-subtitle-script">Welcome to</div>
-                        <div class="welcome-title-main">TNSF</div>
-                        <div class="welcome-title-sub">KADAPA PARLIAMENT</div>
-                        
-                        <div class="divider-line"></div>
-
-                        <p class="welcome-description">
-                            TNSF KADAPA PARLIAMENT is a platform for every student to raise their voice, develop leadership skills and work for the betterment of society.
-                            <strong>Together, we can build a strong and bright future.</strong>
-                        </p>
-
-                        <div class="welcome-btn-group">
-                            <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
-                            <button class="btn btn-white nav-to-contact"><i class="fas fa-phone"></i> CONTACT US</button>
-                        </div>
-                    </div>
-
-                    <div class="welcome-person-container">
-                        <img id="person-image" class="welcome-person-img" src="images (1).jpeg" alt="TNSF Leader Image">
-                    </div>
-                </div>
-            </section>
-
-            <section class="why-join">
-                <h3 class="section-title">WHY JOIN <span>TNSF?</span></h3>
-                <div class="grid-2x2">
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-users"></i></div>
-                        <h4>Voice of Students</h4>
-                        <p>We raise the issues that matter to students.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-flag"></i></div>
-                        <h4>Leadership Development</h4>
-                        <p>Build leadership skills and become a change maker.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-book"></i></div>
-                        <h4>Education & Awareness</h4>
-                        <p>Promote quality education and student awareness.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
-                        <h4>Events & Activities</h4>
-                        <p>Participate in events, camps and social activities.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="activities">
-                <h3 class="section-title">OUR <span>ACTIVITIES</span></h3>
-                <div class="scroll-container">
-                    <div class="scroll-track">
-                        <div class="activity-card">
-                            <img src="file_000000003694820883027e0668afe192.png" alt="Activity 1">
-                            <div class="activity-card-title">Student Rallies</div>
-                        </div>
-                        <div class="activity-card">
-                            <img src="file_000000003694820883027e0668afe192.png" alt="Activity 2">
-                            <div class="activity-card-title">Campus Awareness</div>
-                        </div>
-                        <div class="activity-card">
-                            <img src="file_000000003694820883027e0668afe192.png" alt="Activity 3">
-                            <div class="activity-card-title">Blood Donation Camps</div>
-                        </div>
-                        <div class="activity-card">
-                            <img src="file_000000003694820883027e0668afe192.png" alt="Activity 4">
-                            <div class="activity-card-title">Youth Leadership</div>
-                        </div>
-                        <div class="activity-card">
-                            <img src="file_000000003694820883027e0668afe192.png" alt="Activity 1">
-                            <div class="activity-card-title">Student Rallies</div>
-                        </div>
-                        <div class="activity-card">
-                            <img src="file_000000003694820883027e0668afe192.png" alt="Activity 2">
-                            <div class="activity-card-title">Campus Awareness</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="cta-banner">
-                <div class="cta-icon"><i class="fas fa-users"></i></div>
-                <h3>BE A PART OF THE <span>CHANGE</span></h3>
-                <p>Join TNSF Proddatur and work together for students, society and a better tomorrow.</p>
-                <div class="btn-container">
-                    <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
-                    <button class="btn btn-dark nav-to-contact"><i class="fas fa-phone"></i> CONTACT US</button>
-                </div>
-            </div>
-
-            <div class="social-media-section">
-                <div class="social-header">
-                    <div class="social-header-line"></div>
-                    <h3>SOCIAL MEDIA</h3>
-                    <div class="social-header-line"></div>
-                </div>
-
-                <div class="social-slider-wrapper">
-                    <button class="social-nav-btn prev" id="social-prev"><i class="fas fa-chevron-left"></i></button>
+        <!-- WELCOME SECTION -->
+        <section style="padding: 12px 16px 25px 16px;">
+            <div class="welcome-banner-card">
+                <div class="welcome-content-left">
+                    <div class="welcome-subtitle-script">Welcome to</div>
+                    <div class="welcome-title-main">TNSF</div>
+                    <div class="welcome-title-sub">KADAPA PARLIAMENT</div>
                     
-                    <div class="social-slider" id="social-slider">
-                        <a href="https://www.instagram.com/reel/DcIGDragVn0/?igsi=MWdoZTkwbnVqc3YzMA==" target="_blank" class="social-card">
-                            <div class="social-card-img-wrap">
-                                <img src="Screenshot_2026-08-21-20-43-28-32_1c337646f29875672b5a61192b9010f9.jpg" alt="Post" class="social-card-img">
-                                <div class="social-play-icon"><i class="fas fa-play"></i></div>
-                            </div>
-                            <div class="social-card-footer">
-                                <i class="fab fa-instagram"></i> Instagram
-                            </div>
-                        </a>
+                    <div class="divider-line"></div>
 
-                        <a href="https://www.instagram.com/reel/DcP_ZhhADKf/?igsi=eG9vbWFrZmY5ejZ4" target="_blank" class="social-card">
-                            <div class="social-card-img-wrap">
-                                <img src="IMG-20260820-WA0009.jpg" alt="Post" class="social-card-img">
-                                <div class="social-play-icon"><i class="fas fa-play"></i></div>
-                            </div>
-                            <div class="social-card-footer">
-                                <i class="fab fa-instagram"></i> Instagram
-                            </div>
-                        </a>
+                    <p class="welcome-description">
+                        TNSF KADAPA PARLIAMENT is a platform for every student to raise their voice, develop leadership skills and work for the betterment of society.
+                        <strong>Together, we can build a strong and bright future.</strong>
+                    </p>
 
-                        <a href="https://www.instagram.com/reel/DcIGDragVn0/?igsi=MWdoZTkwbnVqc3YzMA==" target="_blank" class="social-card">
-                            <div class="social-card-img-wrap">
-                                <img src="file_00000000bbc0821192f24e0f51f7811d.png" alt="Post" class="social-card-img">
-                                <div class="social-play-icon"><i class="fas fa-play"></i></div>
-                            </div>
-                            <div class="social-card-footer">
-                                <i class="fab fa-instagram"></i> Instagram
-                            </div>
-                        </a>
+                    <div class="welcome-btn-group">
+                        <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
+                        <button class="btn btn-white nav-to-contact"><i class="fas fa-phone"></i> CONTACT US</button>
                     </div>
+                </div>
 
-                    <button class="social-nav-btn next" id="social-next"><i class="fas fa-chevron-right"></i></button>
+                <div class="welcome-person-container">
+                    <img id="person-image" class="welcome-person-img" src="images (1).jpeg" alt="TNSF Leader Image">
                 </div>
             </div>
-            <footer>
-                </div>
+        </section>
 
-        <!-- CONTACT PAGE -->
-        <div id="contact-page" class="page-view">
-            <header>
-                <div class="brand">
-                    <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
-                    <div class="brand-text">
-                        <h1>TNSF KADAPA PARLIAMENT</h1>
-                        <p>Contact Us</p>
-                    </div>
+        <section class="why-join">
+            <h3 class="section-title">WHY JOIN <span>TNSF?</span></h3>
+            <div class="grid-2x2">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <h4>Voice of Students</h4>
+                    <p>We raise the issues that matter to students.</p>
                 </div>
-                <button class="menu-btn open-menu-btn"><i class="fas fa-bars"></i></button>
-            </header>
-
-            <div class="page-header">
-                <h2>GET IN TOUCH</h2>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-flag"></i></div>
+                    <h4>Leadership Development</h4>
+                    <p>Build leadership skills and become a change maker.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-book"></i></div>
+                    <h4>Education & Awareness</h4>
+                    <p>Promote quality education and student awareness.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h4>Events & Activities</h4>
+                    <p>Participate in events, camps and social activities.</p>
+                </div>
             </div>
+        </section>
 
-            <section>
-                <form id="contact-page-form">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" class="form-control" required placeholder="Enter your full name">
+        <section class="activities">
+            <h3 class="section-title">OUR <span>ACTIVITIES</span></h3>
+            <div class="scroll-container">
+                <div class="scroll-track">
+                    <div class="activity-card">
+                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 1">
+                        <div class="activity-card-title">Student Rallies</div>
                     </div>
-                    <div class="form-group">
-                        <label>Contact Number</label>
-                        <input type="tel" class="form-control" required placeholder="Enter mobile number">
+                    <div class="activity-card">
+                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 2">
+                        <div class="activity-card-title">Campus Awareness</div>
                     </div>
-                    <div class="form-group">
-                        <label>Mail Address</label>
-                        <input type="email" class="form-control" required placeholder="Enter email address">
+                    <div class="activity-card">
+                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 3">
+                        <div class="activity-card-title">Blood Donation Camps</div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">SUBMIT</button>
-                </form>
-                <div style="text-align: center; margin-top: 20px;">
-                    <button class="btn btn-dark nav-to-home"><i class="fas fa-arrow-left"></i> Back to Home</button>
+                    <div class="activity-card">
+                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 4">
+                        <div class="activity-card-title">Youth Leadership</div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 1">
+                        <div class="activity-card-title">Student Rallies</div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 2">
+                        <div class="activity-card-title">Campus Awareness</div>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
+
+        <div class="cta-banner">
+            <div class="cta-icon"><i class="fas fa-users"></i></div>
+            <h3>BE A PART OF THE <span>CHANGE</span></h3>
+            <p>Join TNSF Proddatur and work together for students, society and a better tomorrow.</p>
+            <div class="btn-container">
+                <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
+                <button class="btn btn-dark nav-to-contact"><i class="fas fa-phone"></i> CONTACT US</button>
+            </div>
         </div>
 
-        <!-- ADMIN PAGE -->
-        <div id="admin-page" class="page-view admin-view">
-            <header>
-                <div class="brand">
-                    <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
-                    <div class="brand-text">
-                        <h1>ADMIN PANEL</h1>
-                        <p>TNSF Kadapa Parliament</p>
-                    </div>
+        <div class="social-media-section">
+            <div class="social-header">
+                <div class="social-header-line"></div>
+                <h3>SOCIAL MEDIA</h3>
+                <div class="social-header-line"></div>
+            </div>
+
+            <div class="social-slider-wrapper">
+                <button class="social-nav-btn prev" id="social-prev"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="social-slider" id="social-slider">
+                    <a href="https://www.instagram.com/reel/DcIGDragVn0/?igsi=MWdoZTkwbnVqc3YzMA==" target="_blank" class="social-card">
+                        <div class="social-card-img-wrap">
+                            <img src="Screenshot_2026-08-21-20-43-28-32_1c337646f29875672b5a61192b9010f9.jpg" alt="Post" class="social-card-img">
+                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="social-card-footer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/reel/DcP_ZhhADKf/?igsi=eG9vbWFrZmY5ejZ4" target="_blank" class="social-card">
+                        <div class="social-card-img-wrap">
+                            <img src="IMG-20260820-WA0009.jpg" alt="Post" class="social-card-img">
+                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="social-card-footer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/reel/DcIGDragVn0/?igsi=MWdoZTkwbnVqc3YzMA==" target="_blank" class="social-card">
+                        <div class="social-card-img-wrap">
+                            <img src="file_00000000bbc0821192f24e0f51f7811d.png" alt="Post" class="social-card-img">
+                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="social-card-footer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </div>
+                    </a>
                 </div>
-                <button class="menu-btn" id="admin-menu-btn"><i class="fas fa-bars"></i></button>
-            </header>
 
-            <!-- ANIMATED MEMBERS STATS SECTION (Admin Page) -->
-            <div class="stats-banner">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <i class="fas fa-users stat-icon"></i>
-                        <div class="stat-number"><span class="counter" data-target="12500">0</span>+</div>
-                        <div class="stat-label">Total Members</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-clock stat-icon"></i>
-                        <div class="stat-number"><span class="counter" data-target="42">0</span></div>
-                        <div class="stat-label">Pending Req</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-user-check stat-icon"></i>
-                        <div class="stat-number"><span class="counter" data-target="11800">0</span>+</div>
-                        <div class="stat-label">Approved</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-user-times stat-icon"></i>
-                        <div class="stat-number"><span class="counter" data-target="658">0</span></div>
-                        <div class="stat-label">Rejected</div>
-                    </div>
-                </div>
+                <button class="social-nav-btn next" id="social-next"><i class="fas fa-chevron-right"></i></button>
             </div>
-
-            <div class="admin-hero">
-                <h2>Hero Welcome Admin!</h2>
-                <p style="font-size: 11px; opacity:0.8;">Manage student applications and parliamentary data.</p>
-            </div>
-
-            <div class="admin-search-box">
-                <div class="form-group" style="margin-bottom: 0;">
-                    <input type="text" id="admin-search-input" class="form-control" placeholder="Search..." onkeyup="filterAdminData()">
-                </div>
-            </div>
-
-            <div class="admin-btn-grid">
-                <button class="btn btn-yellow" onclick="showAdminTab('requests')"><i class="fas fa-bell"></i> Requests</button>
-                <button class="btn btn-yellow" onclick="showAdminTab('accepted')"><i class="fas fa-check-circle"></i> Accepted</button>
-                <button class="btn btn-yellow" onclick="showAdminTab('constituencies')"><i class="fas fa-map-marker-alt"></i> Constituencies</button>
-                <button class="btn btn-yellow" onclick="showAdminTab('rejected')"><i class="fas fa-times-circle"></i> Rejected</button>
-                <button class="btn btn-yellow btn-history" onclick="showAdminTab('history')" style="grid-column: span 4;"><i class="fas fa-history"></i> History / Recent Activity</button>
-            </div>
-
-            <section id="admin-content-area" style="padding-top: 5px;">
-            </section>
         </div>
+
+        <footer>
+            <div class="footer-brand">
+                <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
+                <div class="brand-text">
+                    <h1 style="color:var(--primary); font-size:12px;">TNSF KADAPA PARLIAMENT</h1>
+                    <p style="font-size:8px; color:#AAA;">The Voice of Students</p>
+                </div>
+            </div>
+            <p class="footer-text">Together for Students,<br>Together for Future.<br>Unite | Learn | Lead | Succeed</p>
+            
+            <div class="footer-title">Quick Links</div>
+            <ul class="footer-links">
+                <li><a href="about.html">> About Us</a></li>
+                <li><a href="#" class="nav-to-contact">> Contact Us</a></li>
+                <li><a href="#" class="open-join-modal">> Join TNSF</a></li>
+            </ul>
+
+            <div class="footer-title">Follow Us</div>
+            <div class="social-icons">
+                <a href="#" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon insta"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <div class="footer-title">Contact Us</div>
+            <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> +91 7893447784,9581965939,6303254192</div>
+            <div class="footer-contact-item"><i class="fas fa-envelope"></i> tnsfkadapaparliament@gmail.com</div>
+            <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> KADAPA, Andhra Pradesh</div>
+
+            <div class="copyright">
+                © 2026 TNSF KADAPA PARLIAMENT. All Rights Reserved.
+            </div>
+        </footer>
     </div>
 
-    <!-- OVERLAYS & MODALS -->
+    <div id="contact-page" class="page-view">
+        <header>
+            <div class="brand">
+                <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
+                <div class="brand-text">
+                    <h1>TNSF KADAPA PARLIAMENT</h1>
+                    <p>Contact Us</p>
+                </div>
+            </div>
+            <button class="menu-btn open-menu-btn"><i class="fas fa-bars"></i></button>
+        </header>
+
+        <div class="page-header">
+            <h2>GET IN TOUCH</h2>
+        </div>
+
+        <section>
+            <form id="contact-page-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" class="form-control" required placeholder="Enter mobile number">
+                </div>
+                <div class="form-group">
+                    <label>Mail Address</label>
+                    <input type="email" class="form-control" required placeholder="Enter email address">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">SUBMIT</button>
+            </form>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-dark nav-to-home"><i class="fas fa-arrow-left"></i> Back to Home</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="admin-page" class="page-view admin-view">
+        <header>
+            <div class="brand">
+                <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
+                <div class="brand-text">
+                    <h1>ADMIN PANEL</h1>
+                    <p>TNSF Kadapa Parliament</p>
+                </div>
+            </div>
+            <button class="menu-btn" id="admin-menu-btn"><i class="fas fa-bars"></i></button>
+        </header>
+
+        <div class="admin-hero">
+            <h2>Welcome Admin!</h2>
+            <p style="font-size: 11px; opacity:0.8;">Manage student applications and parliamentary data.</p>
+        </div>
+
+        <div class="admin-search-box">
+            <div class="form-group" style="margin-bottom: 0;">
+                <input type="text" id="admin-search-input" class="form-control" placeholder="Search..." onkeyup="filterAdminData()">
+            </div>
+        </div>
+
+        <!-- ANIMATED STATS SECTION ABOVE ADMIN BUTTONS -->
+        <div class="stats-section" style="background: var(--gray-bg); border-bottom: 1px solid #EAEAEA;">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users stat-icon"></i>
+                    <div class="stat-number animated-counter" data-target="15000">0</div>
+                    <div class="stat-label">Total Members</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-map-marked-alt stat-icon"></i>
+                    <div class="stat-number animated-counter" data-target="7">0</div>
+                    <div class="stat-label">Constituencies</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-btn-grid">
+            <button class="btn btn-yellow" onclick="showAdminTab('requests')"><i class="fas fa-bell"></i> Requests</button>
+            <button class="btn btn-yellow" onclick="showAdminTab('accepted')"><i class="fas fa-check-circle"></i> Accepted</button>
+            <button class="btn btn-yellow" onclick="showAdminTab('constituencies')"><i class="fas fa-map-marker-alt"></i> Constituencies</button>
+            <button class="btn btn-yellow" onclick="showAdminTab('rejected')"><i class="fas fa-times-circle"></i> Rejected</button>
+            <button class="btn btn-yellow" onclick="showAdminTab('history')" style="grid-column: span 2;"><i class="fas fa-history"></i> History / Recent Activity</button>
+        </div>
+
+        <section id="admin-content-area" style="padding-top: 5px;">
+        </section>
+    </div>
+
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
     <div class="sidebar" id="sidebar">
         <button class="close-btn" id="close-menu"><i class="fas fa-times"></i></button>
@@ -1545,13 +1561,14 @@
     </div>
 
     <script>
-        // Data Structures
+        // Sample Storage Array
         let applications = [
             { id: 1, name: "Suresh Kumar", contact: "9876543210", constituency: "Kadapa", college: "KSRM", city: "Kadapa", address: "7/12 RK Nagar", reason: "Social service interest", status: "pending", active: true },
             { id: 2, name: "Ramesh Reddy", contact: "9123456789", constituency: "Proddatur", college: "YVU", city: "Proddatur", address: "Main Bazaar", reason: "Student rights protection", status: "accepted", active: true },
             { id: 3, name: "Venkatesh B", contact: "8899001122", constituency: "Pulivendla", college: "GDC", city: "Pulivendla", address: "Ring Road", reason: "Leadership Skills", status: "rejected", active: true }
         ];
 
+        // System Activity History Logs
         let activityLogs = [
             { id: 101, action: "Admin Logged In", date: new Date().toISOString() },
             { id: 102, action: "Accepted Application: Ramesh Reddy", date: new Date(Date.now() - 3600000 * 2).toISOString() },
@@ -1564,6 +1581,48 @@
         let selectedHistoryIds = [];
         let isAdminLoggedIn = false;
 
+        // ANIMATED COUNTER SCRIPT
+        function animateCounters() {
+            const counters = document.querySelectorAll('.animated-counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let start = 0;
+                const duration = 1800; // Animation duration in ms
+                const startTime = performance.now();
+
+                function updateCount(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const currentVal = Math.floor(progress * target);
+                    
+                    counter.innerText = currentVal.toLocaleString() + (target >= 1000 ? '+' : '');
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target.toLocaleString() + (target >= 1000 ? '+' : '');
+                    }
+                }
+                requestAnimationFrame(updateCount);
+            });
+        }
+
+        // Trigger Stats Animation on Scroll or Page Load
+        let animated = false;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animateCounters();
+                    animated = true;
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.stats-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Helper function for history logging
         function logActivity(action) {
             activityLogs.unshift({
                 id: Date.now(),
@@ -1572,30 +1631,7 @@
             });
         }
 
-        // Animated Counters Handler
-        function animateCounters() {
-            const counters = document.querySelectorAll('.page-view.active .counter');
-            const speed = 200; // Counter animation duration scaling
-
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const increment = Math.max(1, Math.ceil(target / speed));
-
-                const updateCount = () => {
-                    const count = +counter.innerText;
-                    if (count < target) {
-                        counter.innerText = Math.min(target, count + increment);
-                        setTimeout(updateCount, 15);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                counter.innerText = "0";
-                updateCount();
-            });
-        }
-
-        // DOM Handles
+        // DOM Elements
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebar-overlay');
         const openMenuBtn = document.getElementById('open-menu');
@@ -1616,11 +1652,13 @@
         const contactPage = document.getElementById('contact-page');
         const adminPage = document.getElementById('admin-page');
         
+        // Admin Auth Modal
         const mainLogoImg = document.getElementById('main-logo-img');
         const adminLoginModal = document.getElementById('admin-login-modal');
         const closeAdminModal = document.getElementById('close-admin-modal');
         const adminLoginForm = document.getElementById('admin-login-form');
 
+        // Toggle Admin Modal via Main Logo
         mainLogoImg.addEventListener('click', () => {
             if(isAdminLoggedIn) {
                 showPage(adminPage);
@@ -1646,6 +1684,7 @@
                 updateSidebarMenu();
                 showPage(adminPage);
                 showAdminTab('requests');
+                setTimeout(animateCounters, 100);
             } else {
                 document.getElementById('login-error').style.display = 'block';
             }
@@ -1669,6 +1708,7 @@
             location.reload();
         }
 
+        // Sidebar Navigation
         function openSidebar() {
             sidebar.classList.add('active');
             sidebarOverlay.classList.add('active');
@@ -1686,6 +1726,7 @@
 
         document.getElementById('admin-menu-btn').addEventListener('click', openSidebar);
 
+        // Join Modal
         joinBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -1698,6 +1739,7 @@
             joinModal.classList.remove('active');
         });
 
+        // View Routing
         function showPage(page) {
             homePage.classList.remove('active');
             contactPage.classList.remove('active');
@@ -1705,7 +1747,7 @@
             page.classList.add('active');
             closeSidebar();
             window.scrollTo(0, 0);
-            animateCounters();
+            setTimeout(animateCounters, 100);
         }
 
         function bindNavigationEvents() {
@@ -1714,6 +1756,7 @@
         }
         bindNavigationEvents();
 
+        // Form Submissions
         joinForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
@@ -1750,6 +1793,7 @@
             document.getElementById(id).classList.remove('active');
         }
 
+        // ADMIN TAB RENDER logic
         function showAdminTab(tab) {
             activeAdminTab = tab;
             const container = document.getElementById('admin-content-area');
@@ -1835,6 +1879,7 @@
             container.innerHTML = html;
         }
 
+        // HISTORY UI & LOGIC RENDERER
         function setHistoryFilter(f) {
             historyFilter = f;
             showAdminTab('history');
@@ -2077,7 +2122,7 @@
             slides[currentSlide].classList.add('active');
         }, 3000);
 
-        // Social Media Scrolling
+        // SOCIAL MEDIA AUTOMATIC SCROLLING
         const socialSlider = document.getElementById('social-slider');
         const socialPrevBtn = document.getElementById('social-prev');
         const socialNextBtn = document.getElementById('social-next');
@@ -2109,7 +2154,7 @@
             socialAutoScroll = setInterval(scrollSocialNext, 3500);
         });
 
-        // Initialize Animated Counters on Load
+        // Initialize counters on window load
         window.addEventListener('DOMContentLoaded', () => {
             animateCounters();
         });
