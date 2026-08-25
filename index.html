@@ -2303,5 +2303,428 @@
             animateCounters();
         });
     </script>
+    <!-- Add this to the <head> tag of your HTML -->
+<script src="https://script.google.com/macros/s/AKfycbwRFmxSz9oSbMPMjiR48vhp4djy1xX7LiE4m7nMlNAn8sf1Z_A9kyiwS8ubn5XfQd_N/exec"></script>
+
+<!-- Replace your existing <script> at the bottom of body with this: -->
+<script>
+    let applications = [];
+    let activityLogs = [];
+    let activeAdminTab = 'requests';
+    let historyFilter = 'all';
+    let selectedHistoryIds = [];
+    let isAdminLoggedIn = false;
+
+    // Fetch initial synchronized data from Google Apps Script
+    function fetchLiveData() {
+        if(typeof google !== 'undefined' && google.script && google.script.run) {
+            google.script.run.withSuccessHandler(onDataLoaded).getData();
+        }
+    }
+
+    function onDataLoaded(data) {
+        applications = data.applications || [];
+        activityLogs = data.activityLogs || [];
+        
+        // Dynamic live statistics sync
+        document.querySelectorAll('.animated-counter').forEach(el => {
+            if (el.nextElementSibling && el.nextElementSibling.innerText.includes('MEMBERS')) {
+                el.setAttribute('data-target', data.totalMembers);
+            }
+        });
+        
+        animateCounters();
+        if(isAdminLoggedIn) {
+            showAdminTab(activeAdminTab);
+        }
+    }
+
+    // ANIMATED COUNTER SCRIPT
+    function animateCounters() {
+        const counters = document.querySelectorAll('.animated-counter');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let start = 0;
+            const duration = 1200;
+            const startTime = performance.now();
+
+            function updateCount(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const currentVal = Math.floor(progress * target);
+                counter.innerText = currentVal.toLocaleString();
+                if (progress < 1) requestAnimationFrame(updateCount);
+                else counter.innerText = target.toLocaleString();
+            }
+            requestAnimationFrame(updateCount);
+        });
+    }
+
+    // DOM Elements & Navigation
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    const openMenuBtn = document.getElementById('open-menu');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const allOpenMenuBtns = document.querySelectorAll('.open-menu-btn');
+    const joinModal = document.getElementById('join-modal');
+    const closeJoinModalBtn = document.getElementById('close-join-modal');
+    const joinBtns = document.querySelectorAll('.open-join-modal');
+    const successModal = document.getElementById('success-modal');
+    const closeSuccessBtn = document.getElementById('close-success-popup');
+    const joinForm = document.getElementById('TNSF Membership');
+    const contactPageForm = document.getElementById('contact-page-form');
+    const homePage = document.getElementById('home-page');
+    const contactPage = document.getElementById('contact-page');
+    const adminPage = document.getElementById('admin-page');
+    const mainLogoImg = document.getElementById('main-logo-img');
+    const adminLoginModal = document.getElementById('admin-login-modal');
+    const closeAdminModal = document.getElementById('close-admin-modal');
+    const adminLoginForm = document.getElementById('admin-login-form');
+
+    mainLogoImg.addEventListener('click', () => {
+        if(isAdminLoggedIn) showPage(adminPage);
+        else adminLoginModal.classList.add('active');
+    });
+
+    closeAdminModal.addEventListener('click', () => adminLoginModal.classList.remove('active'));
+
+    adminLoginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const u = document.getElementById('admin-user').value;
+        const p = document.getElementById('admin-pass').value;
+        if (u === 'tnsfkadapa' && p === '@tnsfkadapa') {
+            isAdminLoggedIn = true;
+            adminLoginModal.classList.remove('active');
+            document.getElementById('login-error').style.display = 'none';
+            updateSidebarMenu();
+            showPage(adminPage);
+            showAdminTab('requests');
+        } else {
+            document.getElementById('login-error').style.display = 'block';
+        }
+    });
+
+    function updateSidebarMenu() {
+        const sidebarLinks = document.getElementById('sidebar-links');
+        if (isAdminLoggedIn) {
+            sidebarLinks.innerHTML = `
+                <li><a href="#" onclick="showPage(adminPage)"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</a></li>
+                <li><a href="#" onclick="showPage(adminPage); showAdminTab('history');"><i class="fas fa-history"></i> Admin History</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#" onclick="logoutAdmin()" style="color:#ff4d4d !important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            `;
+            bindNavigationEvents();
+        }
+    }
+
+    function logoutAdmin() {
+        isAdminLoggedIn = false;
+        location.reload();
+    }
+
+    function openSidebar() { sidebar.classList.add('active'); sidebarOverlay.classList.add('active'); }
+    function closeSidebar() { sidebar.classList.remove('active'); sidebarOverlay.classList.remove('active'); }
+
+    openMenuBtn.addEventListener('click', openSidebar);
+    closeMenuBtn.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    allOpenMenuBtns.forEach(btn => btn.addEventListener('click', openSidebar));
+    document.getElementById('admin-menu-btn').addEventListener('click', openSidebar);
+
+    joinBtns.forEach(btn => btn.addEventListener('click', (e) => {
+        e.preventDefault(); closeSidebar(); joinModal.classList.add('active');
+    }));
+    closeJoinModalBtn.addEventListener('click', () => joinModal.classList.remove('active'));
+
+    function showPage(page) {
+        homePage.classList.remove('active');
+        contactPage.classList.remove('active');
+        adminPage.classList.remove('active');
+        page.classList.add('active');
+        closeSidebar();
+        window.scrollTo(0, 0);
+    }
+
+    function bindNavigationEvents() {
+        document.querySelectorAll('.nav-to-contact').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(contactPage); }));
+        document.querySelectorAll('.nav-to-home').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(homePage); }));
+    }
+    bindNavigationEvents();
+
+    // Form Submissions
+    joinForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = {
+            name: document.getElementById('form-name').value,
+            contact: document.getElementById('form-contact').value,
+            constituency: document.getElementById('form-constituency').value,
+            college: document.getElementById('form-college').value,
+            city: document.getElementById('form-city').value,
+            address: document.getElementById('form-address').value,
+            reason: document.getElementById('form-reason').value
+        };
+
+        if(typeof google !== 'undefined' && google.script && google.script.run) {
+            google.script.run.withSuccessHandler(() => {
+                joinModal.classList.remove('active');
+                joinForm.reset();
+                successModal.classList.add('active');
+                fetchLiveData();
+            }).submitJoiningForm(formData);
+        }
+    });
+
+    contactPageForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputs = contactPageForm.querySelectorAll('input');
+        const formData = {
+            name: inputs[0].value,
+            contact: inputs[1].value,
+            email: inputs[2].value
+        };
+
+        if(typeof google !== 'undefined' && google.script && google.script.run) {
+            google.script.run.withSuccessHandler((res) => {
+                contactPageForm.reset();
+                successModal.classList.add('active');
+                if(res.waUrl) window.open(res.waUrl, '_blank');
+            }).submitContactForm(formData);
+        }
+    });
+
+    closeSuccessBtn.addEventListener('click', () => successModal.classList.remove('active'));
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+    // PDF EXPORT WITH THEME PRESERVATION
+    function exportToPDF(elementId, filename) {
+        const element = document.getElementById(elementId);
+        const opt = {
+            margin:       0.3,
+            filename:     filename + '.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2, useCORS: true },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        html2pdf().set(opt).from(element).save();
+    }
+
+    // Admin Tab Operations
+    function showAdminTab(tab) {
+        activeAdminTab = tab;
+        const container = document.getElementById('admin-content-area');
+        const searchVal = document.getElementById('admin-search-input').value.toLowerCase();
+        let html = "";
+
+        if (tab === 'requests') {
+            const list = applications.filter(a => a.status === 'pending' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+            if(list.length === 0) html = "<p style='text-align:center; padding:20px;'>No pending requests found.</p>";
+            list.forEach(item => {
+                html += `
+                    <div class="data-card" onclick="openOverviewModal(${item.id})">
+                        <h4><i class="fas fa-bell" style="color:var(--primary);"></i> ${item.name} <span style="font-size:10px; color:#666;">${item.constituency}</span></h4>
+                        <p><strong>Contact:</strong> ${item.contact} | <strong>College:</strong> ${item.college}</p>
+                    </div>
+                `;
+            });
+        } else if (tab === 'accepted') {
+            const list = applications.filter(a => a.status === 'accepted' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+            html = `
+                <div style="margin-bottom:10px; text-align:right;">
+                    <button class="btn btn-dark" onclick="exportToPDF('accepted-sheet-view', 'Accepted_Members')"><i class="fas fa-file-pdf"></i> Export PDF</button>
+                </div>
+                <div id="accepted-sheet-view" class="watermark-container">
+                    <img src="images (3).jpeg" class="watermark-logo">
+                    <table class="data-sheet">
+                        <thead><tr><th>Name</th><th>Contact</th><th>Constituency</th></tr></thead>
+                        <tbody>
+                            ${list.map(i => `<tr onclick="openOverviewModal(${i.id})"><td>${i.name}</td><td>${i.contact}</td><td>${i.constituency}</td></tr>`).join('')}
+                            ${list.length === 0 ? '<tr><td colspan="3" style="text-align:center;">No accepted records.</td></tr>' : ''}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        } else if (tab === 'constituencies') {
+            html = `
+                <div style="margin-bottom:15px; text-align:center;">
+                    <select id="constituency-dropdown" class="form-control" style="width:60%; display:inline-block;">
+                        <option value="">Choose Constituency</option>
+                        <option value="Badvel">Badvel</option>
+                        <option value="Kadapa">Kadapa</option>
+                        <option value="Pulivendla">Pulivendla</option>
+                        <option value="Kamalapuram">Kamalapuram</option>
+                        <option value="Jammalamadugu">Jammalamadugu</option>
+                        <option value="Proddatur">Proddatur</option>
+                        <option value="Mydukur">Mydukur</option>
+                    </select>
+                    <button class="btn btn-yellow" onclick="renderConstituencyData()"><i class="fas fa-filter"></i> GET</button>
+                    <button class="btn btn-dark" onclick="exportToPDF('constituency-sheet-view', 'Constituency_Data')"><i class="fas fa-file-pdf"></i> PDF</button>
+                </div>
+                <div id="constituency-sheet-view" class="watermark-container">
+                    <img src="images (3).jpeg" class="watermark-logo">
+                    <div id="constituency-table-wrapper">
+                        <p style="text-align:center; color:#888; padding:20px;">Select a constituency and click GET.</p>
+                    </div>
+                </div>
+            `;
+        } else if (tab === 'rejected') {
+            const list = applications.filter(a => a.status === 'rejected' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+            html = `
+                <div style="margin-bottom:10px; text-align:right;">
+                    <button class="btn btn-dark" onclick="exportToPDF('rejected-sheet-view', 'Rejected_Applications')"><i class="fas fa-file-pdf"></i> Export PDF</button>
+                </div>
+                <div id="rejected-sheet-view" class="watermark-container">
+                    <img src="images (3).jpeg" class="watermark-logo">
+                    <table class="data-sheet">
+                        <thead><tr><th>Name</th><th>Contact</th><th>Constituency</th></tr></thead>
+                        <tbody>
+                            ${list.map(i => `<tr><td>${i.name}</td><td>${i.contact}</td><td>${i.constituency}</td></tr>`).join('')}
+                            ${list.length === 0 ? '<tr><td colspan="3" style="text-align:center;">No rejected records found.</td></tr>' : ''}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        } else if (tab === 'history') {
+            selectedHistoryIds = [];
+            html = renderHistorySection(searchVal);
+        }
+        container.innerHTML = html;
+    }
+
+    function renderHistorySection(searchVal) {
+        let filteredLogs = activityLogs.filter(log => log.action.toLowerCase().includes(searchVal));
+        return `
+            <div style="padding:0 5px;">
+                <h3 style="font-size:14px; margin-bottom:10px;"><i class="fas fa-history"></i> Recent Activity Logs</h3>
+                <div class="action-bar">
+                    <label style="font-size:11px; cursor:pointer;"><input type="checkbox" onchange="toggleSelectAllHistory(this)"> Select All</label>
+                    <div>
+                        <button class="btn btn-danger" style="padding:6px 10px; font-size:10px;" onclick="deleteSelectedHistory()"><i class="fas fa-trash"></i> Delete Selected</button>
+                        <button class="btn btn-dark" style="padding:6px 10px; font-size:10px;" onclick="clearAllHistory()"><i class="fas fa-broom"></i> Clear All</button>
+                    </div>
+                </div>
+                <div id="history-list">
+                    ${filteredLogs.length === 0 ? '<p style="text-align:center; padding:20px; color:#888;">No recent activity logs found.</p>' : ''}
+                    ${filteredLogs.map(log => `
+                        <div class="history-card">
+                            <input type="checkbox" class="history-checkbox" value="${log.id}" onchange="toggleSelectHistoryItem(${log.id}, this.checked)">
+                            <div class="history-card-body">
+                                <div class="title">${log.action}</div>
+                                <div class="time"><i class="far fa-clock"></i> ${new Date(log.date).toLocaleString()}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    function openOverviewModal(id) {
+        const item = applications.find(a => a.id == id);
+        if (!item) return;
+        const content = document.getElementById('overview-details-content');
+        const actions = document.getElementById('overview-actions');
+
+        content.innerHTML = `
+            <p><strong>Name:</strong> ${item.name}</p>
+            <p><strong>Contact:</strong> ${item.contact}</p>
+            <p><strong>Constituency:</strong> ${item.constituency}</p>
+            <p><strong>College:</strong> ${item.college}</p>
+            <p><strong>City:</strong> ${item.city}</p>
+            <p><strong>Address:</strong> ${item.address}</p>
+            <p><strong>Why TNSF:</strong> ${item.reason}</p>
+            <p><strong>Status:</strong> <span style="text-transform:uppercase; font-weight:bold;">${item.status}</span></p>
+        `;
+
+        if(item.status === 'pending') {
+            actions.innerHTML = `
+                <button class="btn btn-success" onclick="updateStatus(${item.id}, 'accepted')">Accept</button>
+                <button class="btn btn-danger" onclick="updateStatus(${item.id}, 'rejected')">Reject</button>
+            `;
+        } else {
+            actions.innerHTML = `<button class="btn btn-dark" onclick="closeModal('overview-modal')">Close</button>`;
+        }
+        document.getElementById('overview-modal').classList.add('active');
+    }
+
+    function updateStatus(id, newStatus) {
+        if(typeof google !== 'undefined' && google.script && google.script.run) {
+            google.script.run.withSuccessHandler(onDataLoaded).updateApplicationStatus(id, newStatus);
+        }
+        closeModal('overview-modal');
+    }
+
+    function renderConstituencyData() {
+        const selectedVal = document.getElementById('constituency-dropdown').value;
+        const tableWrapper = document.getElementById('constituency-table-wrapper');
+        if(!selectedVal) {
+            tableWrapper.innerHTML = `<p style="text-align:center; color:red; padding:10px;">Please choose a constituency first.</p>`;
+            return;
+        }
+
+        const searchVal = document.getElementById('admin-search-input').value.toLowerCase();
+        const list = applications.filter(a => a.constituency === selectedVal && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+
+        let html = `
+            <table class="data-sheet">
+                <thead><tr><th>Name</th><th>Contact</th><th>Status</th><th>Active</th></tr></thead>
+                <tbody>
+        `;
+        list.forEach(i => {
+            html += `
+                <tr>
+                    <td>${i.name}</td>
+                    <td>${i.contact}</td>
+                    <td>${i.status}</td>
+                    <td>
+                        <button class="switch-btn ${i.active ? 'active-on' : ''}" onclick="toggleActiveStatus(${i.id}, ${i.active})">${i.active ? 'ACTIVE' : 'INACTIVE'}</button>
+                    </td>
+                </tr>
+            `;
+        });
+        html += `</tbody></table>`;
+        if(list.length === 0) html = `<p style="text-align:center; padding:20px;">No records found for ${selectedVal}.</p>`;
+        tableWrapper.innerHTML = html;
+    }
+
+    function toggleActiveStatus(id, currentActiveState) {
+        if(typeof google !== 'undefined' && google.script && google.script.run) {
+            google.script.run.withSuccessHandler(onDataLoaded).toggleMemberActiveStatus(id, currentActiveState);
+        }
+    }
+
+    function toggleSelectHistoryItem(id, isChecked) {
+        if(isChecked) { if(!selectedHistoryIds.includes(id)) selectedHistoryIds.push(id); }
+        else { selectedHistoryIds = selectedHistoryIds.filter(i => i !== id); }
+    }
+
+    function toggleSelectAllHistory(masterCert) {
+        const checkboxes = document.querySelectorAll('.history-checkbox');
+        selectedHistoryIds = [];
+        checkboxes.forEach(cb => {
+            cb.checked = masterCert.checked;
+            if(masterCert.checked) selectedHistoryIds.push(parseInt(cb.value));
+        });
+    }
+
+    function deleteSelectedHistory() {
+        if(selectedHistoryIds.length === 0) return alert("Select records to delete.");
+        if(confirm("Delete selected history records?") && typeof google !== 'undefined') {
+            google.script.run.withSuccessHandler(onDataLoaded).deleteHistoryLogs(selectedHistoryIds);
+        }
+    }
+
+    function clearAllHistory() {
+        if(confirm("Clear ALL activity history?") && typeof google !== 'undefined') {
+            google.script.run.withSuccessHandler(onDataLoaded).clearAllHistoryLogs();
+        }
+    }
+
+    function filterAdminData() {
+        if(activeAdminTab !== 'constituencies') showAdminTab(activeAdminTab);
+    }
+
+    // Auto-fetch data on initialization
+    window.addEventListener('DOMContentLoaded', fetchLiveData);
+</script>
 </body>
 </html>
