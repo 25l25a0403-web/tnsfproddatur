@@ -1632,7 +1632,678 @@
     </div>
 
     <script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+          <script>
+        // Sample Storage Array
+        let applications = [
+            { id: 1, name: "Suresh Kumar", contact: "9876543210", constituency: "Kadapa", college: "KSRM", city: "Kadapa", address: "7/12 RK Nagar", reason: "Social service interest", status: "pending", active: true },
+            { id: 2, name: "Ramesh Reddy", contact: "9123456789", constituency: "Proddatur", college: "YVU", city: "Proddatur", address: "Main Bazaar", reason: "Student rights protection", status: "accepted", active: true },
+            { id: 3, name: "Venkatesh B", contact: "8899001122", constituency: "Pulivendla", college: "GDC", city: "Pulivendla", address: "Ring Road", reason: "Leadership Skills", status: "rejected", active: true }
+        ];
+
+        // System Activity History Logs
+        let activityLogs = [
+            { id: 101, action: "Admin Logged In", date: new Date().toISOString() },
+            { id: 102, action: "Accepted Application: Ramesh Reddy", date: new Date(Date.now() - 3600000 * 2).toISOString() },
+            { id: 103, action: "Rejected Application: Venkatesh B", date: new Date(Date.now() - 86400000 * 2).toISOString() },
+            { id: 104, action: "New Registration: Suresh Kumar", date: new Date(Date.now() - 86400000 * 10).toISOString() }
+        ];
+
+        let activeAdminTab = 'requests';
+        let historyFilter = 'all';
+        let selectedHistoryIds = [];
+        let isAdminLoggedIn = false;
+
+        // ANIMATED COUNTER SCRIPT
+        function animateCounters() {
+            const counters = document.querySelectorAll('.animated-counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let start = 0;
+                const duration = 1800;
+                const startTime = performance.now();
+
+                function updateCount(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const currentVal = Math.floor(progress * target);
+                    
+                    counter.innerText = currentVal.toLocaleString() + (target >= 1000 ? '+' : '');
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target.toLocaleString() + (target >= 1000 ? '+' : '');
+                    }
+                }
+                requestAnimationFrame(updateCount);
+            });
+        }
+
+        // Trigger Stats Animation on Scroll or Page Load
+        let animated = false;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animateCounters();
+                    animated = true;
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.stats-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Helper function for history logging
+        function logActivity(action) {
+            activityLogs.unshift({
+                id: Date.now(),
+                action: action,
+                date: new Date().toISOString()
+            });
+        }
+
+        // DOM Elements
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const openMenuBtn = document.getElementById('open-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const allOpenMenuBtns = document.querySelectorAll('.open-menu-btn');
+        
+        const joinModal = document.getElementById('join-modal');
+        const closeJoinModalBtn = document.getElementById('close-join-modal');
+        const joinBtns = document.querySelectorAll('.open-join-modal');
+        
+        const successModal = document.getElementById('success-modal');
+        const closeSuccessBtn = document.getElementById('close-success-popup');
+
+        const joinForm = document.getElementById('join-tnsf-form');
+        const contactPageForm = document.getElementById('contact-page-form');
+
+        const homePage = document.getElementById('home-page');
+        const contactPage = document.getElementById('contact-page');
+        const adminPage = document.getElementById('admin-page');
+        
+        // Admin Auth Modal
+        const mainLogoImg = document.getElementById('main-logo-img');
+        const adminLoginModal = document.getElementById('admin-login-modal');
+        const closeAdminModal = document.getElementById('close-admin-modal');
+        const adminLoginForm = document.getElementById('admin-login-form');
+
+        // Toggle Admin Modal via Main Logo
+        mainLogoImg.addEventListener('click', () => {
+            if(isAdminLoggedIn) {
+                showPage(adminPage);
+            } else {
+                adminLoginModal.classList.add('active');
+            }
+        });
+
+        closeAdminModal.addEventListener('click', () => {
+            adminLoginModal.classList.remove('active');
+        });
+
+        adminLoginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const u = document.getElementById('admin-user').value;
+            const p = document.getElementById('admin-pass').value;
+
+            if (u === 'tnsfkadapa' && p === '@tnsfkadapa') {
+                isAdminLoggedIn = true;
+                adminLoginModal.classList.remove('active');
+                document.getElementById('login-error').style.display = 'none';
+                logActivity("Admin successfully logged into panel");
+                updateSidebarMenu();
+                showPage(adminPage);
+                showAdminTab('requests');
+                setTimeout(animateCounters, 100);
+            } else {
+                document.getElementById('login-error').style.display = 'block';
+            }
+        });
+
+        function updateSidebarMenu() {
+            const sidebarLinks = document.getElementById('sidebar-links');
+            if (isAdminLoggedIn) {
+                sidebarLinks.innerHTML = `
+                    <li><a href="#" onclick="showPage(adminPage)"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</a></li>
+                    <li><a href="#" onclick="showPage(adminPage); showAdminTab('history');"><i class="fas fa-history"></i> Admin History</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#" onclick="logoutAdmin()" style="color:#ff4d4d !important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                `;
+                bindNavigationEvents();
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            location.reload();
+        }
+        // Sidebar Navigation
+        function openSidebar() {
+            sidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        }
+
+        openMenuBtn.addEventListener('click', openSidebar);
+        closeMenuBtn.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+        allOpenMenuBtns.forEach(btn => btn.addEventListener('click', openSidebar));
+
+        document.getElementById('admin-menu-btn').addEventListener('click', openSidebar);
+
+        // Join Modal
+        joinBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeSidebar();
+                joinModal.classList.add('active');
+            });
+        });
+
+        closeJoinModalBtn.addEventListener('click', () => {
+            joinModal.classList.remove('active');
+        });
+
+        // View Routing
+        function showPage(page) {
+            homePage.classList.remove('active');
+            contactPage.classList.remove('active');
+            adminPage.classList.remove('active');
+            page.classList.add('active');
+            closeSidebar();
+            window.scrollTo(0, 0);
+            setTimeout(animateCounters, 100);
+        }
+
+        function bindNavigationEvents() {
+            document.querySelectorAll('.nav-to-contact').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(contactPage); }));
+            document.querySelectorAll('.nav-to-home').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(homePage); }));
+        }
+        bindNavigationEvents();
+
+        // Form Submissions
+        joinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const newReq = {
+                id: applications.length + 1,
+                name: document.getElementById('form-name').value,
+                contact: document.getElementById('form-contact').value,
+                constituency: document.getElementById('form-constituency').value,
+                college: document.getElementById('form-college').value,
+                city: document.getElementById('form-city').value,
+                address: document.getElementById('form-address').value,
+                reason: document.getElementById('form-reason').value,
+                status: 'pending',
+                active: true
+            };
+
+            applications.push(newReq);
+            logActivity(`New join application submitted by ${newReq.name}`);
+            joinModal.classList.remove('active');
+            joinForm.reset();
+            successModal.classList.add('active');
+        });
+
+        contactPageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            logActivity(`Contact form submitted`);
+            contactPageForm.reset();
+            successModal.classList.add('active');
+        });
+
+        closeSuccessBtn.addEventListener('click', () => successModal.classList.remove('active'));
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // SEND NOTIFICATION LOGIC
+        function openNotificationModal() {
+            document.getElementById('notification-modal').classList.add('active');
+            renderNotificationUserList();
+        }
+
+        function renderNotificationUserList() {
+            const selectedConst = document.getElementById('notif-constituency').value;
+            const searchVal = document.getElementById('notif-user-search').value.toLowerCase();
+            const container = document.getElementById('notif-user-list');
+
+            const filtered = applications.filter(app => {
+                const matchConst = (selectedConst === 'ALL' || app.constituency === selectedConst);
+                const matchSearch = app.name.toLowerCase().includes(searchVal) || app.contact.includes(searchVal);
+                return matchConst && matchSearch;
+            });
+
+            if(filtered.length === 0) {
+                container.innerHTML = '<p style="text-align:center; font-size:11px; color:#888; padding:10px;">No users found.</p>';
+                return;
+            }
+
+            container.innerHTML = filtered.map(user => `
+                <div class="user-select-item">
+                    <input type="checkbox" class="notif-user-cb" value="${user.id}">
+                    <div style="flex-grow:1;">
+                        <strong>${user.name}</strong> (${user.contact})
+                        <div style="font-size:9.5px; color:#777;">Constituency: ${user.constituency}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('notif-select-all').checked = false;
+        }
+
+        function toggleSelectAllNotifUsers(masterCert) {
+            const checkboxes = document.querySelectorAll('.notif-user-cb');
+            checkboxes.forEach(cb => cb.checked = masterCert.checked);
+        }
+
+        function sendBulkWhatsAppNotifications() {
+            const rawMsg = document.getElementById('notif-message-text').value.trim();
+            if(!rawMsg) {
+                alert("Please write a message to send.");
+                return;
+            }
+
+            const selectedCbs = document.querySelectorAll('.notif-user-cb:checked');
+            if(selectedCbs.length === 0) {
+                alert("Please select at least one user to send notification.");
+                return;
+            }
+
+            const selectedUserIds = Array.from(selectedCbs).map(cb => parseInt(cb.value));
+            const selectedUsers = applications.filter(user => selectedUserIds.includes(user.id));
+
+            logActivity(`Triggered WhatsApp notifications for ${selectedUsers.length} user(s).`);
+
+            selectedUsers.forEach((user, index) => {
+                setTimeout(() => {
+                    let formattedPhone = user.contact.replace(/[^0-9]/g, '');
+                    if(formattedPhone.length === 10) formattedPhone = '91' + formattedPhone;
+
+                    let personalMsg = rawMsg.replace(/\{name\}/gi, user.name);
+                    let encodedMsg = encodeURIComponent(personalMsg);
+                    
+                    let waUrl = `https://api.whatsapp.com/send?phone=${formattedPhone}&text=${encodedMsg}`;
+                    window.open(waUrl, '_blank');
+                }, index * 1000);
+            });
+
+            closeModal('notification-modal');
+        }
+
+        // ADMIN TAB RENDER logic
+        function showAdminTab(tab) {
+            activeAdminTab = tab;
+            const container = document.getElementById('admin-content-area');
+            const searchVal = document.getElementById('admin-search-input').value.toLowerCase();
+
+            let html = "";
+
+            if (tab === 'requests') {
+                const list = applications.filter(a => a.status === 'pending' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+                if(list.length === 0) html = "<p style='text-align:center; padding:20px;'>No pending requests found.</p>";
+                list.forEach(item => {
+                    html += `
+                        <div class="data-card" onclick="openOverviewModal(${item.id})">
+                            <h4><i class="fas fa-bell" style="color:var(--primary);"></i> ${item.name} <span style="font-size:10px; color:#666;">${item.constituency}</span></h4>
+                            <p><strong>Contact:</strong> ${item.contact} | <strong>College:</strong> ${item.college}</p>
+                        </div>
+                    `;
+                });
+            } else if (tab === 'accepted') {
+                const list = applications.filter(a => a.status === 'accepted' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+                if(list.length === 0) html = "<p style='text-align:center; padding:20px;'>No accepted members found.</p>";
+                list.forEach(item => {
+                    html += `
+                        <div class="data-card" onclick="openOverviewModal(${item.id})">
+                            <h4><i class="fas fa-check-circle" style="color:green;"></i> ${item.name}</h4>
+                            <p><strong>Contact:</strong> ${item.contact} | <strong>Constituency:</strong> ${item.constituency}</p>
+                        </div>
+                    `;
+                });
+            } else if (tab === 'constituencies') {
+                html = `
+                    <div style="margin-bottom:15px; text-align:center;">
+                        <select id="constituency-dropdown" class="form-control" style="width:70%; display:inline-block;">
+                            <option value="">Choose Constituency</option>
+                            <option value="Badvel">Badvel</option>
+                            <option value="Kadapa">Kadapa</option>
+                            <option value="Pulivendla">Pulivendla</option>
+                            <option value="Kamalapuram">Kamalapuram</option>
+                            <option value="Jammalamadugu">Jammalamadugu</option>
+                            <option value="Proddatur">Proddatur</option>
+                            <option value="Mydukur">Mydukur</option>
+                        </select>
+                        <button class="btn btn-yellow" onclick="renderConstituencyData()"><i class="fas fa-filter"></i> GET</button>
+                    </div>
+                    <div id="constituency-sheet-view" class="watermark-container">
+                        <img src="images (3).jpeg" class="watermark-logo">
+                        <div id="constituency-table-wrapper">
+                            <p style="text-align:center; color:#888; padding:20px;">Select a constituency and click GET.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'rejected') {
+                const list = applications.filter(a => a.status === 'rejected' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+                html = `
+                    <div class="watermark-container">
+                        <img src="images (3).jpeg" class="watermark-logo">
+                        <table class="data-sheet">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Contact</th>
+                                    <th>Constituency</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${list.map(i => `
+                                    <tr>
+                                        <td>${i.name}</td>
+                                        <td>${i.contact}</td>
+                                        <td>${i.constituency}</td>
+                                    </tr>
+                                `).join('')}
+                                ${list.length === 0 ? '<tr><td colspan="3" style="text-align:center;">No rejected records found.</td></tr>' : ''}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            } else if (tab === 'history') {
+                selectedHistoryIds = [];
+                html = renderHistorySection(searchVal);
+            }
+
+            container.innerHTML = html;
+        }
+
+        // HISTORY UI & LOGIC RENDERER
+        function setHistoryFilter(f) {
+            historyFilter = f;
+            showAdminTab('history');
+        }
+
+        function renderHistorySection(searchVal) {
+            let now = new Date();
+            let filteredLogs = activityLogs.filter(log => {
+                let matchesSearch = log.action.toLowerCase().includes(searchVal);
+                let logDate = new Date(log.date);
+
+                if(!matchesSearch) return false;
+
+                if (historyFilter === 'today') {
+                    return logDate.toDateString() === now.toDateString();
+                } else if (historyFilter === 'week') {
+                    let oneWeekAgo = new Date();
+                    oneWeekAgo.setDate(now.getDate() - 7);
+                    return logDate >= oneWeekAgo;
+                } else if (historyFilter === 'month') {
+                    return logDate.getMonth() === now.getMonth() && logDate.getFullYear() === now.getFullYear();
+                } else if (historyFilter === 'custom') {
+                    let startDate = document.getElementById('start-date') ? new Date(document.getElementById('start-date').value) : null;
+                    let endDate = document.getElementById('end-date') ? new Date(document.getElementById('end-date').value) : null;
+                    if (startDate && !isNaN(startDate.getTime())) {
+                        if (logDate < startDate) return false;
+                    }
+                    if (endDate && !isNaN(endDate.getTime())) {
+                        endDate.setHours(23,59,59,999);
+                        if (logDate > endDate) return false;
+                    }
+                    return true;
+                }
+                return true;
+            });
+
+            return `
+                <div style="padding:0 5px;">
+                    <h3 style="font-size:14px; margin-bottom:10px;"><i class="fas fa-history"></i> Recent Activity Logs</h3>
+                    
+                    <div class="filter-chip-container">
+                        <button class="filter-chip ${historyFilter === 'all' ? 'active' : ''}" onclick="setHistoryFilter('all')">All</button>
+                        <button class="filter-chip ${historyFilter === 'today' ? 'active' : ''}" onclick="setHistoryFilter('today')">Today</button>
+                        <button class="filter-chip ${historyFilter === 'week' ? 'active' : ''}" onclick="setHistoryFilter('week')">This Week</button>
+                        <button class="filter-chip ${historyFilter === 'month' ? 'active' : ''}" onclick="setHistoryFilter('month')">This Month</button>
+                        <button class="filter-chip ${historyFilter === 'custom' ? 'active' : ''}" onclick="setHistoryFilter('custom')">Date Range</button>
+                    </div>
+
+                    ${historyFilter === 'custom' ? `
+                        <div class="date-range-box">
+                            <input type="date" id="start-date" class="form-control" style="font-size:10px;">
+                            <span style="font-size:10px;">to</span>
+                            <input type="date" id="end-date" class="form-control" style="font-size:10px;">
+                            <button class="btn btn-yellow" style="padding:6px 10px; font-size:10px;" onclick="showAdminTab('history')">Apply</button>
+                        </div>
+                    ` : ''}
+
+                    <div class="action-bar">
+                        <label style="font-size:11px; cursor:pointer;">
+                            <input type="checkbox" onchange="toggleSelectAllHistory(this)"> Select All
+                        </label>
+                        <div>
+                            <button class="btn btn-danger" style="padding:6px 10px; font-size:10px;" onclick="deleteSelectedHistory()"><i class="fas fa-trash"></i> Delete Selected</button>
+                            <button class="btn btn-dark" style="padding:6px 10px; font-size:10px;" onclick="clearAllHistory()"><i class="fas fa-broom"></i> Clear All</button>
+                        </div>
+                    </div>
+
+                    <div id="history-list">
+                        ${filteredLogs.length === 0 ? '<p style="text-align:center; padding:20px; color:#888;">No recent activity logs found.</p>' : ''}
+                        ${filteredLogs.map(log => `
+                            <div class="history-card">
+                                <input type="checkbox" class="history-checkbox" value="${log.id}" onchange="toggleSelectHistoryItem(${log.id}, this.checked)">
+                                <div class="history-card-body">
+                                    <div class="title">${log.action}</div>
+                                    <div class="time"><i class="far fa-clock"></i> ${new Date(log.date).toLocaleString()}</div>
+                                </div>
+                                <button style="background:none; border:none; color:#d9534f; cursor:pointer;" onclick="deleteSingleHistory(${log.id})"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleSelectHistoryItem(id, isChecked) {
+            if(isChecked) {
+                if(!selectedHistoryIds.includes(id)) selectedHistoryIds.push(id);
+            } else {
+                selectedHistoryIds = selectedHistoryIds.filter(i => i !== id);
+            }
+        }
+
+        function toggleSelectAllHistory(masterCert) {
+            const checkboxes = document.querySelectorAll('.history-checkbox');
+            selectedHistoryIds = [];
+            checkboxes.forEach(cb => {
+                cb.checked = masterCert.checked;
+                if(masterCert.checked) {
+                    selectedHistoryIds.push(parseInt(cb.value));
+                }
+            });
+        }
+
+        function deleteSingleHistory(id) {
+            activityLogs = activityLogs.filter(l => l.id !== id);
+            showAdminTab('history');
+        }
+
+        function deleteSelectedHistory() {
+            if(selectedHistoryIds.length === 0) {
+                alert("Please select at least one history record to delete.");
+                return;
+            }
+            if(confirm("Are you sure you want to delete selected history records?")) {
+                activityLogs = activityLogs.filter(l => !selectedHistoryIds.includes(l.id));
+                selectedHistoryIds = [];
+                showAdminTab('history');
+            }
+        }
+
+        function clearAllHistory() {
+            if(confirm("Are you sure you want to clear ALL activity history?")) {
+                activityLogs = [];
+                selectedHistoryIds = [];
+                showAdminTab('history');
+            }
+        }
+
+        function filterAdminData() {
+            if(activeAdminTab !== 'constituencies') {
+                showAdminTab(activeAdminTab);
+            }
+        }
+
+        function openOverviewModal(id) {
+            const item = applications.find(a => a.id === id);
+            if (!item) return;
+
+            const content = document.getElementById('overview-details-content');
+            const actions = document.getElementById('overview-actions');
+
+            content.innerHTML = `
+                <p><strong>Name:</strong> ${item.name}</p>
+                <p><strong>Contact:</strong> ${item.contact}</p>
+                <p><strong>Constituency:</strong> ${item.constituency}</p>
+                <p><strong>College:</strong> ${item.college}</p>
+                <p><strong>City:</strong> ${item.city}</p>
+                <p><strong>Address:</strong> ${item.address}</p>
+                <p><strong>Why TNSF:</strong> ${item.reason}</p>
+                <p><strong>Current Status:</strong> <span style="text-transform:uppercase; font-weight:bold;">${item.status}</span></p>
+            `;
+
+            if(item.status === 'pending') {
+                actions.innerHTML = `
+                    <button class="btn btn-success" onclick="updateStatus(${item.id}, 'accepted')">Accept</button>
+                    <button class="btn btn-danger" onclick="updateStatus(${item.id}, 'rejected')">Reject</button>
+                `;
+            } else {
+                actions.innerHTML = `<button class="btn btn-dark" onclick="closeModal('overview-modal')">Close</button>`;
+            }
+
+            document.getElementById('overview-modal').classList.add('active');
+        }
+
+        function updateStatus(id, newStatus) {
+            const item = applications.find(a => a.id === id);
+            if(item) {
+                item.status = newStatus;
+                logActivity(`Changed status of ${item.name} to ${newStatus}`);
+            }
+            closeModal('overview-modal');
+            showAdminTab(activeAdminTab);
+        }
+
+        function renderConstituencyData() {
+            const selectedVal = document.getElementById('constituency-dropdown').value;
+            const tableWrapper = document.getElementById('constituency-table-wrapper');
+            
+            if(!selectedVal) {
+                tableWrapper.innerHTML = `<p style="text-align:center; color:red; padding:10px;">Please choose a constituency first.</p>`;
+                return;
+            }
+
+            const searchVal = document.getElementById('admin-search-input').value.toLowerCase();
+            const list = applications.filter(a => a.constituency === selectedVal && a.active && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+
+            let html = `
+                <table class="data-sheet">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Constituency</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            list.forEach(i => {
+                html += `
+                    <tr>
+                        <td>${i.name}</td>
+                        <td>${i.contact}</td>
+                        <td>${i.constituency}</td>
+                        <td>
+                            <button class="switch-btn active-on" onclick="toggleActiveStatus(${i.id})">OFF / ON</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                    </tbody>
+                </table>
+            `;
+
+            if(list.length === 0) {
+                html = `<p style="text-align:center; padding:20px;">No active records for ${selectedVal}.</p>`;
+            }
+
+            tableWrapper.innerHTML = html;
+        }
+
+        function toggleActiveStatus(id) {
+            const item = applications.find(a => a.id === id);
+            if (item) {
+                item.active = false;
+                logActivity(`Deactivated member: ${item.name}`);
+                renderConstituencyData();
+            }
+        }
+
+        // Hero Auto Slider
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 3000);
+
+        // SOCIAL MEDIA AUTOMATIC SCROLLING
+        const socialSlider = document.getElementById('social-slider');
+        const socialPrevBtn = document.getElementById('social-prev');
+        const socialNextBtn = document.getElementById('social-next');
+        const stepWidth = 157;
+
+        function scrollSocialNext() {
+            if (socialSlider.scrollLeft + socialSlider.clientWidth >= socialSlider.scrollWidth - 10) {
+                socialSlider.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                socialSlider.scrollBy({ left: stepWidth, behavior: 'smooth' });
+            }
+        }
+
+        function scrollSocialPrev() {
+            if (socialSlider.scrollLeft <= 0) {
+                socialSlider.scrollTo({ left: socialSlider.scrollWidth, behavior: 'smooth' });
+            } else {
+                socialSlider.scrollBy({ left: -stepWidth, behavior: 'smooth' });
+            }
+        }
+
+        socialNextBtn.addEventListener('click', scrollSocialNext);
+        socialPrevBtn.addEventListener('click', scrollSocialPrev);
+
+        let socialAutoScroll = setInterval(scrollSocialNext, 3500);
+
+        socialSlider.addEventListener('mouseenter', () => clearInterval(socialAutoScroll));
+        socialSlider.addEventListener('mouseleave', () => {
+            socialAutoScroll = setInterval(scrollSocialNext, 3500);
+        });
+
+        // Initialize counters on window load
+        window.addEventListener('DOMContentLoaded', () => {
+            animateCounters();
+        });
+   </script>
 
 <script>
     // Set your Google Apps Script Web App URL here
