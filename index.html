@@ -256,9 +256,7 @@
             transition: transform 0.3s ease;
         }
 
-        .stat-card:hover {
-            transform: translateY(-3px);
-        }
+        .stat-card:hover { transform: translateY(-3px); }
 
         .stat-icon {
             font-size: 24px;
@@ -299,42 +297,13 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .btn-primary {
-            background-color: #FDBA12;
-            color: var(--dark);
-        }
-
-        .btn-yellow {
-            background-color: #FFCC00;
-            color: var(--dark);
-            border: 1px solid #E6B800;
-            font-weight: 700;
-        }
-
-        .btn-dark {
-            background-color: var(--dark);
-            color: var(--light);
-        }
-
-        .btn-white {
-            background-color: var(--light);
-            color: var(--dark);
-        }
-
-        .btn-danger {
-            background-color: #D9534F;
-            color: white;
-        }
-
-        .btn-success {
-            background-color: #28A745;
-            color: white;
-        }
-
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-        }
+        .btn-primary { background-color: #FDBA12; color: var(--dark); }
+        .btn-yellow { background-color: #FFCC00; color: var(--dark); border: 1px solid #E6B800; font-weight: 700; }
+        .btn-dark { background-color: var(--dark); color: var(--light); }
+        .btn-white { background-color: var(--light); color: var(--dark); }
+        .btn-danger { background-color: #D9534F; color: white; }
+        .btn-success { background-color: #28A745; color: white; }
+        .btn-whatsapp { background-color: #25D366; color: white; }
 
         /* WELCOME BANNER SECTION */
         .welcome-banner-card {
@@ -431,10 +400,8 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
-                                linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), 
-                        linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
             -webkit-mask-composite: source-in;
             mask-composite: intersect;
         }
@@ -459,20 +426,12 @@
             text-transform: uppercase;
         }
 
-        .section-title span {
-            background: #000;
-            padding: 2px 6px;
-            color: #FFF;
-        }
+        .section-title span { background: #000; padding: 2px 6px; color: #FFF; }
 
         /* WHY JOIN TNSF */
         .why-join { background-color: #FAFAFA; }
 
-        .grid-2x2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
+        .grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
         .card {
             background: var(--light);
@@ -501,40 +460,15 @@
             color: var(--dark);
         }
 
-        .card h4 {
-            font-size: 12px;
-            font-weight: 800;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-        }
-
-        .card p {
-            font-size: 10px;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
+        .card h4 { font-size: 12px; font-weight: 800; margin-bottom: 6px; text-transform: uppercase; }
+        .card p { font-size: 10px; color: var(--text-muted); line-height: 1.4; }
 
         /* ACTIVITIES SECTION */
-        .scroll-container {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            padding: 10px 0;
-        }
-
-        .scroll-track {
-            display: flex;
-            gap: 15px;
-            width: max-content;
-            animation: scrollLeft 18s linear infinite;
-        }
-
+        .scroll-container { width: 100%; overflow: hidden; position: relative; padding: 10px 0; }
+        .scroll-track { display: flex; gap: 15px; width: max-content; animation: scrollLeft 18s linear infinite; }
         .scroll-track:hover { animation-play-state: paused; }
 
-        @keyframes scrollLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+        @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         .activity-card {
             width: 220px;
@@ -546,11 +480,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.12);
         }
 
-        .activity-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .activity-card img { width: 100%; height: 100%; object-fit: cover; }
 
         .activity-card-title {
             position: absolute;
@@ -587,24 +517,10 @@
             color: var(--dark);
         }
 
-        .cta-banner h3 {
-            font-size: 16px;
-            font-weight: 800;
-        }
-
+        .cta-banner h3 { font-size: 16px; font-weight: 800; }
         .cta-banner h3 span { color: var(--primary); }
-
-        .cta-banner p {
-            font-size: 11px;
-            color: #CCC;
-            margin: 6px 0 16px 0;
-        }
-
-        .cta-banner .btn-container {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
+        .cta-banner p { font-size: 11px; color: #CCC; margin: 6px 0 16px 0; }
+        .cta-banner .btn-container { display: flex; gap: 12px; justify-content: center; }
 
         /* SOCIAL MEDIA SECTION */
         .social-media-section {
@@ -615,33 +531,10 @@
             margin: 15px 12px;
         }
 
-        .social-header {
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .social-header-line {
-            width: 30px;
-            height: 2px;
-            background-color: var(--primary);
-        }
-
-        .social-header h3 {
-            font-size: 16px;
-            font-weight: 900;
-            color: #000;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .social-slider-wrapper {
-            position: relative;
-            padding: 0 35px;
-        }
+        .social-header { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .social-header-line { width: 30px; height: 2px; background-color: var(--primary); }
+        .social-header h3 { font-size: 16px; font-weight: 900; color: #000; letter-spacing: 1px; text-transform: uppercase; }
+        .social-slider-wrapper { position: relative; padding: 0 35px; }
 
         .social-slider {
             display: flex;
@@ -650,13 +543,10 @@
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             scrollbar-width: none;
-            -ms-overflow-style: none;
             padding: 5px 0;
         }
 
-        .social-slider::-webkit-scrollbar {
-            display: none;
-        }
+        .social-slider::-webkit-scrollbar { display: none; }
 
         .social-card {
             flex: 0 0 145px;
@@ -670,20 +560,10 @@
             text-decoration: none;
             color: inherit;
             position: relative;
-            transition: transform 0.3s ease;
         }
 
-        .social-card-img-wrap {
-            position: relative;
-            width: 100%;
-            height: 200px;
-        }
-
-        .social-card-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .social-card-img-wrap { position: relative; width: 100%; height: 200px; }
+        .social-card-img { width: 100%; height: 100%; object-fit: cover; }
 
         .social-play-icon {
             position: absolute;
@@ -701,21 +581,8 @@
             font-size: 10px;
         }
 
-        .social-card-footer {
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #333;
-            background: #FFF;
-        }
-
-        .social-card-footer i {
-            font-size: 14px;
-            color: #E1306C;
-        }
+        .social-card-footer { padding: 8px; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; background: #FFF; }
+        .social-card-footer i { font-size: 14px; color: #E1306C; }
 
         .social-nav-btn {
             position: absolute;
@@ -748,74 +615,21 @@
             font-size: 12px;
         }
 
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .footer-text {
-            font-size: 10px;
-            color: #AAA;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .footer-title {
-            color: var(--light);
-            font-weight: bold;
-            font-size: 12px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .footer-links {
-            list-style: none;
-           margin-bottom: 15px;
-        }
-
+        .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .footer-text { font-size: 10px; color: #AAA; margin-bottom: 15px; line-height: 1.4; }
+        .footer-title { color: var(--light); font-weight: bold; font-size: 12px; margin-bottom: 8px; text-transform: uppercase; }
+        .footer-links { list-style: none; margin-bottom: 15px; }
         .footer-links li { margin-bottom: 4px; }
+        .footer-links a { color: #AAA; text-decoration: none; font-size: 11px; }
 
-        .footer-links a {
-            color: #AAA;
-            text-decoration: none;
-            font-size: 11px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .social-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #333;
-            color: var(--light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            text-decoration: none;
-        }
-
+        .social-icons { display: flex; gap: 8px; margin-bottom: 15px; }
+        .social-icon { width: 28px; height: 28px; border-radius: 50%; background: #333; color: var(--light); display: flex; align-items: center; justify-content: center; font-size: 12px; text-decoration: none; }
         .social-icon.fb { background: #3b5998; }
         .social-icon.insta { background: #e1306c; }
         .social-icon.wa { background: #25d366; }
         .social-icon.yt { background: #ff0000; }
 
-        .footer-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #AAA;
-            font-size: 11px;
-            margin-bottom: 6px;
-        }
-
+        .footer-contact-item { display: flex; align-items: center; gap: 8px; color: #AAA; font-size: 11px; margin-bottom: 6px; }
         .footer-contact-item i { color: var(--primary); }
 
         .copyright {
@@ -828,7 +642,7 @@
             margin: 20px -20px -12px -20px;
         }
 
-        /* DYNAMIC PAGES / MODALS */
+        /* PAGES / MODALS */
         .page-view { display: none; }
         .page-view.active { display: block; }
 
@@ -848,7 +662,7 @@
         .modal.active { display: flex; }
 
         .modal-content {
-            background: var(--light);
+           background: var(--light);
             width: 100%;
             max-width: 440px;
             border-radius: 8px;
@@ -858,326 +672,70 @@
             position: relative;
         }
 
-        .modal-close {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: none;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-        }
+        .modal-close { position: absolute; top: 12px; right: 12px; background: none; border: none; font-size: 18px; cursor: pointer; }
 
         .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-size: 11px; font-weight: bold; margin-bottom: 4px; text-transform: uppercase; }
+        .form-control { width: 100%; padding: 10px; border: 1px solid #CCC; border-radius: 4px; font-size: 12px; }
+        textarea.form-control { height: 70px; resize: vertical; }
 
-        .form-group label {
-            display: block;
-            font-size: 11px;
-            font-weight: bold;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
+        .popup-box { background: var(--light); padding: 25px 20px; border-radius: 8px; text-align: center; max-width: 320px; width: 100%; }
+        .popup-box i { font-size: 40px; color: #25d366; margin-bottom: 10px; }
+        .popup-box h3 { font-size: 16px; margin-bottom: 6px; }
+        .popup-box p { font-size: 11px; color: var(--text-muted); margin-bottom: 15px; }
 
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #CCC;
-            border-radius: 4px;
-            font-size: 12px;
-        }
+        .page-header { background: var(--dark); color: var(--light); padding: 18px; text-align: center; }
+        .page-header h2 { color: var(--primary); font-size: 18px; }
 
-        textarea.form-control {
-            height: 70px;
-            resize: vertical;
-        }
+        /* ADMIN PAGE */
+        .admin-view { background-color: var(--light); min-height: 100vh; }
+        .admin-hero { background-color: var(--dark); color: var(--light); padding: 20px 15px; text-align: center; }
+        .admin-hero h2 { color: var(--primary); font-size: 18px; margin-bottom: 4px; }
+        .admin-search-box { padding: 15px; background: var(--gray-bg); border-bottom: 1px solid #EAEAEA; }
+        .admin-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 15px; }
+        .admin-btn-grid .btn { width: 100%; padding: 12px 6px; font-size: 11px; }
 
-        .popup-box {
-            background: var(--light);
-            padding: 25px 20px;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 320px;
-            width: 100%;
-        }
+        .data-card { background: var(--light); border: 1px solid #E2E2E2; border-radius: 8px; padding: 12px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); cursor: pointer; }
+        .data-card h4 { font-size: 13px; color: var(--text-dark); display: flex; justify-content: space-between; }
+        .data-card p { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
 
-        .popup-box i {
-            font-size: 40px;
-            color: #25d366;
-            margin-bottom: 10px;
-        }
+        .watermark-container { position: relative; min-height: 300px; }
+        .watermark-logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 180px; opacity: 0.08; pointer-events: none; z-index: 0; }
 
-        .popup-box h3 {
-            font-size: 16px;
-            margin-bottom: 6px;
-        }
+        .data-sheet { position: relative; z-index: 1; width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 11px; }
+        .data-sheet th, .data-sheet td { border: 1px solid #DDD; padding: 8px; text-align: left; }
+        .data-sheet th { background-color: var(--dark); color: var(--primary); }
 
-        .popup-box p {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
+        .switch-btn { background: #CCC; border: none; padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: bold; cursor: pointer; }
+        .switch-btn.active-on { background: #28A745; color: #FFF; }
 
-        .page-header {
-            background: var(--dark);
-            color: var(--light);
-            padding: 18px;
-            text-align: center;
-        }
+        /* HISTORY */
+        .history-card { background: #FFF; border: 1px solid #EAEAEA; border-left: 4px solid var(--primary); border-radius: 6px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; font-size: 11px; }
+        .history-card-body { flex-grow: 1; }
+        .history-card-body .title { font-weight: bold; color: #111; }
+        .history-card-body .time { font-size: 9.5px; color: #777; margin-top: 2px; }
 
-        .page-header h2 {
-            color: var(--primary);
-            font-size: 18px;
-        }
+        .filter-chip-container { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 12px; }
+        .filter-chip { background: #EFEFEF; border: 1px solid #DDD; padding: 5px 10px; border-radius: 15px; font-size: 10px; font-weight: 600; white-space: nowrap; cursor: pointer; }
+        .filter-chip.active { background: var(--dark); color: var(--primary); border-color: var(--dark); }
 
-        /* ADMIN PAGE STYLES */
-        .admin-view {
-            background-color: var(--light);
-            min-height: 100vh;
-        }
+        .user-select-list { max-height: 160px; overflow-y: auto; border: 1px solid #DDD; border-radius: 6px; padding: 8px; background: #FAF9F6; }
+        .user-select-item { display: flex; align-items: center; gap: 8px; padding: 6px; border-bottom: 1px solid #EEE; font-size: 11px; }
 
-        .admin-hero {
-            background-color: var(--dark);
-            color: var(--light);
-            padding: 20px 15px;
-            text-align: center;
-        }
-
-        .admin-hero h2 {
-            color: var(--primary);
-            font-size: 18px;
-            margin-bottom: 4px;
-        }
-
-        .admin-search-box {
-            padding: 15px;
-            background: var(--gray-bg);
-            border-bottom: 1px solid #EAEAEA;
-        }
-
-        .admin-btn-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            padding: 15px;
-        }
-
-        .admin-btn-grid .btn {
-            width: 100%;
-            padding: 12px 6px;
-            font-size: 11px;
-        }
-
-        .data-card {
-            background: var(--light);
-            border: 1px solid #E2E2E2;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            cursor: pointer;
-        }
-
-        .data-card h4 {
-            font-size: 13px;
-            color: var(--text-dark);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .data-card p {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        .watermark-container {
-            position: relative;
-            min-height: 300px;
-        }
-
-        .watermark-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 180px;
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .data-sheet {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            font-size: 11px;
-        }
-
-        .data-sheet th, .data-sheet td {
-            border: 1px solid #DDD;
-            padding: 8px;
-            text-align: left;
-        }
-
-        .data-sheet th {
-            background-color: var(--dark);
-            color: var(--primary);
-        }
-
-        .switch-btn {
-            background: #CCC;
-            border: none;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .switch-btn.active-on {
-            background: #28A745;
-            color: #FFF;
-        }
-
-        /* HISTORY & RECENT ACTIVITIES STYLES */
-        .history-card {
-            background: #FFF;
-            border: 1px solid #EAEAEA;
-            border-left: 4px solid var(--primary);
-            border-radius: 6px;
-            padding: 10px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 11px;
-        }
-
-        .history-card-body {
-            flex-grow: 1;
-        }
-
-        .history-card-body .title {
-            font-weight: bold;
-            color: #111;
-        }
-
-        .history-card-body .time {
-            font-size: 9.5px;
-            color: #777;
-            margin-top: 2px;
-        }
-
-        .filter-chip-container {
-            display: flex;
-            gap: 6px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-            margin-bottom: 12px;
-        }
-
-        .filter-chip {
-            background: #EFEFEF;
-            border: 1px solid #DDD;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 10px;
-            font-weight: 600;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-
-        .filter-chip.active {
-            background: var(--dark);
-            color: var(--primary);
-            border-color: var(--dark);
-        }
-
-        .date-range-box {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            margin-bottom: 12px;
-            background: #F0F0F0;
-            padding: 8px;
-            border-radius: 6px;
-        }
-
-        .action-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            padding: 4px 0;
-            border-bottom: 1px solid #EEE;
-        }
-
-        /* NOTIFICATION BOX STYLES */
-        .user-select-list {
-            max-height: 160px;
-            overflow-y: auto;
-            border: 1px solid #DDD;
-            border-radius: 6px;
-            padding: 8px;
-            background: #FAF9F6;
-        }
-
-        .user-select-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px;
-            border-bottom: 1px solid #EEE;
-            font-size: 11px;
-        }
-
-        .user-select-item:last-child {
-            border-bottom: none;
-        }
-
-        /* DESKTOP RESPONSIVENESS MEDIA QUERIES */
         @media (min-width: 768px) {
-            .hero .slider-container {
-                height: 320px;
-            }
-            .hero-content h2 {
-                font-size: 28px;
-            }
-            .hero-content p {
-                font-size: 13px;
-            }
-            .stat-card {
-                padding: 22px 16px;
-            }
-            .stat-number {
-                font-size: 34px;
-            }
-            .stat-label {
-                font-size: 12px;
-            }
-            .welcome-btn-group {
-                flex-direction: row;
-            }
-            .welcome-btn-group .btn {
-                flex: 1;
-            }
-            .grid-2x2 {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .social-card {
-                flex: 0 0 180px;
-            }
-            .social-card-img-wrap {
-                height: 240px;
-            }
-            .admin-btn-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .admin-btn-grid .btn[style*="grid-column: span 2;"] {
-                grid-column: span 4 !important;
-            }
+            .hero .slider-container { height: 320px; }
+            .hero-content h2 { font-size: 28px; }
+            .hero-content p { font-size: 13px; }
+            .stat-card { padding: 22px 16px; }
+            .stat-number { font-size: 34px; }
+            .stat-label { font-size: 12px; }
+            .welcome-btn-group { flex-direction: row; }
+            .welcome-btn-group .btn { flex: 1; }
+            .grid-2x2 { grid-template-columns: repeat(4, 1fr); }
+            .social-card { flex: 0 0 180px; }
+            .social-card-img-wrap { height: 240px; }
+            .admin-btn-grid { grid-template-columns: repeat(4, 1fr); }
+            .admin-btn-grid .btn[style*="grid-column: span 2;"] { grid-column: span 4 !important; }
         }
     </style>
 </head>
@@ -1206,42 +764,37 @@
             </div>
         </div>
 
-        <!-- STATS SECTION ABOVE WELCOME SECTION -->
         <div class="stats-section">
             <div class="stats-grid">
                 <div class="stat-card">
                     <i class="fas fa-users stat-icon"></i>
-                    <div class="stat-number animated-counter" data-target="15000">0</div>
+                    <div class="stat-number animated-counter" id="total-members-count" data-target="0">0</div>
                     <div class="stat-label">Total Members</div>
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-map-marked-alt stat-icon"></i>
-                    <div class="stat-number animated-counter" data-target="7">0</div>
+                    <div class="stat-number animated-counter" id="total-constituencies-count" data-target="7">7</div>
                     <div class="stat-label">Constituencies</div>
                 </div>
             </div>
         </div>
-        <!-- WELCOME SECTION -->
+
         <section style="padding: 12px 16px 25px 16px;">
             <div class="welcome-banner-card">
                 <div class="welcome-content-left">
                     <div class="welcome-subtitle-script">Welcome to</div>
                     <div class="welcome-title-main">TNSF</div>
                     <div class="welcome-title-sub">KADAPA PARLIAMENT</div>
-                    
                     <div class="divider-line"></div>
-
                     <p class="welcome-description">
                         TNSF KADAPA PARLIAMENT is a platform for every student to raise their voice, develop leadership skills and work for the betterment of society.
                         <strong>Together, we can build a strong and bright future.</strong>
                     </p>
-
                     <div class="welcome-btn-group">
                         <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
                         <button class="btn btn-white nav-to-contact"><i class="fas fa-phone"></i> CONTACT US</button>
                     </div>
                 </div>
-
                 <div class="welcome-person-container">
                     <img id="person-image" class="welcome-person-img" src="images (1).jpeg" alt="TNSF Leader Image">
                 </div>
@@ -1278,30 +831,10 @@
             <h3 class="section-title">OUR <span>ACTIVITIES</span></h3>
             <div class="scroll-container">
                 <div class="scroll-track">
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 1">
-                        <div class="activity-card-title">Student Rallies</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 2">
-                        <div class="activity-card-title">Campus Awareness</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 3">
-                        <div class="activity-card-title">Blood Donation Camps</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 4">
-                        <div class="activity-card-title">Youth Leadership</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 1">
-                        <div class="activity-card-title">Student Rallies</div>
-                    </div>
-                    <div class="activity-card">
-                        <img src="file_000000003694820883027e0668afe192.png" alt="Activity 2">
-                        <div class="activity-card-title">Campus Awareness</div>
-                    </div>
+                    <div class="activity-card"><img src="file_000000003694820883027e0668afe192.png" alt="Activity 1"><div class="activity-card-title">Student Rallies</div></div>
+                    <div class="activity-card"><img src="file_000000003694820883027e0668afe192.png" alt="Activity 2"><div class="activity-card-title">Campus Awareness</div></div>
+                    <div class="activity-card"><img src="file_000000003694820883027e0668afe192.png" alt="Activity 3"><div class="activity-card-title">Blood Donation Camps</div></div>
+                    <div class="activity-card"><img src="file_000000003694820883027e0668afe192.png" alt="Activity 4"><div class="activity-card-title">Youth Leadership</div></div>
                 </div>
             </div>
         </section>
@@ -1309,7 +842,7 @@
         <div class="cta-banner">
             <div class="cta-icon"><i class="fas fa-users"></i></div>
             <h3>BE A PART OF THE <span>CHANGE</span></h3>
-            <p>Join TNSF Proddatur and work together for students, society and a better tomorrow.</p>
+            <p>Join TNSF Kadapa Parliament and work together for students, society and a better tomorrow.</p>
             <div class="btn-container">
                 <button class="btn btn-primary open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</button>
                 <button class="btn btn-dark nav-to-contact"><i class="fas fa-phone"></i> CONTACT US</button>
@@ -1325,39 +858,22 @@
 
             <div class="social-slider-wrapper">
                 <button class="social-nav-btn prev" id="social-prev"><i class="fas fa-chevron-left"></i></button>
-                
                 <div class="social-slider" id="social-slider">
-                    <a href="https://www.instagram.com/reel/DcIGDragVn0/?igsi=MWdoZTkwbnVqc3YzMA==" target="_blank" class="social-card">
+                    <a href="https://www.instagram.com/reel/DcIGDragVn0/" target="_blank" class="social-card">
                         <div class="social-card-img-wrap">
-                            <img src="Screenshot_2026-08-21-20-43-28-32_1c337646f29875672b5a61192b9010f9.jpg" alt="Post" class="social-card-img">
+                            <img src="Screenshot_2026-08-21-20-43-28-32_1c337646f29875672b5a61192b9010f9.jpg" class="social-card-img">
                             <div class="social-play-icon"><i class="fas fa-play"></i></div>
                         </div>
-                        <div class="social-card-footer">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </div>
+                        <div class="social-card-footer"><i class="fab fa-instagram"></i> Instagram</div>
                     </a>
-
-                    <a href="https://www.instagram.com/reel/DcP_ZhhADKf/?igsi=eG9vbWFrZmY5ejZ4" target="_blank" class="social-card">
+                    <a href="https://www.instagram.com/reel/DcP_ZhhADKf/" target="_blank" class="social-card">
                         <div class="social-card-img-wrap">
-                            <img src="IMG-20260820-WA0009.jpg" alt="Post" class="social-card-img">
+                            <img src="IMG-20260820-WA0009.jpg" class="social-card-img">
                             <div class="social-play-icon"><i class="fas fa-play"></i></div>
                         </div>
-                        <div class="social-card-footer">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </div>
-                    </a>
-
-                    <a href="https://www.instagram.com/reel/DcIGDragVn0/?igsi=MWdoZTkwbnVqc3YzMA==" target="_blank" class="social-card">
-                        <div class="social-card-img-wrap">
-                            <img src="file_00000000bbc0821192f24e0f51f7811d.png" alt="Post" class="social-card-img">
-                            <div class="social-play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                        <div class="social-card-footer">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </div>
+                        <div class="social-card-footer"><i class="fab fa-instagram"></i> Instagram</div>
                     </a>
                 </div>
-
                 <button class="social-nav-btn next" id="social-next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
@@ -1371,37 +887,23 @@
                 </div>
             </div>
             <p class="footer-text">Together for Students,<br>Together for Future.<br>Unite | Learn | Lead | Succeed</p>
-            
             <div class="footer-title">Quick Links</div>
             <ul class="footer-links">
-                <li><a href="about.html">> About Us</a></li>
                 <li><a href="#" class="nav-to-contact">> Contact Us</a></li>
                 <li><a href="#" class="open-join-modal">> Join TNSF</a></li>
             </ul>
-
-            <div class="footer-title">Follow Us</div>
-            <div class="social-icons">
-                <a href="#" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon insta"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon wa"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="social-icon yt"><i class="fab fa-youtube"></i></a>
-            </div>
-
             <div class="footer-title">Contact Us</div>
-            <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> +91 7893447784,9581965939,6303254192</div>
+            <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> +91 7893447784</div>
             <div class="footer-contact-item"><i class="fas fa-envelope"></i> tnsfkadapaparliament@gmail.com</div>
-            <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> KADAPA, Andhra Pradesh</div>
-
-            <div class="copyright">
-                © 2026 TNSF KADAPA PARLIAMENT. All Rights Reserved.
-            </div>
+            <div class="copyright">© 2026 TNSF KADAPA PARLIAMENT. All Rights Reserved.</div>
         </footer>
     </div>
 
+    <!-- CONTACT PAGE -->
     <div id="contact-page" class="page-view">
         <header>
             <div class="brand">
-                <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
+                <img src="images (3).jpeg" class="logo-img">
                 <div class="brand-text">
                     <h1>TNSF KADAPA PARLIAMENT</h1>
                     <p>Contact Us</p>
@@ -1409,26 +911,22 @@
             </div>
             <button class="menu-btn open-menu-btn"><i class="fas fa-bars"></i></button>
         </header>
-
-        <div class="page-header">
-            <h2>GET IN TOUCH</h2>
-        </div>
-
+        <div class="page-header"><h2>GET IN TOUCH</h2></div>
         <section>
             <form id="contact-page-form">
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" class="form-control" required placeholder="Enter your full name">
+                    <input type="text" id="contact-name" class="form-control" required placeholder="Enter your full name">
                 </div>
                 <div class="form-group">
                     <label>Contact Number</label>
-                    <input type="tel" class="form-control" required placeholder="Enter mobile number">
+                    <input type="tel" id="contact-phone" class="form-control" required placeholder="Enter mobile number">
                 </div>
                 <div class="form-group">
-                    <label>Mail Address</label>
-                    <input type="email" class="form-control" required placeholder="Enter email address">
-                    </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">SUBMIT</button>
+                    <label>Email Address</label>
+                    <input type="email" id="contact-email" class="form-control" required placeholder="Enter email address">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">SUBMIT & SEND WHATSAPP</button>
             </form>
             <div style="text-align: center; margin-top: 20px;">
                 <button class="btn btn-dark nav-to-home"><i class="fas fa-arrow-left"></i> Back to Home</button>
@@ -1436,10 +934,11 @@
         </section>
     </div>
 
+    <!-- ADMIN DESK PAGE -->
     <div id="admin-page" class="page-view admin-view">
         <header>
             <div class="brand">
-                <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
+                <img src="images (3).jpeg" class="logo-img">
                 <div class="brand-text">
                     <h1>ADMIN DESK</h1>
                     <p>TNSF Kadapa Parliament</p>
@@ -1449,27 +948,26 @@
         </header>
 
         <div class="admin-hero">
-            <h2>Welcome TNSF Kadapa Parliament!</h2>
-            <p style="font-size: 11px; opacity:0.8;">Manage student applications and parliamentary data.</p>
+            <h2>Welcome TNSF Admin!</h2>
+            <p style="font-size: 11px; opacity:0.8;">Manage applications and sync real-time database.</p>
         </div>
 
         <div class="admin-search-box">
             <div class="form-group" style="margin-bottom: 0;">
-                <input type="text" id="admin-search-input" class="form-control" placeholder="Search..." onkeyup="filterAdminData()">
+                <input type="text" id="admin-search-input" class="form-control" placeholder="Search by Name or Contact..." onkeyup="filterAdminData()">
             </div>
         </div>
 
-        <!-- ANIMATED STATS SECTION ABOVE ADMIN BUTTONS -->
         <div class="stats-section" style="background: var(--gray-bg); border-bottom: 1px solid #EAEAEA;">
             <div class="stats-grid">
                 <div class="stat-card">
                     <i class="fas fa-users stat-icon"></i>
-                    <div class="stat-number animated-counter" data-target="15000">0</div>
+                    <div class="stat-number animated-counter" id="admin-total-members" data-target="0">0</div>
                     <div class="stat-label">Total Members</div>
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-map-marked-alt stat-icon"></i>
-                    <div class="stat-number animated-counter" data-target="7">0</div>
+                    <div class="stat-number animated-counter" id="admin-constituencies" data-target="7">7</div>
                     <div class="stat-label">Constituencies</div>
                 </div>
             </div>
@@ -1480,28 +978,29 @@
             <button class="btn btn-yellow" onclick="showAdminTab('accepted')"><i class="fas fa-check-circle"></i> Accepted</button>
             <button class="btn btn-yellow" onclick="showAdminTab('constituencies')"><i class="fas fa-map-marker-alt"></i> Constituencies</button>
             <button class="btn btn-yellow" onclick="showAdminTab('rejected')"><i class="fas fa-times-circle"></i> Rejected</button>
-            <button class="btn btn-whatsapp" onclick="openNotificationModal()" style="grid-column: span 2;"><i class="fab fa-whatsapp"></i> Send Notification</button>
+            <button class="btn btn-whatsapp" onclick="openNotificationModal()" style="grid-column: span 2;"><i class="fab fa-whatsapp"></i> Send WhatsApp Broadcast</button>
         </div>
 
-        <section id="admin-content-area" style="padding-top: 5px;">
-        </section>
+        <section id="admin-content-area" style="padding-top: 5px;"></section>
     </div>
 
+    <!-- SIDEBAR -->
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
     <div class="sidebar" id="sidebar">
         <button class="close-btn" id="close-menu"><i class="fas fa-times"></i></button>
         <div class="sidebar-brand">
-            <img src="images (3).jpeg" alt="TNSF Logo" class="logo-img">
+            <img src="images (3).jpeg" class="logo-img">
             <h2>TNSF KADAPA PARLIAMENT</h2>
             <p>The Voice of Students</p>
         </div>
         <ul class="nav-links" id="sidebar-links">
-            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="#" class="nav-to-home"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#" class="nav-to-contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
             <li><a href="#" class="btn-sidebar-join open-join-modal"><i class="fas fa-user-plus"></i> JOIN TNSF</a></li>
         </ul>
     </div>
 
+    <!-- ADMIN AUTHENTICATION MODAL -->
     <div class="modal" id="admin-login-modal">
         <div class="modal-content" style="max-width:320px; text-align:center;">
             <button class="modal-close" id="close-admin-modal"><i class="fas fa-times"></i></button>
@@ -1522,11 +1021,12 @@
         </div>
     </div>
 
+    <!-- MEMBERSHIP JOIN MODAL -->
     <div class="modal" id="join-modal">
         <div class="modal-content">
             <button class="modal-close" id="close-join-modal"><i class="fas fa-times"></i></button>
             <h3 style="font-size:16px; margin-bottom:15px; text-align:center;">JOIN TNSF FORM</h3>
-            <form id="TNSF Membership">
+            <form id="TNSF-Membership-Form">
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" id="form-name" class="form-control" required placeholder="Your full name">
@@ -1569,12 +1069,11 @@
         </div>
     </div>
 
-    <!-- SEND NOTIFICATION MODAL -->
+    <!-- WHATSAPP BROADCAST MODAL -->
     <div class="modal" id="notification-modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('notification-modal')"><i class="fas fa-times"></i></button>
-            <h3 style="font-size:16px; margin-bottom:12px; text-align:center; color:var(--dark);"><i class="fab fa-whatsapp" style="color:#25D366;"></i> Send WhatsApp Notification</h3>
-            
+            <h3 style="font-size:16px; margin-bottom:12px; text-align:center;"><i class="fab fa-whatsapp" style="color:#25D366;"></i> Send WhatsApp Broadcast</h3>
             <div class="form-group">
                 <label>Filter by Constituency</label>
                 <select id="notif-constituency" class="form-control" onchange="renderNotificationUserList()">
@@ -1588,161 +1087,172 @@
                     <option value="Mydukur">Mydukur</option>
                 </select>
             </div>
-
             <div class="form-group">
-                <label>Search User Name or Contact</label>
-                <input type="text" id="notif-user-search" class="form-control" placeholder="Search..." onkeyup="renderNotificationUserList()">
+                <label>Select Recipients</label>
+                <div class="user-select-list" id="notif-user-list"></div>
             </div>
-
             <div class="form-group">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
-                    <label style="margin:0;">Select Recipients</label>
-                    <label style="font-size:10px; cursor:pointer;"><input type="checkbox" id="notif-select-all" onchange="toggleSelectAllNotifUsers(this)"> Select All</label>
-                </div>
-                <div class="user-select-list" id="notif-user-list">
-                    <!-- Dynamic user list -->
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Message Text (Use {name} for personalized name)</label>
+                <label>Message Text</label>
                 <textarea id="notif-message-text" class="form-control" placeholder="Hello {name}, greetings from TNSF Kadapa Parliament!"></textarea>
             </div>
-
             <button class="btn btn-whatsapp" style="width: 100%;" onclick="sendBulkWhatsAppNotifications()"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
         </div>
     </div>
 
+    <!-- OVERVIEW DETAIL MODAL -->
     <div class="modal" id="overview-modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('overview-modal')"><i class="fas fa-times"></i></button>
-            <h3 style="font-size:16px; margin-bottom:12px; text-align:center; color:var(--dark);">Overview Details</h3>
+            <h3 style="font-size:16px; margin-bottom:12px; text-align:center;">Overview Details</h3>
             <div id="overview-details-content" style="font-size:12px; line-height:1.6;"></div>
             <div id="overview-actions" style="margin-top:15px; display:flex; gap:10px; justify-content:center;"></div>
         </div>
     </div>
 
+    <!-- SUCCESS MODAL -->
     <div class="modal" id="success-modal">
         <div class="popup-box">
             <i class="fas fa-check-circle"></i>
             <h3>Thank You!</h3>
-            <p>Our team will contact you soon.</p>
+            <p id="success-message">Our team will contact you soon.</p>
             <button class="btn btn-dark" id="close-success-popup" style="width: 100%;">OK</button>
         </div>
     </div>
 
+    <!-- HTML2PDF LIBRARY FOR THEMED PDF EXPORTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- LIVE APPSCRIPT SYSTEM SCRIPT -->
     <script>
-        // Sample Storage Array
-        let applications = [
-            { id: 1, name: "Suresh Kumar", contact: "9876543210", constituency: "Kadapa", college: "KSRM", city: "Kadapa", address: "7/12 RK Nagar", reason: "Social service interest", status: "pending", active: true },
-            { id: 2, name: "Ramesh Reddy", contact: "9123456789", constituency: "Proddatur", college: "YVU", city: "Proddatur", address: "Main Bazaar", reason: "Student rights protection", status: "accepted", active: true },
-            { id: 3, name: "Venkatesh B", contact: "8899001122", constituency: "Pulivendla", college: "GDC", city: "Pulivendla", address: "Ring Road", reason: "Leadership Skills", status: "rejected", active: true }
-        ];
+        // Set Google Apps Script Published Web App Endpoint URL Here
+        const SCRIPT_URL = "YOUR_DEPLOYED_APPS_SCRIPT_WEB_APP_URL";
+        const ADMIN_WHATSAPP_NUMBER = "917893447784";
 
-        // System Activity History Logs
-        let activityLogs = [
-            { id: 101, action: "Admin Logged In", date: new Date().toISOString() },
-            { id: 102, action: "Accepted Application: Ramesh Reddy", date: new Date(Date.now() - 3600000 * 2).toISOString() },
-            { id: 103, action: "Rejected Application: Venkatesh B", date: new Date(Date.now() - 86400000 * 2).toISOString() },
-            { id: 104, action: "New Registration: Suresh Kumar", date: new Date(Date.now() - 86400000 * 10).toISOString() }
-        ];
-
+        let applications = [];
+        let activityLogs = [];
         let activeAdminTab = 'requests';
-        let historyFilter = 'all';
-        let selectedHistoryIds = [];
         let isAdminLoggedIn = false;
 
-        // ANIMATED COUNTER SCRIPT
-        function animateCounters() {
-            const counters = document.querySelectorAll('.animated-counter');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                let start = 0;
-                const duration = 1800;
-                const startTime = performance.now();
-
-                function updateCount(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const currentVal = Math.floor(progress * target);
-                    
-                    counter.innerText = currentVal.toLocaleString() + (target >= 1000 ? '+' : '');
-
-                    if (progress < 1) {
-                        requestAnimationFrame(updateCount);
-                    } else {
-                        counter.innerText = target.toLocaleString() + (target >= 1000 ? '+' : '');
+        // Fetch Live Sheet Data
+        function fetchSheetData() {
+            fetch(`${SCRIPT_URL}?action=getData`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        applications = data.members || [];
+                        activityLogs = data.logs || [];
+                        updateRealStats(data.stats);
+                        if (isAdminLoggedIn) {
+                            showAdminTab(activeAdminTab);
+                        }
                     }
-                }
-                requestAnimationFrame(updateCount);
-            });
+                })
+                .catch(err => console.error("Data Sync Error:", err));
         }
 
-        // Trigger Stats Animation on Scroll or Page Load
-        let animated = false;
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !animated) {
-                    animateCounters();
-                    animated = true;
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.stats-section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Helper function for history logging
-        function logActivity(action) {
-            activityLogs.unshift({
-                id: Date.now(),
-                action: action,
-                date: new Date().toISOString()
-            });
+        function updateRealStats(stats) {
+            if (!stats) return;
+            const memberElem = document.getElementById('total-members-count');
+            const adminMemberElem = document.getElementById('admin-total-members');
+            if (memberElem) memberElem.innerText = stats.accepted || stats.total || 0;
+            if (adminMemberElem) adminMemberElem.innerText = stats.accepted || stats.total || 0;
         }
 
-        // DOM Elements
-        const sidebar = document.getElementById('sidebar');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
-        const openMenuBtn = document.getElementById('open-menu');
-        const closeMenuBtn = document.getElementById('close-menu');
-        const allOpenMenuBtns = document.querySelectorAll('.open-menu-btn');
-        
-        const joinModal = document.getElementById('join-modal');
-        const closeJoinModalBtn = document.getElementById('close-join-modal');
-        const joinBtns = document.querySelectorAll('.open-join-modal');
-        
-        const successModal = document.getElementById('success-modal');
-        const closeSuccessBtn = document.getElementById('close-success-popup');
-
-        const joinForm = document.getElementById('join-tnsf-form');
-        const contactPageForm = document.getElementById('contact-page-form');
-
+        // Navigation Elements & Pages
         const homePage = document.getElementById('home-page');
         const contactPage = document.getElementById('contact-page');
         const adminPage = document.getElementById('admin-page');
-        
-        // Admin Auth Modal
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        function showPage(page) {
+            homePage.classList.remove('active');
+            contactPage.classList.remove('active');
+            adminPage.classList.remove('active');
+            page.classList.add('active');
+            closeSidebar();
+            window.scrollTo(0, 0);
+        }
+
+        function openSidebar() { sidebar.classList.add('active'); sidebarOverlay.classList.add('active'); }
+        function closeSidebar() { sidebar.classList.remove('active'); sidebarOverlay.classList.remove('active'); }
+
+        document.getElementById('open-menu').addEventListener('click', openSidebar);
+        document.getElementById('close-menu').addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+        document.getElementById('admin-menu-btn').addEventListener('click', openSidebar);
+
+        document.querySelectorAll('.nav-to-contact').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(contactPage); }));
+        document.querySelectorAll('.nav-to-home').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(homePage); }));
+
+        // Joining Modal Management
+        const joinModal = document.getElementById('join-modal');
+        document.querySelectorAll('.open-join-modal').forEach(btn => btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeSidebar();
+            joinModal.classList.add('active');
+        }));
+        document.getElementById('close-join-modal').addEventListener('click', () => joinModal.classList.remove('active'));
+
+        // Form Submission - Join TNSF Sheet
+        document.getElementById('TNSF-Membership-Form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const payload = {
+                action: "joinForm",
+                name: document.getElementById('form-name').value,
+                contact: document.getElementById('form-contact').value,
+                constituency: document.getElementById('form-constituency').value,
+                college: document.getElementById('form-college').value,
+                city: document.getElementById('form-city').value,
+                address: document.getElementById('form-address').value,
+                reason: document.getElementById('form-reason').value
+            };
+
+            fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) })
+                .then(res => res.json())
+                .then(data => {
+                    joinModal.classList.remove('active');
+                    this.reset();
+                    document.getElementById('success-message').innerText = "Membership application submitted successfully!";
+                    document.getElementById('success-modal').classList.add('active');
+                    fetchSheetData();
+                });
+        });
+
+        // Contact Form - Sheet & WhatsApp Redirection
+        document.getElementById('contact-page-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const contact = document.getElementById('contact-phone').value;
+            const email = document.getElementById('contact-email').value;
+
+            const payload = { action: "contactForm", name: name, contact: contact, email: email };
+
+            fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) })
+                .then(res => res.json())
+                .then(data => {
+                    this.reset();
+                    const textMsg = `Hello Admin, new enquiry on TNSF Website:%0A*Name:* ${encodeURIComponent(name)}%0A*Contact:* ${encodeURIComponent(contact)}%0A*Email:* ${encodeURIComponent(email)}`;
+                    window.open(`https://wa.me/${ADMIN_WHATSAPP_NUMBER}?text=${textMsg}`, '_blank');
+                    fetchSheetData();
+                });
+        });
+
+        document.getElementById('close-success-popup').addEventListener('click', () => {
+            document.getElementById('success-modal').classList.remove('active');
+        });
+
+        // Admin Auth Login
         const mainLogoImg = document.getElementById('main-logo-img');
         const adminLoginModal = document.getElementById('admin-login-modal');
-        const closeAdminModal = document.getElementById('close-admin-modal');
-        const adminLoginForm = document.getElementById('admin-login-form');
 
-        // Toggle Admin Modal via Main Logo
         mainLogoImg.addEventListener('click', () => {
-            if(isAdminLoggedIn) {
-                showPage(adminPage);
-            } else {
-                adminLoginModal.classList.add('active');
-            }
+            if (isAdminLoggedIn) { showPage(adminPage); }
+            else { adminLoginModal.classList.add('active'); }
         });
+        document.getElementById('close-admin-modal').addEventListener('click', () => adminLoginModal.classList.remove('active'));
 
-        closeAdminModal.addEventListener('click', () => {
-            adminLoginModal.classList.remove('active');
-        });
-
-        adminLoginForm.addEventListener('submit', (e) => {
+        document.getElementById('admin-login-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const u = document.getElementById('admin-user').value;
             const p = document.getElementById('admin-pass').value;
@@ -1750,12 +1260,9 @@
             if (u === 'tnsfkadapa' && p === '@tnsfkadapa') {
                 isAdminLoggedIn = true;
                 adminLoginModal.classList.remove('active');
-                document.getElementById('login-error').style.display = 'none';
-                logActivity("Admin successfully logged into panel");
                 updateSidebarMenu();
                 showPage(adminPage);
                 showAdminTab('requests');
-                setTimeout(animateCounters, 100);
             } else {
                 document.getElementById('login-error').style.display = 'block';
             }
@@ -1766,212 +1273,34 @@
             if (isAdminLoggedIn) {
                 sidebarLinks.innerHTML = `
                     <li><a href="#" onclick="showPage(adminPage)"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</a></li>
-                    <li><a href="#" onclick="showPage(adminPage); showAdminTab('history');"><i class="fas fa-history"></i> Admin History</a></li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-                    <li><a href="#" onclick="logoutAdmin()" style="color:#ff4d4d !important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    <li><a href="#" onclick="showPage(adminPage); showAdminTab('history');"><i class="fas fa-history"></i> Activity Logs</a></li>
+                    <li><a href="#" onclick="location.reload()" style="color:#ff4d4d !important;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 `;
-                bindNavigationEvents();
             }
         }
 
-        function logoutAdmin() {
-            isAdminLoggedIn = false;
-            location.reload();
-        }
-        // Sidebar Navigation
-        function openSidebar() {
-            sidebar.classList.add('active');
-            sidebarOverlay.classList.add('active');
-        }
-
-        function closeSidebar() {
-            sidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-        }
-
-        openMenuBtn.addEventListener('click', openSidebar);
-        closeMenuBtn.addEventListener('click', closeSidebar);
-        sidebarOverlay.addEventListener('click', closeSidebar);
-        allOpenMenuBtns.forEach(btn => btn.addEventListener('click', openSidebar));
-
-        document.getElementById('admin-menu-btn').addEventListener('click', openSidebar);
-
-        // Join Modal
-        joinBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                closeSidebar();
-                joinModal.classList.add('active');
-            });
-        });
-
-        closeJoinModalBtn.addEventListener('click', () => {
-            joinModal.classList.remove('active');
-        });
-
-        // View Routing
-        function showPage(page) {
-            homePage.classList.remove('active');
-            contactPage.classList.remove('active');
-            adminPage.classList.remove('active');
-            page.classList.add('active');
-            closeSidebar();
-            window.scrollTo(0, 0);
-            setTimeout(animateCounters, 100);
-        }
-
-        function bindNavigationEvents() {
-            document.querySelectorAll('.nav-to-contact').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(contactPage); }));
-            document.querySelectorAll('.nav-to-home').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); showPage(homePage); }));
-        }
-        bindNavigationEvents();
-
-        // Form Submissions
-        joinForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const newReq = {
-                id: applications.length + 1,
-                name: document.getElementById('form-name').value,
-                contact: document.getElementById('form-contact').value,
-                constituency: document.getElementById('form-constituency').value,
-                college: document.getElementById('form-college').value,
-                city: document.getElementById('form-city').value,
-                address: document.getElementById('form-address').value,
-                reason: document.getElementById('form-reason').value,
-                status: 'pending',
-                active: true
-            };
-
-            applications.push(newReq);
-            logActivity(`New join application submitted by ${newReq.name}`);
-            joinModal.classList.remove('active');
-            joinForm.reset();
-            successModal.classList.add('active');
-        });
-
-        contactPageForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            logActivity(`Contact form submitted`);
-            contactPageForm.reset();
-            successModal.classList.add('active');
-        });
-
-        closeSuccessBtn.addEventListener('click', () => successModal.classList.remove('active'));
-
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('active');
-        }
-
-        // SEND NOTIFICATION LOGIC
-        function openNotificationModal() {
-            document.getElementById('notification-modal').classList.add('active');
-            renderNotificationUserList();
-        }
-
-        function renderNotificationUserList() {
-            const selectedConst = document.getElementById('notif-constituency').value;
-            const searchVal = document.getElementById('notif-user-search').value.toLowerCase();
-            const container = document.getElementById('notif-user-list');
-
-            const filtered = applications.filter(app => {
-                const matchConst = (selectedConst === 'ALL' || app.constituency === selectedConst);
-                const matchSearch = app.name.toLowerCase().includes(searchVal) || app.contact.includes(searchVal);
-                return matchConst && matchSearch;
-            });
-
-            if(filtered.length === 0) {
-                container.innerHTML = '<p style="text-align:center; font-size:11px; color:#888; padding:10px;">No users found.</p>';
-                return;
-            }
-
-            container.innerHTML = filtered.map(user => `
-                <div class="user-select-item">
-                    <input type="checkbox" class="notif-user-cb" value="${user.id}">
-                    <div style="flex-grow:1;">
-                        <strong>${user.name}</strong> (${user.contact})
-                        <div style="font-size:9.5px; color:#777;">Constituency: ${user.constituency}</div>
-                    </div>
-                </div>
-            `).join('');
-
-            document.getElementById('notif-select-all').checked = false;
-        }
-
-        function toggleSelectAllNotifUsers(masterCert) {
-            const checkboxes = document.querySelectorAll('.notif-user-cb');
-            checkboxes.forEach(cb => cb.checked = masterCert.checked);
-        }
-
-        function sendBulkWhatsAppNotifications() {
-            const rawMsg = document.getElementById('notif-message-text').value.trim();
-            if(!rawMsg) {
-                alert("Please write a message to send.");
-                return;
-            }
-
-            const selectedCbs = document.querySelectorAll('.notif-user-cb:checked');
-            if(selectedCbs.length === 0) {
-                alert("Please select at least one user to send notification.");
-                return;
-            }
-
-            const selectedUserIds = Array.from(selectedCbs).map(cb => parseInt(cb.value));
-            const selectedUsers = applications.filter(user => selectedUserIds.includes(user.id));
-
-            logActivity(`Triggered WhatsApp notifications for ${selectedUsers.length} user(s).`);
-
-            selectedUsers.forEach((user, index) => {
-                setTimeout(() => {
-                    let formattedPhone = user.contact.replace(/[^0-9]/g, '');
-                    if(formattedPhone.length === 10) formattedPhone = '91' + formattedPhone;
-
-                    let personalMsg = rawMsg.replace(/\{name\}/gi, user.name);
-                    let encodedMsg = encodeURIComponent(personalMsg);
-                    
-                    let waUrl = `https://api.whatsapp.com/send?phone=${formattedPhone}&text=${encodedMsg}`;
-                    window.open(waUrl, '_blank');
-                }, index * 1000);
-            });
-
-            closeModal('notification-modal');
-        }
-
-        // ADMIN TAB RENDER logic
+        // Admin Desk Data Controller
         function showAdminTab(tab) {
             activeAdminTab = tab;
             const container = document.getElementById('admin-content-area');
             const searchVal = document.getElementById('admin-search-input').value.toLowerCase();
-
             let html = "";
 
             if (tab === 'requests') {
-                const list = applications.filter(a => a.status === 'pending' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
-                if(list.length === 0) html = "<p style='text-align:center; padding:20px;'>No pending requests found.</p>";
-                list.forEach(item => {
-                    html += `
-                        <div class="data-card" onclick="openOverviewModal(${item.id})">
-                            <h4><i class="fas fa-bell" style="color:var(--primary);"></i> ${item.name} <span style="font-size:10px; color:#666;">${item.constituency}</span></h4>
-                            <p><strong>Contact:</strong> ${item.contact} | <strong>College:</strong> ${item.college}</p>
-                        </div>
-                    `;
-                });
+                const list = applications.filter(a => (a.Status === 'PENDING' || a.Status === 'pending') &&
+                    (a.Name.toLowerCase().includes(searchVal) || String(a.Contact).includes(searchVal)));
+
+                html = renderCardsList(list, "No pending requests.");
             } else if (tab === 'accepted') {
-                const list = applications.filter(a => a.status === 'accepted' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
-                if(list.length === 0) html = "<p style='text-align:center; padding:20px;'>No accepted members found.</p>";
-                list.forEach(item => {
-                    html += `
-                        <div class="data-card" onclick="openOverviewModal(${item.id})">
-                            <h4><i class="fas fa-check-circle" style="color:green;"></i> ${item.name}</h4>
-                            <p><strong>Contact:</strong> ${item.contact} | <strong>Constituency:</strong> ${item.constituency}</p>
-                        </div>
-                    `;
-                });
+                const list = applications.filter(a => (a.Status === 'ACCEPTED' || a.Status === 'accepted') &&
+                    (a.Name.toLowerCase().includes(searchVal) || String(a.Contact).includes(searchVal)));
+
+                html = renderCardsList(list, "No accepted members.");
             } else if (tab === 'constituencies') {
                 html = `
                     <div style="margin-bottom:15px; text-align:center;">
-                        <select id="constituency-dropdown" class="form-control" style="width:70%; display:inline-block;">
-                            <option value="">Choose Constituency</option>
+                        <select id="constituency-dropdown" class="form-control" style="width:70%; display:inline-block;" onchange="renderConstituencyData()">
+                            <option value="">Select Constituency</option>
                             <option value="Badvel">Badvel</option>
                             <option value="Kadapa">Kadapa</option>
                             <option value="Pulivendla">Pulivendla</option>
@@ -1980,584 +1309,234 @@
                             <option value="Proddatur">Proddatur</option>
                             <option value="Mydukur">Mydukur</option>
                         </select>
-                        <button class="btn btn-yellow" onclick="renderConstituencyData()"><i class="fas fa-filter"></i> GET</button>
                     </div>
                     <div id="constituency-sheet-view" class="watermark-container">
                         <img src="images (3).jpeg" class="watermark-logo">
                         <div id="constituency-table-wrapper">
-                            <p style="text-align:center; color:#888; padding:20px;">Select a constituency and click GET.</p>
+                            <p style="text-align:center; color:#888; padding:20px;">Choose a constituency from dropdown.</p>
                         </div>
                     </div>
                 `;
             } else if (tab === 'rejected') {
-                const list = applications.filter(a => a.status === 'rejected' && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
-                html = `
-                    <div class="watermark-container">
-                        <img src="images (3).jpeg" class="watermark-logo">
-                        <table class="data-sheet">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Contact</th>
-                                    <th>Constituency</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${list.map(i => `
-                                    <tr>
-                                        <td>${i.name}</td>
-                                        <td>${i.contact}</td>
-                                        <td>${i.constituency}</td>
-                                    </tr>
-                                `).join('')}
-                                ${list.length === 0 ? '<tr><td colspan="3" style="text-align:center;">No rejected records found.</td></tr>' : ''}
-                            </tbody>
-                        </table>
-                    </div>
-                `;
+                const list = applications.filter(a => (a.Status === 'REJECTED' || a.Status === 'rejected') &&
+                    (a.Name.toLowerCase().includes(searchVal) || String(a.Contact).includes(searchVal)));
+
+                html = renderTableSheet(list, "No rejected applications.");
             } else if (tab === 'history') {
-                selectedHistoryIds = [];
-                html = renderHistorySection(searchVal);
+                html = renderHistoryLogs();
             }
 
             container.innerHTML = html;
         }
 
-        // HISTORY UI & LOGIC RENDERER
-        function setHistoryFilter(f) {
-            historyFilter = f;
-            showAdminTab('history');
-        }
-
-        function renderHistorySection(searchVal) {
-            let now = new Date();
-            let filteredLogs = activityLogs.filter(log => {
-                let matchesSearch = log.action.toLowerCase().includes(searchVal);
-                let logDate = new Date(log.date);
-
-                if(!matchesSearch) return false;
-
-                if (historyFilter === 'today') {
-                    return logDate.toDateString() === now.toDateString();
-                } else if (historyFilter === 'week') {
-                    let oneWeekAgo = new Date();
-                    oneWeekAgo.setDate(now.getDate() - 7);
-                    return logDate >= oneWeekAgo;
-                } else if (historyFilter === 'month') {
-                    return logDate.getMonth() === now.getMonth() && logDate.getFullYear() === now.getFullYear();
-                } else if (historyFilter === 'custom') {
-                    let startDate = document.getElementById('start-date') ? new Date(document.getElementById('start-date').value) : null;
-                    let endDate = document.getElementById('end-date') ? new Date(document.getElementById('end-date').value) : null;
-                    if (startDate && !isNaN(startDate.getTime())) {
-                        if (logDate < startDate) return false;
-                    }
-                    if (endDate && !isNaN(endDate.getTime())) {
-                        endDate.setHours(23,59,59,999);
-                        if (logDate > endDate) return false;
-                    }
-                    return true;
-                }
-                return true;
-            });
-
-            return `
-                <div style="padding:0 5px;">
-                    <h3 style="font-size:14px; margin-bottom:10px;"><i class="fas fa-history"></i> Recent Activity Logs</h3>
-                    
-                    <div class="filter-chip-container">
-                        <button class="filter-chip ${historyFilter === 'all' ? 'active' : ''}" onclick="setHistoryFilter('all')">All</button>
-                        <button class="filter-chip ${historyFilter === 'today' ? 'active' : ''}" onclick="setHistoryFilter('today')">Today</button>
-                        <button class="filter-chip ${historyFilter === 'week' ? 'active' : ''}" onclick="setHistoryFilter('week')">This Week</button>
-                        <button class="filter-chip ${historyFilter === 'month' ? 'active' : ''}" onclick="setHistoryFilter('month')">This Month</button>
-                        <button class="filter-chip ${historyFilter === 'custom' ? 'active' : ''}" onclick="setHistoryFilter('custom')">Date Range</button>
-                    </div>
-
-                    ${historyFilter === 'custom' ? `
-                        <div class="date-range-box">
-                            <input type="date" id="start-date" class="form-control" style="font-size:10px;">
-                            <span style="font-size:10px;">to</span>
-                            <input type="date" id="end-date" class="form-control" style="font-size:10px;">
-                            <button class="btn btn-yellow" style="padding:6px 10px; font-size:10px;" onclick="showAdminTab('history')">Apply</button>
-                        </div>
-                    ` : ''}
-
-                    <div class="action-bar">
-                        <label style="font-size:11px; cursor:pointer;">
-                            <input type="checkbox" onchange="toggleSelectAllHistory(this)"> Select All
-                        </label>
-                        <div>
-                            <button class="btn btn-danger" style="padding:6px 10px; font-size:10px;" onclick="deleteSelectedHistory()"><i class="fas fa-trash"></i> Delete Selected</button>
-                            <button class="btn btn-dark" style="padding:6px 10px; font-size:10px;" onclick="clearAllHistory()"><i class="fas fa-broom"></i> Clear All</button>
-                        </div>
-                    </div>
-
-                    <div id="history-list">
-                        ${filteredLogs.length === 0 ? '<p style="text-align:center; padding:20px; color:#888;">No recent activity logs found.</p>' : ''}
-                        ${filteredLogs.map(log => `
-                            <div class="history-card">
-                                <input type="checkbox" class="history-checkbox" value="${log.id}" onchange="toggleSelectHistoryItem(${log.id}, this.checked)">
-                                <div class="history-card-body">
-                                    <div class="title">${log.action}</div>
-                                    <div class="time"><i class="far fa-clock"></i> ${new Date(log.date).toLocaleString()}</div>
-                                </div>
-                                <button style="background:none; border:none; color:#d9534f; cursor:pointer;" onclick="deleteSingleHistory(${log.id})"><i class="fas fa-trash-alt"></i></button>
-                            </div>
-                        `).join('')}
-                    </div>
+        function renderCardsList(list, emptyMsg) {
+            if (list.length === 0) return `<p style="text-align:center; padding:20px;">${emptyMsg}</p>`;
+            return list.map(item => `
+                <div class="data-card" onclick="openOverviewModal('${item.ID}')">
+                    <h4><span><i class="fas fa-user-circle"></i> ${item.Name}</span> <span style="font-size:10px; color:#666;">${item.Constituency}</span></h4>
+                    <p><strong>Contact:</strong> ${item.Contact} | <strong>College:</strong> ${item.College}</p>
                 </div>
-            `;
+            `).join('');
         }
-
-        function toggleSelectHistoryItem(id, isChecked) {
-            if(isChecked) {
-                if(!selectedHistoryIds.includes(id)) selectedHistoryIds.push(id);
-            } else {
-                selectedHistoryIds = selectedHistoryIds.filter(i => i !== id);
-            }
-        }
-
-        function toggleSelectAllHistory(masterCert) {
-            const checkboxes = document.querySelectorAll('.history-checkbox');
-            selectedHistoryIds = [];
-            checkboxes.forEach(cb => {
-                cb.checked = masterCert.checked;
-                if(masterCert.checked) {
-                    selectedHistoryIds.push(parseInt(cb.value));
-                }
-            });
-        }
-
-        function deleteSingleHistory(id) {
-            activityLogs = activityLogs.filter(l => l.id !== id);
-            showAdminTab('history');
-        }
-
-        function deleteSelectedHistory() {
-            if(selectedHistoryIds.length === 0) {
-                alert("Please select at least one history record to delete.");
-                return;
-            }
-            if(confirm("Are you sure you want to delete selected history records?")) {
-                activityLogs = activityLogs.filter(l => !selectedHistoryIds.includes(l.id));
-                selectedHistoryIds = [];
-                showAdminTab('history');
-            }
-        }
-
-        function clearAllHistory() {
-            if(confirm("Are you sure you want to clear ALL activity history?")) {
-                activityLogs = [];
-                selectedHistoryIds = [];
-                showAdminTab('history');
-            }
-        }
-
-        function filterAdminData() {
-            if(activeAdminTab !== 'constituencies') {
-                showAdminTab(activeAdminTab);
-            }
-        }
-
-        function openOverviewModal(id) {
-            const item = applications.find(a => a.id === id);
-            if (!item) return;
-
-            const content = document.getElementById('overview-details-content');
-            const actions = document.getElementById('overview-actions');
-
-            content.innerHTML = `
-                <p><strong>Name:</strong> ${item.name}</p>
-                <p><strong>Contact:</strong> ${item.contact}</p>
-                <p><strong>Constituency:</strong> ${item.constituency}</p>
-                <p><strong>College:</strong> ${item.college}</p>
-                <p><strong>City:</strong> ${item.city}</p>
-                <p><strong>Address:</strong> ${item.address}</p>
-                <p><strong>Why TNSF:</strong> ${item.reason}</p>
-                <p><strong>Current Status:</strong> <span style="text-transform:uppercase; font-weight:bold;">${item.status}</span></p>
-            `;
-
-            if(item.status === 'pending') {
-                actions.innerHTML = `
-                    <button class="btn btn-success" onclick="updateStatus(${item.id}, 'accepted')">Accept</button>
-                    <button class="btn btn-danger" onclick="updateStatus(${item.id}, 'rejected')">Reject</button>
-                `;
-            } else {
-                actions.innerHTML = `<button class="btn btn-dark" onclick="closeModal('overview-modal')">Close</button>`;
-            }
-
-            document.getElementById('overview-modal').classList.add('active');
-        }
-
-        function updateStatus(id, newStatus) {
-            const item = applications.find(a => a.id === id);
-            if(item) {
-                item.status = newStatus;
-                logActivity(`Changed status of ${item.name} to ${newStatus}`);
-            }
-            closeModal('overview-modal');
-            showAdminTab(activeAdminTab);
-        }
-
         function renderConstituencyData() {
-            const selectedVal = document.getElementById('constituency-dropdown').value;
+            const val = document.getElementById('constituency-dropdown').value;
             const tableWrapper = document.getElementById('constituency-table-wrapper');
-            
-            if(!selectedVal) {
-                tableWrapper.innerHTML = `<p style="text-align:center; color:red; padding:10px;">Please choose a constituency first.</p>`;
+
+            if (!val) {
+                tableWrapper.innerHTML = `<p style="text-align:center; color:red; padding:10px;">Please select a constituency.</p>`;
                 return;
             }
 
             const searchVal = document.getElementById('admin-search-input').value.toLowerCase();
-            const list = applications.filter(a => a.constituency === selectedVal && a.active && (a.name.toLowerCase().includes(searchVal) || a.contact.includes(searchVal)));
+            const list = applications.filter(a => a.Constituency === val && (a.Name.toLowerCase().includes(searchVal) || String(a.Contact).includes(searchVal)));
 
+            tableWrapper.innerHTML = renderTableSheet(list, `No records for ${val}.`);
+        }
+
+        function renderTableSheet(list, emptyMsg) {
             let html = `
-                <table class="data-sheet">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Contact</th>
-                            <th>Constituency</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div id="exportable-admin-sheet">
+                    <table class="data-sheet">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>Constituency</th>
+                                <th>College</th>
+                                <th>Status</th>
+                                <th>Active</th>
+                            </tr>
+                        </thead>
+                        <tbody>
             `;
 
-            list.forEach(i => {
-                html += `
-                    <tr>
-                        <td>${i.name}</td>
-                        <td>${i.contact}</td>
-                        <td>${i.constituency}</td>
-                        <td>
-                            <button class="switch-btn active-on" onclick="toggleActiveStatus(${i.id})">OFF / ON</button>
-                        </td>
-                    </tr>
-                `;
-            });
-
-            html += `
-                    </tbody>
-                </table>
-            `;
-
-            if(list.length === 0) {
-                html = `<p style="text-align:center; padding:20px;">No active records for ${selectedVal}.</p>`;
-            }
-
-            tableWrapper.innerHTML = html;
-        }
-
-        function toggleActiveStatus(id) {
-            const item = applications.find(a => a.id === id);
-            if (item) {
-                item.active = false;
-                logActivity(`Deactivated member: ${item.name}`);
-                renderConstituencyData();
-            }
-        }
-
-        // Hero Auto Slider
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 3000);
-
-        // SOCIAL MEDIA AUTOMATIC SCROLLING
-        const socialSlider = document.getElementById('social-slider');
-        const socialPrevBtn = document.getElementById('social-prev');
-        const socialNextBtn = document.getElementById('social-next');
-        const stepWidth = 157;
-
-        function scrollSocialNext() {
-            if (socialSlider.scrollLeft + socialSlider.clientWidth >= socialSlider.scrollWidth - 10) {
-                socialSlider.scrollTo({ left: 0, behavior: 'smooth' });
+            if (list.length === 0) {
+                html += `<tr><td colspan="6" style="text-align:center;">${emptyMsg}</td></tr>`;
             } else {
-                socialSlider.scrollBy({ left: stepWidth, behavior: 'smooth' });
-            }
-        }
-
-        function scrollSocialPrev() {
-            if (socialSlider.scrollLeft <= 0) {
-                socialSlider.scrollTo({ left: socialSlider.scrollWidth, behavior: 'smooth' });
-            } else {
-                socialSlider.scrollBy({ left: -stepWidth, behavior: 'smooth' });
-            }
-        }
-
-        socialNextBtn.addEventListener('click', scrollSocialNext);
-        socialPrevBtn.addEventListener('click', scrollSocialPrev);
-
-        let socialAutoScroll = setInterval(scrollSocialNext, 3500);
-
-        socialSlider.addEventListener('mouseenter', () => clearInterval(socialAutoScroll));
-        socialSlider.addEventListener('mouseleave', () => {
-            socialAutoScroll = setInterval(scrollSocialNext, 3500);
-        });
-
-        // Initialize counters on window load
-        window.addEventListener('DOMContentLoaded', () => {
-            animateCounters();
-        });
-   </script>
-
-<script>
-    // Set your Google Apps Script Web App URL here
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyaNQ2yEz2qby24UQ28gPTGvojxK6MBHgnbKkElYRmCbZ5cXaEXKf2Fr9ZN8c3L2J4/exec";
-    const ADMIN_WHATSAPP_NUMBER = "917893447784"; // Admin WhatsApp number
-
-    let globalMembers = [];
-    let globalLogs = [];
-
-    // Fetch and Sync Data Real-Time on Application Load
-    document.addEventListener('DOMContentLoaded', () => {
-        syncDataFromSheets();
-        setupFormListeners();
-    });
-
-    function syncDataFromSheets() {
-        fetch(`${SCRIPT_URL}?action=getData`)
-            .then(res => res.json())
-            .then(response => {
-                if (response.success) {
-                    globalMembers = response.members;
-                    globalLogs = response.logs;
-
-                    // Update real stats on UI
-                    updateRealStats(response.stats);
-
-                    // Render active admin view tab
-                    renderCurrentAdminTab();
-                    
-                    // Render Activity History
-                    renderActivityHistory();
-                }
-            })
-            .catch(err => console.error("Error fetching sheet data:", err));
-    }
-
-    function updateRealStats(stats) {
-        const counters = document.querySelectorAll('.animated-counter');
-        counters.forEach(counter => {
-            const label = counter.nextElementSibling.innerText.toLowerCase();
-            if (label.includes('members')) {
-                counter.innerText = stats.accepted;
-            } else if (label.includes('constituencies')) {
-                counter.innerText = stats.constituencies;
-            }
-        });
-    }
-
-    // Handle Forms Submissions & Real-Time Sync
-    function setupFormListeners() {
-        // Join Form Handler
-        const joinForm = document.getElementById('join-tnsf-form');
-        if (joinForm) {
-            joinForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const formData = {
-                    action: "joinForm",
-                    name: this.querySelector('[name="name"]').value,
-                    contact: this.querySelector('[name="contact"]').value,
-                    constituency: this.querySelector('[name="constituency"]').value,
-                    college: this.querySelector('[name="college"]').value,
-                    city: this.querySelector('[name="city"]').value,
-                    address: this.querySelector('[name="address"]').value,
-                    reason: this.querySelector('[name="reason"]').value
-                };
-
-                fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(formData)
-                })
-                .then(res => res.json())
-                .then(data => {
-                    alert("Application Submitted! Request forwarded to Admin.");
-                    joinForm.reset();
-                    document.getElementById('join-modal').classList.remove('active');
-                    syncDataFromSheets(); // Auto Sync
-                });
-            });
-        }
-
-        // Contact Form Handler with WhatsApp Auto Redirect
-        const contactForm = document.getElementById('contact-page-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const name = this.querySelectorAll('input')[0].value;
-                const contact = this.querySelectorAll('input')[1].value;
-                const email = this.querySelectorAll('input')[2].value;
-
-                const formData = {
-                    action: "contactForm",
-                    name: name,
-                    contact: contact,
-                    email: email
-                };
-
-                fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(formData)
-                })
-                .then(res => res.json())
-                .then(data => {
-                    // Redirect to Admin WhatsApp
-                    const waText = `Hello Admin, I have submitted a contact query.%0A*Name:* ${encodeURIComponent(name)}%0A*Contact:* ${encodeURIComponent(contact)}%0A*Email:* ${encodeURIComponent(email)}`;
-                    window.open(`https://wa.me/${ADMIN_WHATSAPP_NUMBER}?text=${waText}`, '_blank');
-                    contactForm.reset();
-                    syncDataFromSheets();
-                });
-            });
-        }
-    }
-
-    // Admin Panel Logic & Filters
-    let currentTab = 'REQUESTS';
-    let selectedConstituency = 'ALL';
-
-    function setAdminTab(tabName) {
-        currentTab = tabName;
-        renderCurrentAdminTab();
-    }
-
-    function filterByConstituency(constituencyName) {
-        selectedConstituency = constituencyName;
-        renderCurrentAdminTab();
-    }
-
-    function renderCurrentAdminTab() {
-        const container = document.getElementById('admin-data-container');
-        if (!container) return;
-
-        let filtered = globalMembers;
-
-        // Apply Tab Filter (Requests, Accepted, Rejected)
-        if (currentTab === 'REQUESTS') {
-            filtered = filtered.filter(m => m.Status === 'PENDING' || m.Status === 'Pending');
-        } else if (currentTab === 'ACCEPTED') {
-            filtered = filtered.filter(m => m.Status === 'ACCEPTED' || m.Status === 'Accepted');
-        } else if (currentTab === 'REJECTED') {
-            filtered = filtered.filter(m => m.Status === 'REJECTED' || m.Status === 'Rejected');
-        }
-
-        // Apply Constituency Filter
-        if (selectedConstituency !== 'ALL') {
-            filtered = filtered.filter(m => m.Constituency === selectedConstituency);
-        }
-
-        let html = `
-            <div id="pdf-export-area" class="watermark-container" style="background: #FFFFFF; padding: 10px;">
-                <img src="images (3).jpeg" class="watermark-logo" alt="Watermark">
-                <table class="data-sheet">
-                    <thead>
+                list.forEach(i => {
+                    const activeState = i.Active === 'Active' || i.Active === true;
+                    html += `
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Contact</th>
-                            <th>Constituency</th>
-                            <th>College</th>
-                            <th>Status</th>
-                            <th>Active</th>
-                            <th>Actions</th>
+                            <td>${i.Name}</td>
+                            <td>${i.Contact}</td>
+                            <td>${i.Constituency}</td>
+                            <td>${i.College}</td>
+                            <td><strong>${i.Status}</strong></td>
+                            <td>
+                                <button class="switch-btn ${activeState ? 'active-on' : ''}" onclick="toggleActiveStatus('${i.ID}', '${activeState ? 'Inactive' : 'Active'}')">
+                                    ${activeState ? 'ON' : 'OFF'}
+                                </button>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-        `;
+                    `;
+                });
+            }
 
-        if (filtered.length === 0) {
-            html += `<tr><td colspan="8" style="text-align:center;">No records found.</td></tr>`;
-        } else {
-            filtered.forEach(m => {
-                const isActive = m.Active === "Active" || m.Active === true;
-                html += `
-                    <tr>
-                        <td>${m.ID}</td>
-                        <td><b>${m.Name}</b></td>
-                        <td>${m.Contact}</td>
-                        <td>${m.Constituency}</td>
-                        <td>${m.College}</td>
-                        <td><span style="font-weight:bold; color: ${m.Status === 'ACCEPTED' ? '#28A745' : m.Status === 'REJECTED' ? '#D9534F' : '#FFCC00'};">${m.Status}</span></td>
-                        <td>
-                            <button class="switch-btn ${isActive ? 'active-on' : ''}" onclick="toggleActiveStatus('${m.ID}', '${isActive ? 'Inactive' : 'Active'}')">
-                                ${isActive ? 'ON' : 'OFF'}
-                            </button>
-                        </td>
-                        <td>
-                            ${m.Status !== 'ACCEPTED' ? `<button class="btn btn-success" style="padding:2px 6px; font-size:10px;" onclick="updateMemberStatus('${m.ID}', 'ACCEPTED')">Accept</button>` : ''}
-                            ${m.Status !== 'REJECTED' ? `<button class="btn btn-danger" style="padding:2px 6px; font-size:10px;" onclick="updateMemberStatus('${m.ID}', 'REJECTED')">Reject</button>` : ''}
-                        </td>
-                    </tr>
-                `;
-            });
-        }
-
-        html += `
-                    </tbody>
-                </table>
-            </div>
-            <button class="btn btn-dark" style="margin-top: 10px;" onclick="exportRealPDF()">Export PDF (Admin Theme)</button>
-        `;
-
-        container.innerHTML = html;
-    }
-
-    function updateMemberStatus(id, newStatus) {
-        fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify({ action: "updateStatus", id: id, newStatus: newStatus })
-        })
-        .then(res => res.json())
-        .then(data => {
-            syncDataFromSheets();
-        });
-    }
-
-    function toggleActiveStatus(id, activeState) {
-        fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify({ action: "toggleActive", id: id, activeState: activeState })
-        })
-        .then(res => res.json())
-        .then(data => {
-            syncDataFromSheets();
-        });
-    }
-
-    function renderActivityHistory() {
-        const historyBox = document.getElementById('activity-history-container');
-        if (!historyBox) return;
-
-        let html = '';
-        globalLogs.forEach(log => {
             html += `
-                <div class="history-card">
-                    <div class="history-card-body">
-                        <div class="title">${log.Action}</div>
-                        <div class="time"><i class="far fa-clock"></i> ${log.Timestamp}</div>
-                    </div>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align:center; margin-top:12px;">
+                    <button class="btn btn-dark" onclick="exportPDF()"><i class="fas fa-file-pdf"></i> Export Theme PDF</button>
                 </div>
             `;
+            return html;
+        }
+
+        function filterAdminData() {
+            if (activeAdminTab === 'constituencies') {
+                renderConstituencyData();
+            } else {
+                showAdminTab(activeAdminTab);
+            }
+        }
+
+        // Action Handlers
+        function openOverviewModal(id) {
+            const item = applications.find(a => String(a.ID) === String(id));
+            if (!item) return;
+
+            document.getElementById('overview-details-content').innerHTML = `
+                <p><strong>Name:</strong> ${item.Name}</p>
+                <p><strong>Contact:</strong> ${item.Contact}</p>
+                <p><strong>Constituency:</strong> ${item.Constituency}</p>
+                <p><strong>College:</strong> ${item.College}</p>
+                <p><strong>City:</strong> ${item.City}</p>
+                <p><strong>Address:</strong> ${item.Address}</p>
+                <p><strong>Reason:</strong> ${item.Reason}</p>
+                <p><strong>Status:</strong> ${item.Status}</p>
+            `;
+
+            const actions = document.getElementById('overview-actions');
+            actions.innerHTML = `
+                <button class="btn btn-success" onclick="updateMemberStatus('${item.ID}', 'ACCEPTED')">Accept</button>
+                <button class="btn btn-danger" onclick="updateMemberStatus('${item.ID}', 'REJECTED')">Reject</button>
+            `;
+
+            document.getElementById('overview-modal').classList.add('active');
+        }
+
+        function closeModal(modalId) { document.getElementById(modalId).classList.remove('active'); }
+
+        function updateMemberStatus(id, status) {
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify({ action: "updateStatus", id: id, newStatus: status })
+            })
+            .then(res => res.json())
+            .then(data => {
+                closeModal('overview-modal');
+                fetchSheetData();
+            });
+        }
+
+        function toggleActiveStatus(id, activeState) {
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify({ action: "toggleActive", id: id, activeState: activeState })
+            })
+            .then(res => res.json())
+            .then(data => fetchSheetData());
+        }
+
+        function renderHistoryLogs() {
+            if (activityLogs.length === 0) return '<p style="text-align:center; padding:20px;">No recent activity logs.</p>';
+            return `
+                <h3 style="font-size:14px; margin-bottom:10px;"><i class="fas fa-history"></i> Recent Activity History</h3>
+                ${activityLogs.map(log => `
+                    <div class="history-card">
+                        <div class="history-card-body">
+                            <div class="title">${log.Action}</div>
+                            <div class="time"><i class="far fa-clock"></i> ${log.Timestamp}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            `;
+        }
+
+        // Broadcast System
+        function openNotificationModal() {
+            document.getElementById('notification-modal').classList.add('active');
+            renderNotificationUserList();
+        }
+
+        function renderNotificationUserList() {
+            const constVal = document.getElementById('notif-constituency').value;
+            const container = document.getElementById('notif-user-list');
+            const filtered = applications.filter(a => constVal === 'ALL' || a.Constituency === constVal);
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<p style="font-size:10px; text-align:center;">No users found.</p>';
+                return;
+            }
+
+            container.innerHTML = filtered.map(u => `
+                <div class="user-select-item">
+                    <input type="checkbox" class="notif-user-cb" value="${u.Contact}" data-name="${u.Name}" checked>
+                    <div><strong>${u.Name}</strong> (${u.Contact})</div>
+                </div>
+            `).join('');
+        }
+
+        function sendBulkWhatsAppNotifications() {
+            const rawMsg = document.getElementById('notif-message-text').value;
+            const cbs = document.querySelectorAll('.notif-user-cb:checked');
+
+            if (!rawMsg || cbs.length === 0) {
+                alert("Please write message & select users.");
+                return;
+            }
+
+            cbs.forEach((cb, i) => {
+                setTimeout(() => {
+                    let phone = cb.value.replace(/[^0-9]/g, '');
+                    if (phone.length === 10) phone = '91' + phone;
+                    let msg = encodeURIComponent(rawMsg.replace(/\{name\}/gi, cb.getAttribute('data-name')));
+                    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+                }, i * 1200);
+            });
+            closeModal('notification-modal');
+        }
+
+        // Export Sheet Themed Real PDF
+        function exportPDF() {
+            const element = document.getElementById('exportable-admin-sheet');
+            if (!element) return;
+            const opt = {
+                margin: 0.3,
+                filename: `TNSF_Members_Data_${new Date().toISOString().slice(0,10)}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // Init Load & Automatic Sync
+        window.addEventListener('load', () => {
+            fetchSheetData();
+            setInterval(fetchSheetData, 30000); // 30-Second Sheet Sync
         });
-        historyBox.innerHTML = html || '<p>No recent activity found.</p>';
-    }
-
-    // Real PDF Export keeping admin sheet color theme
-    function exportRealPDF() {
-        const element = document.getElementById('pdf-export-area');
-        const opt = {
-            margin:       0.5,
-            filename:     `TNSF_Data_${new Date().toISOString().slice(0,10)}.pdf`,
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
-        };
-
-        html2pdf().set(opt).from(element).save();
-    }
     </script>
 </body>
 </html>
