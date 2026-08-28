@@ -1136,31 +1136,7 @@
         let applications = [];
         let activityLogs = [];
         let activeAdminTab = 'requests';
-        let isAdminLoggedIn = false;
-
-        // Trigger Stats Animation on Scroll or Page Load
-        let animated = false;
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !animated) {
-                    animateCounters();
-                    animated = true;
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.stats-section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Helper function for history logging
-        function logActivity(action) {
-            activityLogs.unshift({
-                id: Date.now(),
-                action: action,
-                date: new Date().toISOString()
-            });
-        }
+        let isAdminLoggedIn = false
 
         // Fetch Live Sheet Data
         function fetchSheetData() {
