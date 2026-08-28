@@ -1128,6 +1128,29 @@
 
     <!-- LIVE APPSCRIPT SYSTEM SCRIPT -->
     <script>
+        // Trigger Stats Animation on Scroll or Page Load
+        let animated = false;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animateCounters();
+                    animated = true;
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.stats-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Helper function for history logging
+        function logActivity(action) {
+            activityLogs.unshift({
+                id: Date.now(),
+                action: action,
+                date: new Date().toISOString()
+            });
+        }
         // Set Google Apps Script Published Web App Endpoint URL Here
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxw9iHdllhXwyBeu8CGSt4P1MQ7ywiG2VVBTgkzwO9Jt0_CTyJ3uBCAZOCBg1YUoJYR/exec";
         const ADMIN_WHATSAPP_NUMBER = "917893447784";
