@@ -1162,6 +1162,16 @@
             if (memberElem) memberElem.innerText = stats.accepted || stats.total || 0;
             if (adminMemberElem) adminMemberElem.innerText = stats.accepted || stats.total || 0;
         }
+        // Auto Image Slider for Hero Section
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 3000);
 
         // Navigation Elements & Pages
         const homePage = document.getElementById('home-page');
